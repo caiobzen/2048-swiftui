@@ -15,6 +15,8 @@
 		EBC999D823259330006BA2E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBC999D623259330006BA2E7 /* LaunchScreen.storyboard */; };
 		EBC999E323259331006BA2E7 /* twofortyeightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC999E223259331006BA2E7 /* twofortyeightTests.swift */; };
 		EBC999EE23259331006BA2E7 /* twofortyeightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC999ED23259331006BA2E7 /* twofortyeightUITests.swift */; };
+		EBC999FC23259388006BA2E7 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC999FB23259388006BA2E7 /* Tile.swift */; };
+		EBC999FE232593A0006BA2E7 /* TileStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC999FD232593A0006BA2E7 /* TileStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		EBC999E923259331006BA2E7 /* twofortyeightUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = twofortyeightUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBC999ED23259331006BA2E7 /* twofortyeightUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = twofortyeightUITests.swift; sourceTree = "<group>"; };
 		EBC999EF23259331006BA2E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBC999FB23259388006BA2E7 /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		EBC999FD232593A0006BA2E7 /* TileStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				EBC999D623259330006BA2E7 /* LaunchScreen.storyboard */,
 				EBC999D923259330006BA2E7 /* Info.plist */,
 				EBC999D323259330006BA2E7 /* Preview Content */,
+				EBC999FB23259388006BA2E7 /* Tile.swift */,
+				EBC999FD232593A0006BA2E7 /* TileStyle.swift */,
 			);
 			path = twofortyeight;
 			sourceTree = "<group>";
@@ -269,7 +275,9 @@
 			files = (
 				EBC999CC2325932E006BA2E7 /* AppDelegate.swift in Sources */,
 				EBC999CE2325932E006BA2E7 /* SceneDelegate.swift in Sources */,
+				EBC999FE232593A0006BA2E7 /* TileStyle.swift in Sources */,
 				EBC999D02325932E006BA2E7 /* ContentView.swift in Sources */,
+				EBC999FC23259388006BA2E7 /* Tile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
