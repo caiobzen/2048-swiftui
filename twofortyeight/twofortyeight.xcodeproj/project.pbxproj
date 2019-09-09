@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		EBC999CC2325932E006BA2E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC999CB2325932E006BA2E7 /* AppDelegate.swift */; };
 		EBC999CE2325932E006BA2E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC999CD2325932E006BA2E7 /* SceneDelegate.swift */; };
-		EBC999D02325932E006BA2E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC999CF2325932E006BA2E7 /* ContentView.swift */; };
 		EBC999D223259330006BA2E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBC999D123259330006BA2E7 /* Assets.xcassets */; };
 		EBC999D523259330006BA2E7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBC999D423259330006BA2E7 /* Preview Assets.xcassets */; };
 		EBC999D823259330006BA2E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBC999D623259330006BA2E7 /* LaunchScreen.storyboard */; };
@@ -41,7 +40,6 @@
 		EBC999C82325932E006BA2E7 /* twofortyeight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twofortyeight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBC999CB2325932E006BA2E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBC999CD2325932E006BA2E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EBC999CF2325932E006BA2E7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EBC999D123259330006BA2E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBC999D423259330006BA2E7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EBC999D723259330006BA2E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -105,16 +103,13 @@
 		EBC999CA2325932E006BA2E7 /* twofortyeight */ = {
 			isa = PBXGroup;
 			children = (
+				EBC99A0223271A18006BA2E7 /* Board */,
 				EBC999CB2325932E006BA2E7 /* AppDelegate.swift */,
 				EBC999CD2325932E006BA2E7 /* SceneDelegate.swift */,
-				EBC999CF2325932E006BA2E7 /* ContentView.swift */,
 				EBC999D123259330006BA2E7 /* Assets.xcassets */,
 				EBC999D623259330006BA2E7 /* LaunchScreen.storyboard */,
 				EBC999D923259330006BA2E7 /* Info.plist */,
 				EBC999D323259330006BA2E7 /* Preview Content */,
-				EBC999FB23259388006BA2E7 /* Tile.swift */,
-				EBC999FD232593A0006BA2E7 /* TileStyle.swift */,
-				EBC999FF232718C8006BA2E7 /* Board.swift */,
 			);
 			path = twofortyeight;
 			sourceTree = "<group>";
@@ -143,6 +138,24 @@
 				EBC999EF23259331006BA2E7 /* Info.plist */,
 			);
 			path = twofortyeightUITests;
+			sourceTree = "<group>";
+		};
+		EBC99A0123271A08006BA2E7 /* Tile */ = {
+			isa = PBXGroup;
+			children = (
+				EBC999FB23259388006BA2E7 /* Tile.swift */,
+				EBC999FD232593A0006BA2E7 /* TileStyle.swift */,
+			);
+			path = Tile;
+			sourceTree = "<group>";
+		};
+		EBC99A0223271A18006BA2E7 /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				EBC99A0123271A08006BA2E7 /* Tile */,
+				EBC999FF232718C8006BA2E7 /* Board.swift */,
+			);
+			path = Board;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,7 +293,6 @@
 				EBC999CE2325932E006BA2E7 /* SceneDelegate.swift in Sources */,
 				EBC99A00232718C8006BA2E7 /* Board.swift in Sources */,
 				EBC999FE232593A0006BA2E7 /* TileStyle.swift in Sources */,
-				EBC999D02325932E006BA2E7 /* ContentView.swift in Sources */,
 				EBC999FC23259388006BA2E7 /* Tile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

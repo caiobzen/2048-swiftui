@@ -12,10 +12,10 @@ struct Board: View {
                     }.padding(1)
                 }
             }
-            }
-            .padding(8)
-            .background(Color(red: 183/255, green: 173/255, blue: 162/255))
-            .cornerRadius(2)
+        }
+        .padding(8)
+        .background(Color(red: 183/255, green: 173/255, blue: 162/255))
+        .cornerRadius(2)
     }
 }
 
