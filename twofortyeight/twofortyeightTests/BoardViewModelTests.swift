@@ -13,6 +13,15 @@ class BoardViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.board, engine.blankBoard)
     }
     
+    func test_can_reset_board() {
+        let engine = GameEngineStub()
+        let viewModel = BoardViewModel(engine)
+        
+        viewModel.reset()
+        
+        XCTAssertEqual(viewModel.board, engine.blankBoard)
+    }
+    
     func test_can_add_number_to_board() {
         let engine = GameEngine()
         let viewModel = BoardViewModel(engine)

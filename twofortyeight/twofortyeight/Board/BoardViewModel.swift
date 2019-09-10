@@ -16,4 +16,8 @@ class BoardViewModel: ObservableObject {
     func push(_ direction: Direction) {
         board = engine.push(board, to: direction)
     }
+    
+    func reset() {
+        board = engine.blankBoard
+    }
 }
