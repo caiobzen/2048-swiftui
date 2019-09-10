@@ -87,9 +87,40 @@ class BoardViewModelTests: XCTestCase {
             [16,4,16,8]
         ])
     }
+    
+    func test_can_tell_if_the_game_is_over() {
+        let engine = GameEngineStub()
+        let viewModel = BoardViewModelStub(engine)
+        viewModel.setGameOver()
+
+        let isGameOver = viewModel.isGameOver()
+        
+        XCTAssertTrue(isGameOver)
+    }
+}
+
+class BoardViewModelStub: BoardViewModel {
+    private var _board = [[Int]]()
+    
+    override var board: [[Int]] {
+        return _board
+    }
+    
+    func setGameOver() {
+        _board = [
+            [2,16,2,16],
+            [4,8,4,8],
+            [8,4,8,4],
+            [16,2,16,2]
+        ]
+    }
 }
 
 class GameEngineStub: Engine {
+    func isGameOver(_ board: Matrix) -> Bool {
+        GameEngine().isGameOver(board)
+    }
+    
     func addNumber(_ board: [[Int]]) -> [[Int]] {
         GameEngine().addNumber(board)
     }

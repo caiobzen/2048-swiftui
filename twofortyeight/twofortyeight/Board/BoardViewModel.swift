@@ -20,4 +20,8 @@ class BoardViewModel: ObservableObject {
     func reset() {
         board = engine.blankBoard
     }
+    
+    func isGameOver() -> Bool {
+        return engine.isGameOver(board)
+    }
 }

@@ -143,4 +143,15 @@ class GameEngineTests: XCTestCase {
             [4,8,16,32]
         ])
     }
+    
+    func test_is_game_over() {
+        let board = [
+            [2,16,2,16],
+            [4,8,4,8],
+            [8,4,8,4],
+            [16,2,16,2]
+        ]
+                
+        XCTAssertTrue(engine.isGameOver(board))
+    }
 }

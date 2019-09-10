@@ -1,9 +1,12 @@
 import Foundation
 
+typealias Matrix = [[Int]]
+
 protocol Engine {
-    func addNumber(_ board: [[Int]]) -> [[Int]]
-    func push(_ board: [[Int]], to direction: Direction) -> [[Int]]
-    var blankBoard: [[Int]] { get }
+    func addNumber(_ board: Matrix) -> Matrix
+    func push(_ board: Matrix, to direction: Direction) -> Matrix
+    func isGameOver(_ board: Matrix) -> Bool
+    var blankBoard: Matrix { get }
 }
 
 enum Direction {
@@ -16,7 +19,16 @@ enum Direction {
 class GameEngine: Engine {
     let blankBoard = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
     
-    func addNumber(_ board: [[Int]]) -> [[Int]] {
+    func isGameOver(_ board: Matrix) -> Bool {
+        for  i in 0..<board.count {
+            for j in 0..<board[i].count {
+                return !canPlay(board, row: i, column: j)
+            }
+        }
+        return true
+    }
+    
+    func addNumber(_ board: Matrix) -> Matrix {
         var newBoard = board
         var options: [(Int, Int)] = []
 
@@ -56,7 +68,7 @@ class GameEngine: Engine {
         return newRow
     }
 
-    func flip(_ board:[[Int]]) -> [[Int]] {
+    func flip(_ board: Matrix) -> Matrix {
         var newBoard = board
         for i in 0...newBoard.count - 1 {
             newBoard[i] = newBoard[i].reversed()
@@ -64,7 +76,7 @@ class GameEngine: Engine {
         return newBoard
     }
 
-    func rotate(_ board: [[Int]]) -> [[Int]] {
+    func rotate(_ board: Matrix) -> Matrix {
         var newBoard = blankBoard
         for i in 0..<board.count {
             for j in 0..<board[i].count {
@@ -74,7 +86,7 @@ class GameEngine: Engine {
         return newBoard
     }
 
-    func push(_ board: [[Int]], to direction: Direction) -> [[Int]] {
+    func push(_ board: Matrix, to direction: Direction) -> Matrix {
         switch direction {
         case .right:
             return board |> pushRight
@@ -87,7 +99,7 @@ class GameEngine: Engine {
         }
     }
 
-    private func operateRows(_ board: [[Int]]) -> [[Int]] {
+    private func operateRows(_ board: Matrix) -> Matrix {
         var newBoard = board
         for i in 0..<board.count {
             newBoard[i] = slideAndCombine(newBoard[i])
@@ -102,7 +114,7 @@ class GameEngine: Engine {
         |> slide
     }
 
-    private func pushUp(_ board: [[Int]]) -> [[Int]] {
+    private func pushUp(_ board: Matrix) -> Matrix {
         board
         |> rotate
         |> flip
@@ -111,23 +123,29 @@ class GameEngine: Engine {
         |> rotate
     }
 
-    private func pushDown(_ board: [[Int]]) -> [[Int]] {
+    private func pushDown(_ board: Matrix) -> Matrix {
         board
         |> rotate
         |> operateRows
         |> rotate
     }
 
-    private func pushLeft(_ board: [[Int]]) -> [[Int]] {
+    private func pushLeft(_ board: Matrix) -> Matrix {
         board
         |> flip
         |> operateRows
         |> flip
     }
 
-    private func pushRight(_ board: [[Int]]) -> [[Int]] {
+    private func pushRight(_ board: Matrix) -> Matrix {
         board
         |> operateRows
+    }
+    
+    private func canPlay(_ board: Matrix, row: Int, column: Int) -> Bool {
+        return board[row][column] == 0
+            || row != board.count - 1 && board[row][column] == board[row + 1][column]
+            || column != board.count - 1 && board[row][column] == board[row][column + 1]
     }
 }
 
