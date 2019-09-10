@@ -6,17 +6,19 @@ struct Board: View {
     var body: some View {
         VStack {
             Text(viewModel.isGameOver ? "GAME OVER" : "")
-            ForEach(viewModel.board, id: \.self) { row in
-                HStack {
-                    ForEach(row, id: \.self) { column in
-                        Tile(column)
-                    }.padding(1)
+            VStack {
+                ForEach(viewModel.board, id: \.self) { row in
+                    HStack {
+                        ForEach(row, id: \.self) { column in
+                            Tile(column)
+                        }.padding(1)
+                    }
                 }
             }
+            .padding(8)
+            .background(Color(red: 183/255, green: 173/255, blue: 162/255))
+            .cornerRadius(2)
         }
-        .padding(8)
-        .background(Color(red: 183/255, green: 173/255, blue: 162/255))
-        .cornerRadius(2)
     }
 }
 

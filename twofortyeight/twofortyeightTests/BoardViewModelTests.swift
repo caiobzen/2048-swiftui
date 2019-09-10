@@ -38,12 +38,10 @@ class BoardViewModelTests: XCTestCase {
         
         viewModel.push(.right)
         
-        XCTAssertEqual(viewModel.board, [
-            [0,0,0,4],
-            [0,0,0,8],
-            [0,0,0,16],
-            [0,0,0,32]
-        ])
+        XCTAssertEqual(viewModel.board[0][3], 4)
+        XCTAssertEqual(viewModel.board[1][3], 8)
+        XCTAssertEqual(viewModel.board[2][3], 16)
+        XCTAssertEqual(viewModel.board[3][3], 32)
     }
     
     func test_can_push_numbers_to_left() {
@@ -52,12 +50,10 @@ class BoardViewModelTests: XCTestCase {
         
         viewModel.push(.left)
         
-        XCTAssertEqual(viewModel.board, [
-            [4,0,0,0],
-            [8,0,0,0],
-            [16,0,0,0],
-            [32,0,0,0]
-        ])
+        XCTAssertEqual(viewModel.board[0][0], 4)
+        XCTAssertEqual(viewModel.board[1][0], 8)
+        XCTAssertEqual(viewModel.board[2][0], 16)
+        XCTAssertEqual(viewModel.board[3][0], 32)
     }
     
     func test_can_push_numbers_to_up() {
@@ -65,13 +61,16 @@ class BoardViewModelTests: XCTestCase {
         let viewModel = BoardViewModel(engine)
         
         viewModel.push(.up)
+
+        XCTAssertEqual(viewModel.board[0][0], 8)
+        XCTAssertEqual(viewModel.board[0][1], 2)
+        XCTAssertEqual(viewModel.board[0][2], 4)
+        XCTAssertEqual(viewModel.board[0][3], 2)
         
-        XCTAssertEqual(viewModel.board, [
-            [8,2,4,2],
-            [16,4,16,8],
-            [0,0,0,0],
-            [0,0,0,0]
-        ])
+        XCTAssertEqual(viewModel.board[1][0], 16)
+        XCTAssertEqual(viewModel.board[1][1], 4)
+        XCTAssertEqual(viewModel.board[1][2], 16)
+        XCTAssertEqual(viewModel.board[1][3], 8)
     }
     
     func test_can_push_numbers_down() {
@@ -79,13 +78,16 @@ class BoardViewModelTests: XCTestCase {
         let viewModel = BoardViewModel(engine)
         
         viewModel.push(.down)
+
+        XCTAssertEqual(viewModel.board[2][0], 8)
+        XCTAssertEqual(viewModel.board[2][1], 2)
+        XCTAssertEqual(viewModel.board[2][2], 4)
+        XCTAssertEqual(viewModel.board[2][3], 2)
         
-        XCTAssertEqual(viewModel.board, [
-            [0,0,0,0],
-            [0,0,0,0],
-            [8,2,4,2],
-            [16,4,16,8]
-        ])
+        XCTAssertEqual(viewModel.board[3][0], 16)
+        XCTAssertEqual(viewModel.board[3][1], 4)
+        XCTAssertEqual(viewModel.board[3][2], 16)
+        XCTAssertEqual(viewModel.board[3][3], 8)
     }
     
     func test_can_tell_if_the_game_is_over() {

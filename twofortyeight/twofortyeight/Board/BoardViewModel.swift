@@ -2,11 +2,11 @@ import Combine
 
 class BoardViewModel: ObservableObject {
     private(set) var engine: Engine
-    @Published var isGameOver = false
-    @Published var didChanged = false
+    private var boardHasChanged = false
     
+    @Published private(set) var isGameOver = false
     @Published private(set) var board: [[Int]] {
-        willSet { didChanged = board != newValue }
+        willSet { boardHasChanged = board != newValue }
         didSet { isGameOver = engine.isGameOver(board) }
     }
     
@@ -21,6 +21,7 @@ class BoardViewModel: ObservableObject {
     
     func push(_ direction: Direction) {
         board = engine.push(board, to: direction)
+        if boardHasChanged { addNumber() }
     }
     
     func reset() {
