@@ -2,14 +2,13 @@ import SwiftUI
 
 struct Tile: View {
     let value: Int
-    let style: TileStyle
-    var title: String {
-        value == 0 ? "" : value.description
-    }
+    private let style: TileStyle
+    private let title: String
     
     init(_ value: Int) {
         self.value = value
         style = TileStyle(value)
+        title = value == 0 ? "" : value.description
     }
     
     var body: some View {
