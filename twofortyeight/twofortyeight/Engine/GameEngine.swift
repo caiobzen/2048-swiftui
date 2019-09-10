@@ -21,15 +21,16 @@ class GameEngine: Engine {
     
     func isGameOver(_ board: Matrix) -> Bool {
         var isOver = true
-        for  i in 0..<board.count {
-            for j in 0..<board[i].count {
-                if board[i][j] == 0 {
+        for row in 0..<board.count {
+            for column in 0..<board[row].count {
+                if board[row][column] == 0 {
                     isOver = false
                     break
                 }
                 
-                let canCombineRow = i != board.count - 1 && board[i][j] == board[i + 1][j]
-                let canCombineColumn = j != board.count - 1 && board[i][j] == board[i][j + 1]
+                let canCombineRow = row != board.count - 1 && board[row][column] == board[row+1][column]
+                let canCombineColumn = column != board.count - 1 && board[row][column] == board[row][column+1]
+                
                 if canCombineRow || canCombineColumn {
                     isOver = false
                     break
@@ -43,10 +44,10 @@ class GameEngine: Engine {
         var newBoard = board
         var options: [(Int, Int)] = []
 
-        for i in 0..<newBoard.count {
-            for j in 0..<newBoard[i].count {
-                if newBoard[i][j] == 0 {
-                    options.append((i,j))
+        for row in 0..<newBoard.count {
+            for column in 0..<newBoard[row].count {
+                if newBoard[row][column] == 0 {
+                    options.append((row,column))
                 }
             }
         }
@@ -68,12 +69,12 @@ class GameEngine: Engine {
 
     func combine(_ row: [Int]) -> [Int] {
         var newRow = row
-        for i in (1...row.count - 1).reversed() {
-            let a = newRow[i]
-            let b = newRow[i - 1]
+        for column in (1...row.count - 1).reversed() {
+            let a = newRow[column]
+            let b = newRow[column - 1]
             if a == b {
-                newRow[i] = a + b
-                newRow[i - 1] = 0
+                newRow[column] = a + b
+                newRow[column - 1] = 0
             }
         }
         return newRow
@@ -81,17 +82,17 @@ class GameEngine: Engine {
 
     func flip(_ board: Matrix) -> Matrix {
         var newBoard = board
-        for i in 0...newBoard.count - 1 {
-            newBoard[i] = newBoard[i].reversed()
+        for row in 0...newBoard.count - 1 {
+            newBoard[row] = newBoard[row].reversed()
         }
         return newBoard
     }
 
     func rotate(_ board: Matrix) -> Matrix {
         var newBoard = blankBoard
-        for i in 0..<board.count {
-            for j in 0..<board[i].count {
-                newBoard[i][j] = board[j][i];
+        for row in 0..<board.count {
+            for column in 0..<board[row].count {
+                newBoard[row][column] = board[column][row];
             }
         }
         return newBoard
@@ -112,8 +113,8 @@ class GameEngine: Engine {
 
     private func operateRows(_ board: Matrix) -> Matrix {
         var newBoard = board
-        for i in 0..<board.count {
-            newBoard[i] = slideAndCombine(newBoard[i])
+        for row in 0..<board.count {
+            newBoard[row] = slideAndCombine(newBoard[row])
         }
         return newBoard
     }
@@ -166,8 +167,8 @@ public func |> <A,B>(x: A, f:(A) -> B) -> B {
 
 extension Array {
     func toMatrix() {
-        for i in 0..<count {
-            print("[\(self[i])]")
+        for row in 0..<count {
+            print("[\(self[row])]")
         }
     }
 }
