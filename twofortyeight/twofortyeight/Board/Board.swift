@@ -1,11 +1,11 @@
 import SwiftUI
 
 struct Board: View {
-    @State var board: [[Int]] = [[]]
+    @ObservedObject var viewModel: BoardViewModel
 
     var body: some View {
         VStack {
-            ForEach(board, id: \.self) { row in
+            ForEach(viewModel.board, id: \.self) { row in
                 HStack {
                     ForEach(row, id: \.self) { column in
                         Tile(column)
@@ -22,12 +22,7 @@ struct Board: View {
 #if DEBUG
 struct Board_Previews: PreviewProvider {
     static var previews: some View {
-        Board(board: [
-            [0,2,0,0],
-            [0,0,4,8],
-            [0,0,16,32],
-            [0,0,0,256]
-        ])
+        Board(viewModel: BoardViewModel(GameEngine()))
     }
 }
 #endif
