@@ -35,18 +35,26 @@ class GameViewController: UIHostingController<Board> {
     
     @objc func pushLeft() {
         viewModel.push(.left)
-        viewModel.addNumber()
+        if viewModel.didChanged {
+            viewModel.addNumber()
+        }
     }
     @objc func pushRight() {
         viewModel.push(.right)
-        viewModel.addNumber()
+        if viewModel.didChanged {
+            viewModel.addNumber()
+        }
     }
     @objc func pushUp() {
         viewModel.push(.up)
-        viewModel.addNumber()
+        if viewModel.didChanged {
+            viewModel.addNumber()
+        }
     }
     @objc func pushDown() {
         viewModel.push(.down)
-        viewModel.addNumber()
+        if viewModel.didChanged {
+            viewModel.addNumber()
+        }
     }
 }

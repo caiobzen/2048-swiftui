@@ -3,7 +3,10 @@ import Combine
 class BoardViewModel: ObservableObject {
     private(set) var engine: Engine
     @Published var isGameOver = false
+    @Published var didChanged = false
+    
     @Published private(set) var board: [[Int]] {
+        willSet { didChanged = board != newValue }
         didSet { isGameOver = engine.isGameOver(board) }
     }
     
