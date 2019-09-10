@@ -107,4 +107,40 @@ class GameEngineTests: XCTestCase {
             [32,0,0,0]
         ])
     }
+    
+    func test_push_up() {
+        let board = [
+            [2,0,0,0],
+            [2,4,0,0],
+            [0,4,8,16],
+            [0,0,8,16]
+        ]
+        
+        let newBoard = engine.push(board, to: .up)
+        
+        XCTAssertEqual(newBoard, [
+            [4,8,16,32],
+            [0,0,0,0],
+            [0,0,0,0],
+            [0,0,0,0]
+        ])
+    }
+    
+    func test_push_down() {
+        let board = [
+            [2,0,0,0],
+            [2,4,0,0],
+            [0,4,8,16],
+            [0,0,8,16]
+        ]
+        
+        let newBoard = engine.push(board, to: .down)
+        
+        XCTAssertEqual(newBoard, [
+            [0,0,0,0],
+            [0,0,0,0],
+            [0,0,0,0],
+            [4,8,16,32]
+        ])
+    }
 }

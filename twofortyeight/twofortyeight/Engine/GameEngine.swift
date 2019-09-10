@@ -11,22 +11,22 @@ class GameEngine {
     func addNumber(to board: [[Int]]) -> [[Int]] {
         var newBoard = board
         var options: [(Int, Int)] = []
-        
-        for i in 0..<board.count {
-            for j in 0..<board[i].count {
-                if board[i][j] == 0 {
+
+        for i in 0..<newBoard.count {
+            for j in 0..<newBoard[i].count {
+                if newBoard[i][j] == 0 {
                     options.append((i,j))
                 }
             }
         }
-        
+    
         if let spot = options.randomElement() {
             newBoard[spot.0][spot.1] = arc4random_uniform(2) > 0 ? 2 : 4
         }
-        
+
         return newBoard
     }
-    
+
     func slide(_ row: [Int]) -> [Int] {
         let arr = row.filter { $0 > 0 }
         let missing = row.count - arr.count
@@ -34,7 +34,7 @@ class GameEngine {
         zeros.append(contentsOf: arr)
         return zeros
     }
-    
+
     func combine(_ row: [Int]) -> [Int] {
         var newRow = row
         for i in (1...row.count - 1).reversed() {
@@ -47,15 +47,15 @@ class GameEngine {
         }
         return newRow
     }
-    
+
     func flip(_ board:[[Int]]) -> [[Int]] {
         var newBoard = board
-        for i in 0...board.count - 1 {
+        for i in 0...newBoard.count - 1 {
             newBoard[i] = newBoard[i].reversed()
         }
         return newBoard
     }
-    
+
     func rotate(_ board: [[Int]]) -> [[Int]] {
         var newBoard = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
         for i in 0..<board.count {
@@ -65,41 +65,58 @@ class GameEngine {
         }
         return newBoard
     }
-    
+
     func push(_ board: [[Int]], to direction: Direction) -> [[Int]] {
-        var newBoard = board
-        var rotated = false
-        var flipped = false
-        
         switch direction {
         case .right:
-            rotated.toggle()
-            newBoard = rotate(board)
-        case .up: print("do nothing")
+            return pushRight(board)
+        case .up:
+            return pushUp(board)
         case .left:
-            newBoard = rotate(newBoard)
-            newBoard = flip(newBoard)
-            rotated.toggle()
-            flipped.toggle()
-        case .down: print("do nothing") }
-        
+            return pushLeft(board)
+        case .down:
+            return pushDown(board)
+        }
+    }
+
+    private func operateRows(on board: [[Int]]) -> [[Int]] {
+        var newBoard = board
         for i in 0..<board.count {
-            newBoard[i] = operate(board[i])
+            newBoard[i] = operate(newBoard[i])
         }
-        
-        if (flipped) {
-          newBoard = flip(newBoard)
-        }
-        
-        if (rotated) {
-            for _ in 1...board.count {
-                 newBoard = rotate(newBoard)
-            }
-        }
+        return newBoard
+    }
+
+    private func pushUp(_ board: [[Int]]) -> [[Int]] {
+        var newBoard = flip(board)
+        newBoard = rotate(newBoard)
+        newBoard = operateRows(on: newBoard)
+        newBoard = flip(newBoard)
+        newBoard = rotate(newBoard)
+        newBoard = flip(newBoard)
         
         return newBoard
     }
-    
+
+    private func pushDown(_ board: [[Int]]) -> [[Int]] {
+        var newBoard = rotate(board)
+        newBoard = operateRows(on: newBoard)
+        newBoard = rotate(newBoard)
+        
+        return newBoard
+    }
+
+    private func pushLeft(_ board: [[Int]]) -> [[Int]] {
+        var newBoard = flip(board)
+        newBoard = operateRows(on: newBoard)
+        newBoard = flip(newBoard)
+        return newBoard
+    }
+
+    private func pushRight(_ board: [[Int]]) -> [[Int]] {
+        return operateRows(on: board)
+    }
+
     private func operate(_ row: [Int]) -> [Int] {
         var newRow = row
         newRow = slide(newRow)
