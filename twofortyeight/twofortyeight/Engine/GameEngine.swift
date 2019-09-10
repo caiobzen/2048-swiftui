@@ -1,10 +1,17 @@
 import Foundation
 
+enum Direction {
+    case right
+    case up
+    case left
+    case down
+}
+
 class GameEngine {
     func addNumber(to board: [[Int]]) -> [[Int]] {
         var newBoard = board
         var options: [(Int, Int)] = []
-
+        
         for i in 0..<board.count {
             for j in 0..<board[i].count {
                 if board[i][j] == 0 {
@@ -12,7 +19,7 @@ class GameEngine {
                 }
             }
         }
-
+        
         if let spot = options.randomElement() {
             newBoard[spot.0][spot.1] = arc4random_uniform(2) > 0 ? 2 : 4
         }
@@ -47,5 +54,48 @@ class GameEngine {
             newBoard[i] = newBoard[i].reversed()
         }
         return newBoard
+    }
+    
+    func rotate(_ board: [[Int]]) -> [[Int]] {
+        var newBoard = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+        for i in 0..<board.count {
+            for j in 0..<board[i].count {
+                newBoard[i][j] = board[j][i];
+            }
+        }
+        return newBoard
+    }
+    
+    func push(_ board: [[Int]], to direction: Direction) -> [[Int]] {
+        var newBoard = board
+        var rotated = false
+        
+        switch direction {
+        case .right:
+            rotated.toggle()
+            newBoard = rotate(board)
+        case .up: print("do nothing")
+        case .left: print("do nothing")
+        case .down: print("do nothing") }
+        
+        for i in 0..<board.count {
+            newBoard[i] = operate(board[i])
+        }
+        
+        if (rotated) {
+            for _ in 1...board.count {
+                 newBoard = rotate(newBoard)
+            }
+        }
+        
+        return newBoard
+    }
+    
+    private func operate(_ row: [Int]) -> [Int] {
+        var newRow = row
+        newRow = slide(newRow)
+        newRow = combine(newRow)
+        newRow = slide(newRow)
+        return newRow
     }
 }

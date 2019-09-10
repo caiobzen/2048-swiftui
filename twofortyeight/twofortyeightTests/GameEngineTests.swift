@@ -2,14 +2,13 @@ import XCTest
 @testable import twofortyeight
 
 class GameEngineTests: XCTestCase {
+    let engine = GameEngine()
+    
     func test_can_create_engine() {
-        let engine = GameEngine()
-        
         XCTAssertNotNil(engine)
     }
     
     func test_can_add_number() {
-        let engine = GameEngine()
         let board = [[0,0,0,0],
                      [0,0,0,0],
                      [0,0,0,0],
@@ -22,7 +21,6 @@ class GameEngineTests: XCTestCase {
     }
     
     func test_can_slide_row_to_right() {
-        let engine = GameEngine()
         let row = [0,2,4,0]
         
         let newRow = engine.slide(row)
@@ -31,7 +29,6 @@ class GameEngineTests: XCTestCase {
     }
     
     func test_can_combine_numbers_to_right() {
-        let engine = GameEngine()
         let row = [0,0,2,2]
         
         let newRow = engine.combine(row)
@@ -40,7 +37,6 @@ class GameEngineTests: XCTestCase {
     }
     
     func test_can_flip_board() {
-        let engine = GameEngine()
         let board = [
             [2,0,2,0],
             [0,0,0,4],
@@ -55,6 +51,42 @@ class GameEngineTests: XCTestCase {
             [4,0,0,0],
             [0,8,8,0],
             [16,0,16,0]
+        ])
+    }
+    
+    func test_can_rotate_board() {
+        let board = [
+            [2,0,2,0],
+            [0,0,0,4],
+            [0,8,8,0],
+            [0,16,0,16]
+        ]
+        
+        let newRow = engine.rotate(board)
+        
+        XCTAssertEqual(newRow, [
+             [2,0,0,0],
+             [0,0,8,16],
+             [2,0,8,0],
+             [0,4,0,16]
+         ])
+    }
+    
+    func test_shift_right() {
+        let board = [
+            [2,0,2,0],
+            [0,4,0,4],
+            [0,8,8,0],
+            [0,16,0,16]
+        ]
+        
+        let newBoard = engine.push(board, to: .right)
+        
+        XCTAssertEqual(newBoard, [
+            [0,0,0,4],
+            [0,0,0,8],
+            [0,0,0,16],
+            [0,0,0,32]
         ])
     }
 }
