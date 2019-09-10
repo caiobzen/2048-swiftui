@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EB2AE08D2328153200A0D911 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2AE08C2328153200A0D911 /* GameViewController.swift */; };
+		EB2AE08F232826AE00A0D911 /* SwipeGestureWithDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2AE08E232826AE00A0D911 /* SwipeGestureWithDirection.swift */; };
 		EB9391032327C0E700BC8711 /* BoardViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9391022327C0E700BC8711 /* BoardViewModelTests.swift */; };
 		EB9391052327C16E00BC8711 /* BoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9391042327C16E00BC8711 /* BoardViewModel.swift */; };
 		EBC999CC2325932E006BA2E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC999CB2325932E006BA2E7 /* AppDelegate.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		EB2AE08C2328153200A0D911 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		EB2AE08E232826AE00A0D911 /* SwipeGestureWithDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeGestureWithDirection.swift; sourceTree = "<group>"; };
 		EB9391022327C0E700BC8711 /* BoardViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewModelTests.swift; sourceTree = "<group>"; };
 		EB9391042327C16E00BC8711 /* BoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewModel.swift; sourceTree = "<group>"; };
 		EBC999C82325932E006BA2E7 /* twofortyeight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twofortyeight.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +116,7 @@
 				EB2AE08C2328153200A0D911 /* GameViewController.swift */,
 				EBC99A0523271AA4006BA2E7 /* Engine */,
 				EBC99A0223271A18006BA2E7 /* Board */,
+				EB2AE08E232826AE00A0D911 /* SwipeGestureWithDirection.swift */,
 				EBC999CB2325932E006BA2E7 /* AppDelegate.swift */,
 				EBC999CD2325932E006BA2E7 /* SceneDelegate.swift */,
 				EBC999D123259330006BA2E7 /* Assets.xcassets */,
@@ -311,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBC999CC2325932E006BA2E7 /* AppDelegate.swift in Sources */,
+				EB2AE08F232826AE00A0D911 /* SwipeGestureWithDirection.swift in Sources */,
 				EBC99A0723271AB4006BA2E7 /* GameEngine.swift in Sources */,
 				EBC999CE2325932E006BA2E7 /* SceneDelegate.swift in Sources */,
 				EBC99A00232718C8006BA2E7 /* Board.swift in Sources */,

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct Board: View {
     @ObservedObject var viewModel: BoardViewModel
-
+    
     var body: some View {
         VStack {
             Text(viewModel.isGameOver ? "GAME OVER" : "")

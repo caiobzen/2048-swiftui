@@ -1,6 +1,5 @@
 import SwiftUI
 
-
 class GameViewController: UIHostingController<Board> {
     
     private let viewModel: BoardViewModel
@@ -18,19 +17,10 @@ class GameViewController: UIHostingController<Board> {
     }
     
     private func setupGestures() {
-        let left = UISwipeGestureRecognizer(target: self, action: #selector(pushLeft))
-        left.direction = .left
-        let right = UISwipeGestureRecognizer(target: self, action: #selector(pushRight))
-        right.direction = .right
-        let up = UISwipeGestureRecognizer(target: self, action: #selector(pushUp))
-        up.direction = .up
-        let down = UISwipeGestureRecognizer(target: self, action: #selector(pushDown))
-        down.direction = .down
-        
-        view.addGestureRecognizer(left)
-        view.addGestureRecognizer(right)
-        view.addGestureRecognizer(up)
-        view.addGestureRecognizer(down)
+        view.addGestureRecognizer(SwipeGestureWithDirection(.left) { self.pushLeft() })
+        view.addGestureRecognizer(SwipeGestureWithDirection(.right) { self.pushRight() })
+        view.addGestureRecognizer(SwipeGestureWithDirection(.up) { self.pushUp() })
+        view.addGestureRecognizer(SwipeGestureWithDirection(.down) { self.pushDown() })
     }
     
     @objc func pushLeft() {
