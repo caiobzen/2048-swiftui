@@ -2,7 +2,10 @@ import Combine
 
 class BoardViewModel: ObservableObject {
     private(set) var engine: Engine
-    @Published private(set) var board: [[Int]]
+    @Published var isGameOver = false
+    @Published private(set) var board: [[Int]] {
+        didSet { isGameOver = engine.isGameOver(board) }
+    }
     
     init(_ engine: Engine) {
         self.engine = engine
@@ -19,9 +22,5 @@ class BoardViewModel: ObservableObject {
     
     func reset() {
         board = engine.blankBoard
-    }
-    
-    func isGameOver() -> Bool {
-        return engine.isGameOver(board)
     }
 }

@@ -20,12 +20,23 @@ class GameEngine: Engine {
     let blankBoard = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
     
     func isGameOver(_ board: Matrix) -> Bool {
+        var isOver = true
         for  i in 0..<board.count {
             for j in 0..<board[i].count {
-                return !canPlay(board, row: i, column: j)
+                if board[i][j] == 0 {
+                    isOver = false
+                    break
+                }
+                
+                let canCombineRow = i != board.count - 1 && board[i][j] == board[i + 1][j]
+                let canCombineColumn = j != board.count - 1 && board[i][j] == board[i][j + 1]
+                if canCombineRow || canCombineColumn {
+                    isOver = false
+                    break
+                }
             }
         }
-        return true
+        return isOver
     }
     
     func addNumber(_ board: Matrix) -> Matrix {
@@ -140,12 +151,6 @@ class GameEngine: Engine {
     private func pushRight(_ board: Matrix) -> Matrix {
         board
         |> operateRows
-    }
-    
-    private func canPlay(_ board: Matrix, row: Int, column: Int) -> Bool {
-        return board[row][column] == 0
-            || row != board.count - 1 && board[row][column] == board[row + 1][column]
-            || column != board.count - 1 && board[row][column] == board[row][column + 1]
     }
 }
 

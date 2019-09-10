@@ -92,10 +92,8 @@ class BoardViewModelTests: XCTestCase {
         let engine = GameEngineStub()
         let viewModel = BoardViewModelStub(engine)
         viewModel.setGameOver()
-
-        let isGameOver = viewModel.isGameOver()
         
-        XCTAssertTrue(isGameOver)
+        XCTAssertTrue(viewModel.engine.isGameOver(viewModel.board))
     }
 }
 

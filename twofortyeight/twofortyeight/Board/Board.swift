@@ -5,6 +5,7 @@ struct Board: View {
 
     var body: some View {
         VStack {
+            Text(viewModel.isGameOver ? "GAME OVER" : "")
             ForEach(viewModel.board, id: \.self) { row in
                 HStack {
                     ForEach(row, id: \.self) { column in
