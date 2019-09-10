@@ -11,13 +11,14 @@ struct Board: View {
                     HStack {
                         ForEach(row, id: \.self) { Tile($0) }
                     }
-                    .padding(3)
+                    .padding(4)
                 }
             }
+            .padding(8)
             .background(backgroundColor)
-            .padding(6)
-            .cornerRadius(3)
+            .cornerRadius(4)
         }
+        .padding(16)
     }
 }
 
