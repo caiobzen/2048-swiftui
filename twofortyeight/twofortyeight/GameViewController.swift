@@ -1,4 +1,5 @@
 import SwiftUI
+import Foundation
 
 class GameViewController: UIHostingController<GameView> {
     

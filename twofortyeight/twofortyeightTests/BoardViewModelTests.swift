@@ -97,6 +97,16 @@ class BoardViewModelTests: XCTestCase {
         
         XCTAssertTrue(viewModel.engine.isGameOver(viewModel.board))
     }
+    
+    func test_can_score() {
+        let engine = GameEngineStub()
+        let viewModel = BoardViewModelStub(engine)
+        viewModel.setCanScoreRight()
+        
+        viewModel.push(.right)
+        
+        XCTAssertEqual(viewModel.score, 4)
+    }
 }
 
 class BoardViewModelStub: BoardViewModel {
@@ -114,6 +124,15 @@ class BoardViewModelStub: BoardViewModel {
             [16,2,16,2]
         ]
     }
+    
+    func setCanScoreRight() {
+        _board = [
+            [2,2,0,0],
+            [0,0,0,0],
+            [0,0,0,0],
+            [0,0,0,0]
+        ]
+    }
 }
 
 class GameEngineStub: Engine {
@@ -125,8 +144,8 @@ class GameEngineStub: Engine {
         GameEngine().addNumber(board)
     }
     
-    func push(_ board: [[Int]], to direction: Direction) -> [[Int]] {
-        GameEngine().push(board, to: direction)
+    func push(_ board: Matrix, to direction: Direction, scored: ((Int) -> Void)?) -> Matrix {
+        GameEngine().push(board, to: direction, scored: scored)
     }
     
     let blankBoard: [[Int]] = [

@@ -4,7 +4,7 @@ typealias Matrix = [[Int]]
 
 protocol Engine {
     func addNumber(_ board: Matrix) -> Matrix
-    func push(_ board: Matrix, to direction: Direction) -> Matrix
+    func push(_ board: Matrix, to direction: Direction, scored:((Int) -> Void)?) -> Matrix
     func isGameOver(_ board: Matrix) -> Bool
     var blankBoard: Matrix { get }
 }
@@ -18,6 +18,7 @@ enum Direction {
 
 class GameEngine: Engine {
     let blankBoard = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+    var points = 0
     
     func isGameOver(_ board: Matrix) -> Bool {
         var isOver = true
@@ -75,6 +76,7 @@ class GameEngine: Engine {
             if a == b {
                 newRow[column] = a + b
                 newRow[column - 1] = 0
+                points += a + b
             }
         }
         return newRow
@@ -98,17 +100,23 @@ class GameEngine: Engine {
         return newBoard
     }
 
-    func push(_ board: Matrix, to direction: Direction) -> Matrix {
+    func push(_ board: Matrix, to direction: Direction, scored:((Int) -> Void)? = nil) -> Matrix {
+        var newBoard = board
+        points = 0
+        
         switch direction {
         case .right:
-            return board |> pushRight
+            newBoard = (board |> pushRight)
         case .up:
-            return board |> pushUp
+            newBoard = (board |> pushUp)
         case .left:
-            return board |> pushLeft
+            newBoard = (board |> pushLeft)
         case .down:
-            return board |> pushDown
+            newBoard = (board |> pushDown)
         }
+        
+        scored?(points)
+        return newBoard
     }
 
     private func operateRows(_ board: Matrix) -> Matrix {

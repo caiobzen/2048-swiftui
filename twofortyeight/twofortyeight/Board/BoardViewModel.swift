@@ -5,6 +5,7 @@ class BoardViewModel: ObservableObject {
     private var boardHasChanged = false
     
     @Published private(set) var isGameOver = false
+    @Published private(set) var score = 0
     @Published private(set) var board: [[Int]] {
         willSet { boardHasChanged = board != newValue }
         didSet { isGameOver = engine.isGameOver(board) }
@@ -20,7 +21,10 @@ class BoardViewModel: ObservableObject {
     }
     
     func push(_ direction: Direction) {
-        board = engine.push(board, to: direction)
+        board = engine.push(board, to: direction) { [weak self] score in
+            self?.score += score
+        }
+        
         if boardHasChanged { addNumber() }
     }
     

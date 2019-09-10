@@ -10,6 +10,12 @@ struct GameView: View {
                 Text("GAME OVER!")
                     .foregroundColor(.black)
             }
+            
+            Text("SCORE: \(viewModel.score)")
+                .foregroundColor(.black)
+                .bold()
+                .font(.title)
+            
             Board(board: viewModel.board)
         }
         .frame(minWidth: 0,
