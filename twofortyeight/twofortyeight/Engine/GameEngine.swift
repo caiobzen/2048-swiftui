@@ -1,5 +1,11 @@
 import Foundation
 
+protocol Engine {
+    func addNumber(_ board: [[Int]]) -> [[Int]]
+    func push(_ board: [[Int]], to direction: Direction) -> [[Int]]
+    var blankBoard: [[Int]] { get }
+}
+
 enum Direction {
     case right
     case up
@@ -7,10 +13,10 @@ enum Direction {
     case down
 }
 
-class GameEngine {
+class GameEngine: Engine {
     let blankBoard = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
     
-    func addNumber(to board: [[Int]]) -> [[Int]] {
+    func addNumber(_ board: [[Int]]) -> [[Int]] {
         var newBoard = board
         var options: [(Int, Int)] = []
 
@@ -81,7 +87,7 @@ class GameEngine {
         }
     }
 
-    private func operateRows(on board: [[Int]]) -> [[Int]] {
+    private func operateRows(_ board: [[Int]]) -> [[Int]] {
         var newBoard = board
         for i in 0..<board.count {
             newBoard[i] = slideAndCombine(newBoard[i])
@@ -98,12 +104,11 @@ class GameEngine {
 
     private func pushUp(_ board: [[Int]]) -> [[Int]] {
         board
-        |> flip
         |> rotate
+        |> flip
         |> operateRows
         |> flip
         |> rotate
-        |> flip
     }
 
     private func pushDown(_ board: [[Int]]) -> [[Int]] {
@@ -134,4 +139,12 @@ infix operator |>: ForwardApplication
 
 public func |> <A,B>(x: A, f:(A) -> B) -> B {
     return f(x)
+}
+
+extension Array {
+    func toMatrix() {
+        for i in 0..<count {
+            print("[\(self[i])]")
+        }
+    }
 }

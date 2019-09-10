@@ -14,7 +14,7 @@ class GameEngineTests: XCTestCase {
                      [0,0,0,0],
                      [0,0,0,0]]
         
-        let newBoard = engine.addNumber(to: board)
+        let newBoard = engine.addNumber(board)
         let hasNumber = newBoard.flatMap{ $0 }.reduce(0, +) != 0
         
         XCTAssertTrue(hasNumber)
