@@ -8,7 +8,7 @@ enum Direction {
 }
 
 class GameEngine {
-    private let blankBoard = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+    let blankBoard = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
     
     func addNumber(to board: [[Int]]) -> [[Int]] {
         var newBoard = board

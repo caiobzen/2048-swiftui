@@ -8,7 +8,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: Board())
+            let engine = GameEngine()
+            let board = Board(board: engine.blankBoard)
+            window.rootViewController = UIHostingController(rootView: board)
             self.window = window
             window.makeKeyAndVisible()
         }
