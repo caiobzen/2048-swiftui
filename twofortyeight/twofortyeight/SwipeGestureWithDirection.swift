@@ -1,16 +1,16 @@
 import UIKit
 
 class SwipeGestureWithDirection: UISwipeGestureRecognizer {
-    private var invokeTarget: UIGestureRecognizerInvokeTarget
+    private var target: InvokeTarget
 
     init(_ direction: Direction, action: @escaping () -> ()) {
-        self.invokeTarget = UIGestureRecognizerInvokeTarget(action: action)
-        super.init(target: invokeTarget, action: #selector(invokeTarget.invoke))
+        self.target = InvokeTarget(action: action)
+        super.init(target: target, action: #selector(target.invoke))
         self.direction = direction
     }
 }
 
-class UIGestureRecognizerInvokeTarget: NSObject {
+class InvokeTarget: NSObject {
     private var action: () -> ()
 
     init(action: @escaping () -> ()) {

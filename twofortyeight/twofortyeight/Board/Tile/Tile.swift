@@ -13,14 +13,14 @@ struct Tile: View {
     
     var body: some View {
         Text(title)
-            .font(.title)
             .fontWeight(.black)
-            .padding(4)
             .minimumScaleFactor(0.4)
+            .font(.title)
+            .padding(4)
             .frame(width: 50, height: 50)
             .background(style.backgroundColor)
             .foregroundColor(style.foregroundColor)
-            .cornerRadius(2)
+            .cornerRadius(3)
     }
 }
 

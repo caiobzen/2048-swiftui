@@ -1,12 +1,12 @@
 import SwiftUI
 
-class GameViewController: UIHostingController<Board> {
+class GameViewController: UIHostingController<GameView> {
     
     private let viewModel: BoardViewModel
     
     init(viewModel: BoardViewModel) {
         self.viewModel = viewModel
-        super.init(rootView: Board(viewModel: viewModel))
+        super.init(rootView: GameView(viewModel: viewModel))
         
         setupGestures()
         viewModel.addNumber()
@@ -17,25 +17,17 @@ class GameViewController: UIHostingController<Board> {
     }
     
     private func setupGestures() {
-        view.addGestureRecognizer(SwipeGestureWithDirection(.left) { self.pushLeft() })
-        view.addGestureRecognizer(SwipeGestureWithDirection(.right) { self.pushRight() })
-        view.addGestureRecognizer(SwipeGestureWithDirection(.up) { self.pushUp() })
-        view.addGestureRecognizer(SwipeGestureWithDirection(.down) { self.pushDown() })
-    }
-    
-    @objc func pushLeft() {
-        viewModel.push(.left)
-    }
-    
-    @objc func pushRight() {
-        viewModel.push(.right)
-    }
-    
-    @objc func pushUp() {
-        viewModel.push(.up)
-    }
-    
-    @objc func pushDown() {
-        viewModel.push(.down)
+        view.addGestureRecognizer(SwipeGestureWithDirection(.left) { [weak self] in
+            self?.viewModel.push(.left)
+        })
+        view.addGestureRecognizer(SwipeGestureWithDirection(.right) { [weak self] in
+            self?.viewModel.push(.right)
+        })
+        view.addGestureRecognizer(SwipeGestureWithDirection(.up) { [weak self] in
+            self?.viewModel.push(.up)
+        })
+        view.addGestureRecognizer(SwipeGestureWithDirection(.down) { [weak self] in
+            self?.viewModel.push(.down)
+        })
     }
 }

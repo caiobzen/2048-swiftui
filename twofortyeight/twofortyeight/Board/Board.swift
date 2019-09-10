@@ -1,23 +1,22 @@
 import SwiftUI
 
 struct Board: View {
-    @ObservedObject var viewModel: BoardViewModel
+    var board: Matrix
+    private let backgroundColor = Color(red: 183/255, green: 173/255, blue: 162/255)
     
     var body: some View {
         VStack {
-            Text(viewModel.isGameOver ? "GAME OVER" : "")
             VStack {
-                ForEach(viewModel.board, id: \.self) { row in
+                ForEach(board, id: \.self) { row in
                     HStack {
-                        ForEach(row, id: \.self) { column in
-                            Tile(column)
-                        }.padding(1)
+                        ForEach(row, id: \.self) { Tile($0) }
                     }
+                    .padding(3)
                 }
             }
-            .padding(8)
-            .background(Color(red: 183/255, green: 173/255, blue: 162/255))
-            .cornerRadius(2)
+            .background(backgroundColor)
+            .padding(6)
+            .cornerRadius(3)
         }
     }
 }
@@ -25,7 +24,7 @@ struct Board: View {
 #if DEBUG
 struct Board_Previews: PreviewProvider {
     static var previews: some View {
-        Board(viewModel: BoardViewModel(GameEngine()))
+        Board(board: GameEngine().blankBoard)
     }
 }
 #endif

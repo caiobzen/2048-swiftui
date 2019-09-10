@@ -22,6 +22,7 @@
 		EBC99A00232718C8006BA2E7 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC999FF232718C8006BA2E7 /* Board.swift */; };
 		EBC99A0423271A7C006BA2E7 /* GameEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC99A0323271A7C006BA2E7 /* GameEngineTests.swift */; };
 		EBC99A0723271AB4006BA2E7 /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC99A0623271AB4006BA2E7 /* GameEngine.swift */; };
+		EBFADE512328587F00E53800 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFADE502328587F00E53800 /* GameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		EBC999FF232718C8006BA2E7 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		EBC99A0323271A7C006BA2E7 /* GameEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngineTests.swift; sourceTree = "<group>"; };
 		EBC99A0623271AB4006BA2E7 /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
+		EBFADE502328587F00E53800 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				EB2AE08C2328153200A0D911 /* GameViewController.swift */,
+				EBFADE502328587F00E53800 /* GameView.swift */,
 				EBC99A0523271AA4006BA2E7 /* Engine */,
 				EBC99A0223271A18006BA2E7 /* Board */,
 				EB2AE08E232826AE00A0D911 /* SwipeGestureWithDirection.swift */,
@@ -317,6 +320,7 @@
 				EB2AE08F232826AE00A0D911 /* SwipeGestureWithDirection.swift in Sources */,
 				EBC99A0723271AB4006BA2E7 /* GameEngine.swift in Sources */,
 				EBC999CE2325932E006BA2E7 /* SceneDelegate.swift in Sources */,
+				EBFADE512328587F00E53800 /* GameView.swift in Sources */,
 				EBC99A00232718C8006BA2E7 /* Board.swift in Sources */,
 				EB2AE08D2328153200A0D911 /* GameViewController.swift in Sources */,
 				EBC999FE232593A0006BA2E7 /* TileStyle.swift in Sources */,
