@@ -12,11 +12,12 @@
 		EBC999D223259330006BA2E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBC999D123259330006BA2E7 /* Assets.xcassets */; };
 		EBC999D523259330006BA2E7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBC999D423259330006BA2E7 /* Preview Assets.xcassets */; };
 		EBC999D823259330006BA2E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBC999D623259330006BA2E7 /* LaunchScreen.storyboard */; };
-		EBC999E323259331006BA2E7 /* twofortyeightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC999E223259331006BA2E7 /* twofortyeightTests.swift */; };
 		EBC999EE23259331006BA2E7 /* twofortyeightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC999ED23259331006BA2E7 /* twofortyeightUITests.swift */; };
 		EBC999FC23259388006BA2E7 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC999FB23259388006BA2E7 /* Tile.swift */; };
 		EBC999FE232593A0006BA2E7 /* TileStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC999FD232593A0006BA2E7 /* TileStyle.swift */; };
 		EBC99A00232718C8006BA2E7 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC999FF232718C8006BA2E7 /* Board.swift */; };
+		EBC99A0423271A7C006BA2E7 /* GameEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC99A0323271A7C006BA2E7 /* GameEngineTests.swift */; };
+		EBC99A0723271AB4006BA2E7 /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC99A0623271AB4006BA2E7 /* GameEngine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +46,6 @@
 		EBC999D723259330006BA2E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBC999D923259330006BA2E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBC999DE23259331006BA2E7 /* twofortyeightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = twofortyeightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EBC999E223259331006BA2E7 /* twofortyeightTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = twofortyeightTests.swift; sourceTree = "<group>"; };
 		EBC999E423259331006BA2E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBC999E923259331006BA2E7 /* twofortyeightUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = twofortyeightUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBC999ED23259331006BA2E7 /* twofortyeightUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = twofortyeightUITests.swift; sourceTree = "<group>"; };
@@ -53,6 +53,8 @@
 		EBC999FB23259388006BA2E7 /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		EBC999FD232593A0006BA2E7 /* TileStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileStyle.swift; sourceTree = "<group>"; };
 		EBC999FF232718C8006BA2E7 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		EBC99A0323271A7C006BA2E7 /* GameEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngineTests.swift; sourceTree = "<group>"; };
+		EBC99A0623271AB4006BA2E7 /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		EBC999CA2325932E006BA2E7 /* twofortyeight */ = {
 			isa = PBXGroup;
 			children = (
+				EBC99A0523271AA4006BA2E7 /* Engine */,
 				EBC99A0223271A18006BA2E7 /* Board */,
 				EBC999CB2325932E006BA2E7 /* AppDelegate.swift */,
 				EBC999CD2325932E006BA2E7 /* SceneDelegate.swift */,
@@ -125,7 +128,7 @@
 		EBC999E123259331006BA2E7 /* twofortyeightTests */ = {
 			isa = PBXGroup;
 			children = (
-				EBC999E223259331006BA2E7 /* twofortyeightTests.swift */,
+				EBC99A0323271A7C006BA2E7 /* GameEngineTests.swift */,
 				EBC999E423259331006BA2E7 /* Info.plist */,
 			);
 			path = twofortyeightTests;
@@ -156,6 +159,14 @@
 				EBC999FF232718C8006BA2E7 /* Board.swift */,
 			);
 			path = Board;
+			sourceTree = "<group>";
+		};
+		EBC99A0523271AA4006BA2E7 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				EBC99A0623271AB4006BA2E7 /* GameEngine.swift */,
+			);
+			path = Engine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +240,7 @@
 					};
 					EBC999DD23259331006BA2E7 = {
 						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1100;
 						TestTargetID = EBC999C72325932E006BA2E7;
 					};
 					EBC999E823259331006BA2E7 = {
@@ -290,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBC999CC2325932E006BA2E7 /* AppDelegate.swift in Sources */,
+				EBC99A0723271AB4006BA2E7 /* GameEngine.swift in Sources */,
 				EBC999CE2325932E006BA2E7 /* SceneDelegate.swift in Sources */,
 				EBC99A00232718C8006BA2E7 /* Board.swift in Sources */,
 				EBC999FE232593A0006BA2E7 /* TileStyle.swift in Sources */,
@@ -301,7 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBC999E323259331006BA2E7 /* twofortyeightTests.swift in Sources */,
+				EBC99A0423271A7C006BA2E7 /* GameEngineTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +512,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74SMNA83A6;
 				INFOPLIST_FILE = twofortyeightTests/Info.plist;
@@ -509,6 +523,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ccorrea.twofortyeightTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/twofortyeight.app/twofortyeight";
@@ -520,6 +535,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74SMNA83A6;
 				INFOPLIST_FILE = twofortyeightTests/Info.plist;
