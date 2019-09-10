@@ -11,10 +11,7 @@ struct GameView: View {
                     .foregroundColor(.black)
             }
             
-            Text("SCORE: \(viewModel.score)")
-                .foregroundColor(.black)
-                .bold()
-                .font(.title)
+            ScoreBox(title: "SCORE", score: viewModel.score)
             
             Board(board: viewModel.board)
         }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EB2AE08D2328153200A0D911 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2AE08C2328153200A0D911 /* GameViewController.swift */; };
 		EB2AE08F232826AE00A0D911 /* SwipeGestureWithDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2AE08E232826AE00A0D911 /* SwipeGestureWithDirection.swift */; };
+		EB748896232865B00043DF64 /* ScoreBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB748895232865B00043DF64 /* ScoreBox.swift */; };
 		EB9391032327C0E700BC8711 /* BoardViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9391022327C0E700BC8711 /* BoardViewModelTests.swift */; };
 		EB9391052327C16E00BC8711 /* BoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9391042327C16E00BC8711 /* BoardViewModel.swift */; };
 		EBC999CC2325932E006BA2E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC999CB2325932E006BA2E7 /* AppDelegate.swift */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		EB2AE08C2328153200A0D911 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		EB2AE08E232826AE00A0D911 /* SwipeGestureWithDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeGestureWithDirection.swift; sourceTree = "<group>"; };
+		EB748895232865B00043DF64 /* ScoreBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBox.swift; sourceTree = "<group>"; };
 		EB9391022327C0E700BC8711 /* BoardViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewModelTests.swift; sourceTree = "<group>"; };
 		EB9391042327C16E00BC8711 /* BoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewModel.swift; sourceTree = "<group>"; };
 		EBC999C82325932E006BA2E7 /* twofortyeight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twofortyeight.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +128,7 @@
 				EBC999D623259330006BA2E7 /* LaunchScreen.storyboard */,
 				EBC999D923259330006BA2E7 /* Info.plist */,
 				EBC999D323259330006BA2E7 /* Preview Content */,
+				EB748895232865B00043DF64 /* ScoreBox.swift */,
 			);
 			path = twofortyeight;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				EBFADE512328587F00E53800 /* GameView.swift in Sources */,
 				EBC99A00232718C8006BA2E7 /* Board.swift in Sources */,
 				EB2AE08D2328153200A0D911 /* GameViewController.swift in Sources */,
+				EB748896232865B00043DF64 /* ScoreBox.swift in Sources */,
 				EBC999FE232593A0006BA2E7 /* TileStyle.swift in Sources */,
 				EBC999FC23259388006BA2E7 /* Tile.swift in Sources */,
 				EB9391052327C16E00BC8711 /* BoardViewModel.swift in Sources */,
