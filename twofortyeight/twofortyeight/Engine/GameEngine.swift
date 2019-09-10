@@ -69,17 +69,26 @@ class GameEngine {
     func push(_ board: [[Int]], to direction: Direction) -> [[Int]] {
         var newBoard = board
         var rotated = false
+        var flipped = false
         
         switch direction {
         case .right:
             rotated.toggle()
             newBoard = rotate(board)
         case .up: print("do nothing")
-        case .left: print("do nothing")
+        case .left:
+            newBoard = rotate(newBoard)
+            newBoard = flip(newBoard)
+            rotated.toggle()
+            flipped.toggle()
         case .down: print("do nothing") }
         
         for i in 0..<board.count {
             newBoard[i] = operate(board[i])
+        }
+        
+        if (flipped) {
+          newBoard = flip(newBoard)
         }
         
         if (rotated) {
