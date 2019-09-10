@@ -3,9 +3,9 @@ import Foundation
 
 class GameViewController: UIHostingController<GameView> {
     
-    private let viewModel: BoardViewModel
+    private let viewModel: GameViewModel
     
-    init(viewModel: BoardViewModel) {
+    init(viewModel: GameViewModel) {
         self.viewModel = viewModel
         super.init(rootView: GameView(viewModel: viewModel))
         

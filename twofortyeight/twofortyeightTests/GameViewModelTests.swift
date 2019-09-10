@@ -2,11 +2,11 @@ import XCTest
 import SwiftUI
 @testable import twofortyeight
 
-class BoardViewModelTests: XCTestCase {
+class GameViewModelTests: XCTestCase {
     
     func test_can_create_viewmodel() {
         let engine = GameEngine()
-        let viewModel = BoardViewModel(engine)
+        let viewModel = GameViewModel(engine)
         
         XCTAssertNotNil(viewModel)
         XCTAssertNotNil(viewModel.engine)
@@ -15,7 +15,7 @@ class BoardViewModelTests: XCTestCase {
     
     func test_can_reset_board() {
         let engine = GameEngineStub()
-        let viewModel = BoardViewModel(engine)
+        let viewModel = GameViewModel(engine)
         
         viewModel.reset()
         
@@ -24,7 +24,7 @@ class BoardViewModelTests: XCTestCase {
     
     func test_can_add_number_to_board() {
         let engine = GameEngine()
-        let viewModel = BoardViewModel(engine)
+        let viewModel = GameViewModel(engine)
         
         viewModel.addNumber()
         
@@ -34,7 +34,7 @@ class BoardViewModelTests: XCTestCase {
     
     func test_can_push_numbers_to_right() {
         let engine = GameEngineStub()
-        let viewModel = BoardViewModel(engine)
+        let viewModel = GameViewModel(engine)
         
         viewModel.push(.right)
         
@@ -46,7 +46,7 @@ class BoardViewModelTests: XCTestCase {
     
     func test_can_push_numbers_to_left() {
         let engine = GameEngineStub()
-        let viewModel = BoardViewModel(engine)
+        let viewModel = GameViewModel(engine)
         
         viewModel.push(.left)
         
@@ -58,7 +58,7 @@ class BoardViewModelTests: XCTestCase {
     
     func test_can_push_numbers_to_up() {
         let engine = GameEngineStub()
-        let viewModel = BoardViewModel(engine)
+        let viewModel = GameViewModel(engine)
         
         viewModel.push(.up)
 
@@ -75,7 +75,7 @@ class BoardViewModelTests: XCTestCase {
     
     func test_can_push_numbers_down() {
         let engine = GameEngineStub()
-        let viewModel = BoardViewModel(engine)
+        let viewModel = GameViewModel(engine)
         
         viewModel.push(.down)
 
@@ -92,7 +92,7 @@ class BoardViewModelTests: XCTestCase {
     
     func test_can_tell_if_the_game_is_over() {
         let engine = GameEngineStub()
-        let viewModel = BoardViewModelStub(engine)
+        let viewModel = GameViewModelStub(engine)
         viewModel.setGameOver()
         
         XCTAssertTrue(viewModel.engine.isGameOver(viewModel.board))
@@ -100,16 +100,28 @@ class BoardViewModelTests: XCTestCase {
     
     func test_can_score() {
         let engine = GameEngineStub()
-        let viewModel = BoardViewModelStub(engine)
+        let viewModel = GameViewModelStub(engine)
         viewModel.setCanScoreRight()
         
         viewModel.push(.right)
         
         XCTAssertEqual(viewModel.score, 4)
     }
+    
+    func test_can_save_best_score() {
+        let engine = GameEngineStub()
+        let viewModel = GameViewModelStub(engine)
+        viewModel.setCanScoreRight()
+        
+        viewModel.push(.right)
+        viewModel.reset()
+        
+        XCTAssertEqual(viewModel.score, 0)
+        XCTAssertEqual(viewModel.bestScore, 4)
+    }
 }
 
-class BoardViewModelStub: BoardViewModel {
+class GameViewModelStub: GameViewModel {
     private var _board = [[Int]]()
     
     override var board: [[Int]] {

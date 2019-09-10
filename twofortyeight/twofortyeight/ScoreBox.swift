@@ -18,7 +18,7 @@ struct ScoreBox: View {
                 .truncationMode(.tail)
                 .foregroundColor(.white)
         }
-        .frame(width: 90, height: 70)
+        .frame(width: 80, height: 60)
         .padding(8)
         .background(backgroundColor)
         .cornerRadius(6)

@@ -1,11 +1,16 @@
 import Combine
 
-class BoardViewModel: ObservableObject {
+class GameViewModel: ObservableObject {
     private(set) var engine: Engine
     private var boardHasChanged = false
     
     @Published private(set) var isGameOver = false
-    @Published private(set) var score = 0
+    @Published private(set) var score = 0 {
+        didSet {
+           bestScore = max(bestScore, score)
+        }
+    }
+    @Published private(set) var bestScore = 0
     @Published private(set) var board: [[Int]] {
         willSet { boardHasChanged = board != newValue }
         didSet { isGameOver = engine.isGameOver(board) }
@@ -30,5 +35,6 @@ class BoardViewModel: ObservableObject {
     
     func reset() {
         board = engine.blankBoard
+        score = .zero
     }
 }
