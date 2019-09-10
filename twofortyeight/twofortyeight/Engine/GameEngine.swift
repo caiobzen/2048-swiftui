@@ -8,6 +8,8 @@ enum Direction {
 }
 
 class GameEngine {
+    private let blankBoard = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+    
     func addNumber(to board: [[Int]]) -> [[Int]] {
         var newBoard = board
         var options: [(Int, Int)] = []
@@ -57,7 +59,7 @@ class GameEngine {
     }
 
     func rotate(_ board: [[Int]]) -> [[Int]] {
-        var newBoard = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+        var newBoard = blankBoard
         for i in 0..<board.count {
             for j in 0..<board[i].count {
                 newBoard[i][j] = board[j][i];
@@ -69,59 +71,67 @@ class GameEngine {
     func push(_ board: [[Int]], to direction: Direction) -> [[Int]] {
         switch direction {
         case .right:
-            return pushRight(board)
+            return board |> pushRight
         case .up:
-            return pushUp(board)
+            return board |> pushUp
         case .left:
-            return pushLeft(board)
+            return board |> pushLeft
         case .down:
-            return pushDown(board)
+            return board |> pushDown
         }
     }
 
     private func operateRows(on board: [[Int]]) -> [[Int]] {
         var newBoard = board
         for i in 0..<board.count {
-            newBoard[i] = operate(newBoard[i])
+            newBoard[i] = slideAndCombine(newBoard[i])
         }
         return newBoard
     }
+    
+    private func slideAndCombine(_ row: [Int]) -> [Int] {
+        row
+        |> slide
+        |> combine
+        |> slide
+    }
 
     private func pushUp(_ board: [[Int]]) -> [[Int]] {
-        var newBoard = flip(board)
-        newBoard = rotate(newBoard)
-        newBoard = operateRows(on: newBoard)
-        newBoard = flip(newBoard)
-        newBoard = rotate(newBoard)
-        newBoard = flip(newBoard)
-        
-        return newBoard
+        board
+        |> flip
+        |> rotate
+        |> operateRows
+        |> flip
+        |> rotate
+        |> flip
     }
 
     private func pushDown(_ board: [[Int]]) -> [[Int]] {
-        var newBoard = rotate(board)
-        newBoard = operateRows(on: newBoard)
-        newBoard = rotate(newBoard)
-        
-        return newBoard
+        board
+        |> rotate
+        |> operateRows
+        |> rotate
     }
 
     private func pushLeft(_ board: [[Int]]) -> [[Int]] {
-        var newBoard = flip(board)
-        newBoard = operateRows(on: newBoard)
-        newBoard = flip(newBoard)
-        return newBoard
+        board
+        |> flip
+        |> operateRows
+        |> flip
     }
 
     private func pushRight(_ board: [[Int]]) -> [[Int]] {
-        return operateRows(on: board)
+        board
+        |> operateRows
     }
+}
 
-    private func operate(_ row: [Int]) -> [Int] {
-        var newRow = row
-        newRow = slide(newRow)
-        newRow = combine(newRow)
-        newRow = slide(newRow)
-        return newRow
-    }
+precedencegroup ForwardApplication {
+    associativity: left
+}
+
+infix operator |>: ForwardApplication
+
+public func |> <A,B>(x: A, f:(A) -> B) -> B {
+    return f(x)
 }
