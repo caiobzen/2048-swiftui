@@ -4,125 +4,113 @@ import SwiftUI
 
 class GameViewModelTests: XCTestCase {
     
-    func test_can_create_viewmodel() {
-        let engine = GameEngine()
-        let viewModel = GameViewModel(engine, storage: MockStorage())
-        
-        XCTAssertNotNil(viewModel)
-        XCTAssertNotNil(viewModel.engine)
-        XCTAssertEqual(viewModel.board, engine.blankBoard)
+    var sut: GameViewModel!
+    
+    override func setUp() {
+        sut = GameViewModel(GameEngine(), storage: MockStorage())
     }
     
     func test_can_reset_board() {
-        let engine = GameEngine()
-        let viewModel = GameViewModel(engine, storage: MockStorage())
-        viewModel.addNumber()
-        viewModel.addNumber()
-        viewModel.addNumber()
+        sut.addNumber()
+        sut.addNumber()
+        sut.addNumber()
         
-        viewModel.reset()
+        sut.reset()
         
-        let number = viewModel.board.flatMap{ $0 }.reduce(0, +)
+        let number = sut.board.flatMap{ $0 }.reduce(0, +)
         XCTAssertTrue(number == 2 || number == 4)
     }
     
     func test_can_add_number_to_board() {
-        let engine = GameEngine()
-        let viewModel = GameViewModel(engine, storage: MockStorage())
+        sut.addNumber()
         
-        viewModel.addNumber()
-        
-        let hasNumber = viewModel.board.flatMap{ $0 }.reduce(0, +) != 0
+        let hasNumber = sut.board.flatMap{ $0 }.reduce(0, +) != 0
         XCTAssertTrue(hasNumber)
     }
     
     func test_can_push_numbers_to_right() {
-        let engine = GameEngineStub()
-        let viewModel = GameViewModel(engine, storage: MockStorage())
+        let sut = GameViewModel(GameEngineStub(), storage: MockStorage())
+
+        sut.push(.right)
         
-        viewModel.push(.right)
-        
-        XCTAssertEqual(viewModel.board[0][3], 4)
-        XCTAssertEqual(viewModel.board[1][3], 8)
-        XCTAssertEqual(viewModel.board[2][3], 16)
-        XCTAssertEqual(viewModel.board[3][3], 32)
+        XCTAssertEqual(sut.board[0][3], 4)
+        XCTAssertEqual(sut.board[1][3], 8)
+        XCTAssertEqual(sut.board[2][3], 16)
+        XCTAssertEqual(sut.board[3][3], 32)
     }
     
     func test_can_push_numbers_to_left() {
-        let engine = GameEngineStub()
-        let viewModel = GameViewModel(engine, storage: MockStorage())
+        let sut = GameViewModel(GameEngineStub(), storage: MockStorage())
         
-        viewModel.push(.left)
+        sut.push(.left)
         
-        XCTAssertEqual(viewModel.board[0][0], 4)
-        XCTAssertEqual(viewModel.board[1][0], 8)
-        XCTAssertEqual(viewModel.board[2][0], 16)
-        XCTAssertEqual(viewModel.board[3][0], 32)
+        XCTAssertEqual(sut.board[0][0], 4)
+        XCTAssertEqual(sut.board[1][0], 8)
+        XCTAssertEqual(sut.board[2][0], 16)
+        XCTAssertEqual(sut.board[3][0], 32)
     }
     
     func test_can_push_numbers_to_up() {
-        let engine = GameEngineStub()
-        let viewModel = GameViewModel(engine, storage: MockStorage())
+        let sut = GameViewModel(GameEngineStub(), storage: MockStorage())
         
-        viewModel.push(.up)
+        sut.push(.up)
 
-        XCTAssertEqual(viewModel.board[0][0], 8)
-        XCTAssertEqual(viewModel.board[0][1], 2)
-        XCTAssertEqual(viewModel.board[0][2], 4)
-        XCTAssertEqual(viewModel.board[0][3], 2)
+        XCTAssertEqual(sut.board[0][0], 8)
+        XCTAssertEqual(sut.board[0][1], 2)
+        XCTAssertEqual(sut.board[0][2], 4)
+        XCTAssertEqual(sut.board[0][3], 2)
         
-        XCTAssertEqual(viewModel.board[1][0], 16)
-        XCTAssertEqual(viewModel.board[1][1], 4)
-        XCTAssertEqual(viewModel.board[1][2], 16)
-        XCTAssertEqual(viewModel.board[1][3], 8)
+        XCTAssertEqual(sut.board[1][0], 16)
+        XCTAssertEqual(sut.board[1][1], 4)
+        XCTAssertEqual(sut.board[1][2], 16)
+        XCTAssertEqual(sut.board[1][3], 8)
     }
     
     func test_can_push_numbers_down() {
-        let engine = GameEngineStub()
-        let viewModel = GameViewModel(engine, storage: MockStorage())
+        let sut = GameViewModel(GameEngineStub(), storage: MockStorage())
         
-        viewModel.push(.down)
+        sut.push(.down)
 
-        XCTAssertEqual(viewModel.board[2][0], 8)
-        XCTAssertEqual(viewModel.board[2][1], 2)
-        XCTAssertEqual(viewModel.board[2][2], 4)
-        XCTAssertEqual(viewModel.board[2][3], 2)
+        XCTAssertEqual(sut.board[2][0], 8)
+        XCTAssertEqual(sut.board[2][1], 2)
+        XCTAssertEqual(sut.board[2][2], 4)
+        XCTAssertEqual(sut.board[2][3], 2)
         
-        XCTAssertEqual(viewModel.board[3][0], 16)
-        XCTAssertEqual(viewModel.board[3][1], 4)
-        XCTAssertEqual(viewModel.board[3][2], 16)
-        XCTAssertEqual(viewModel.board[3][3], 8)
+        XCTAssertEqual(sut.board[3][0], 16)
+        XCTAssertEqual(sut.board[3][1], 4)
+        XCTAssertEqual(sut.board[3][2], 16)
+        XCTAssertEqual(sut.board[3][3], 8)
     }
     
     func test_can_tell_if_the_game_is_over() {
-        let engine = GameEngineStub()
-        let viewModel = GameViewModelStub(engine, storage: MockStorage())
-        viewModel.setGameOver()
+        let sut = newViewModelStub()
+        sut.setGameOver()
         
-        XCTAssertTrue(viewModel.engine.isGameOver(viewModel.board))
+        XCTAssertTrue(sut.engine.isGameOver(sut.board))
     }
     
     func test_can_score() {
-        let engine = GameEngineStub()
-        let viewModel = GameViewModelStub(engine, storage: MockStorage())
-        viewModel.setCanScoreRight()
+        let sut = newViewModelStub()
+        sut.setCanScoreFour()
         
-        viewModel.push(.right)
+        sut.push(.right)
         
-        XCTAssertEqual(viewModel.score, 4)
+        XCTAssertEqual(sut.score, 4)
     }
     
     func test_can_save_best_score() {
-        let engine = GameEngineStub()
-        let storage = MockStorage()
-        let viewModel = GameViewModelStub(engine, storage: storage)
-        viewModel.setCanScoreRight()
+        let sut = newViewModelStub()
+        sut.setCanScoreFour()
         
-        viewModel.push(.right)
-        viewModel.reset()
+        sut.push(.right)
+        sut.reset()
         
-        XCTAssertEqual(viewModel.score, 0)
-        XCTAssertEqual(viewModel.bestScore, 4)
+        XCTAssertEqual(sut.score, 0)
+        XCTAssertEqual(sut.bestScore, 4)
+    }
+    
+    private func newViewModelStub() -> GameViewModelStub {
+        GameViewModelStub(GameEngineStub(), storage: MockStorage())
     }
 }
 
@@ -152,8 +140,8 @@ class GameViewModelStub: GameViewModel {
             [16,2,16,2]
         ]
     }
-    
-    func setCanScoreRight() {
+
+    func setCanScoreFour() {
         _board = [
             [2,2,0,0],
             [0,0,0,0],
