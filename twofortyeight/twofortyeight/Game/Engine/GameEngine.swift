@@ -17,30 +17,13 @@ enum Direction {
 }
 
 class GameEngine: Engine {
-    let blankBoard = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+    let blankBoard = Array(repeating: [0,0,0,0], count: 4)
     var points = 0
-    
+        
     func isGameOver(_ board: Matrix) -> Bool {
-        var isOver = true
-        for row in 0..<board.count {
-            for column in 0..<board[row].count {
-                if board[row][column] == 0 {
-                    isOver = false
-                    break
-                }
-                
-                let canCombineRow = row != board.count - 1 && board[row][column] == board[row+1][column]
-                let canCombineColumn = column != board.count - 1 && board[row][column] == board[row][column+1]
-                
-                if canCombineRow || canCombineColumn {
-                    isOver = false
-                    break
-                }
-            }
-        }
-        return isOver
+        board.canCombineValues == false
     }
-    
+
     func addNumber(_ board: Matrix) -> Matrix {
         var newBoard = board
         var options: [(Int, Int)] = []
