@@ -14,12 +14,16 @@ class GameViewModelTests: XCTestCase {
     }
     
     func test_can_reset_board() {
-        let engine = GameEngineStub()
+        let engine = GameEngine()
         let viewModel = GameViewModel(engine)
+        viewModel.addNumber()
+        viewModel.addNumber()
+        viewModel.addNumber()
         
         viewModel.reset()
         
-        XCTAssertEqual(viewModel.board, engine.blankBoard)
+        let number = viewModel.board.flatMap{ $0 }.reduce(0, +)
+        XCTAssertTrue(number == 2 || number == 4)
     }
     
     func test_can_add_number_to_board() {

@@ -4,7 +4,7 @@ class GameViewModel: ObservableObject {
     private(set) var engine: Engine
     private var boardHasChanged = false
     
-    @Published private(set) var isGameOver = false
+    @Published var isGameOver = false
     @Published private(set) var score = 0 {
         didSet {
            bestScore = max(bestScore, score)
@@ -36,5 +36,6 @@ class GameViewModel: ObservableObject {
     func reset() {
         board = engine.blankBoard
         score = .zero
+        addNumber()
     }
 }

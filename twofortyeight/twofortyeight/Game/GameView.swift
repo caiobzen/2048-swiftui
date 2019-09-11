@@ -2,17 +2,14 @@ import SwiftUI
 
 struct GameView: View {
     @ObservedObject var viewModel: GameViewModel
+    @State var isGameOver = false
     
     private let backgroundColor = Color(red: 251/255, green: 248/255, blue: 240/255)
     
     var body: some View {
         VStack(alignment: .center) {
-            if viewModel.isGameOver {
-                Text("GAME OVER!")
-                    .foregroundColor(.black)
-            }
-            
             Spacer()
+            
             HStack(alignment: .top) {
                 YellowBlock()
                 HStack {
@@ -31,6 +28,11 @@ struct GameView: View {
                maxHeight: .infinity,
                alignment: .center)
         .background(backgroundColor)
+        .sheet(isPresented: $viewModel.isGameOver) {
+            GameOverView(score: self.viewModel.score) {
+                self.viewModel.reset()
+            }
+        }
     }
 }
 
