@@ -22,15 +22,7 @@ struct GameOverView: View {
             .background(Color(white: 0.5))
             .cornerRadius(6)
                                     
-            Button(action: action) {
-                Text("NEW GAME")
-                .font(.title)
-                .fontWeight(.black)
-                .foregroundColor(.white)
-                .padding(12)
-                .background(Color(white: 0.3))
-                .cornerRadius(6)
-            }
+            ActionButton(title: "NEW GAME", action: action)
         }
     }
 }

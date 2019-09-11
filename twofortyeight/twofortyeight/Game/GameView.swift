@@ -2,12 +2,18 @@ import SwiftUI
 
 struct GameView: View {
     @ObservedObject var viewModel: GameViewModel
-    @State var isGameOver = false
+    @State var showMenu = false
     
     private let backgroundColor = Color(red: 251/255, green: 248/255, blue: 240/255)
     
     var body: some View {
         VStack(alignment: .center) {
+            Spacer()
+
+            ActionButton(title: "MENU") {
+                self.showMenu.toggle()
+            }
+            
             Spacer()
             
             HStack(alignment: .top) {
@@ -31,6 +37,12 @@ struct GameView: View {
         .sheet(isPresented: $viewModel.isGameOver) {
             GameOverView(score: self.viewModel.score) {
                 self.viewModel.reset()
+            }
+        }
+        .sheet(isPresented: $showMenu) {
+            MenuView {
+                self.viewModel.reset()
+                self.showMenu.toggle()
             }
         }
     }
