@@ -15,6 +15,7 @@ struct ScoreBox: View {
             Text(score.description)
                 .font(.title)
                 .bold()
+                .minimumScaleFactor(0.9)
                 .truncationMode(.tail)
                 .foregroundColor(.white)
         }
