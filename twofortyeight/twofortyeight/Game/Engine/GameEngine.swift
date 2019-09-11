@@ -30,16 +30,7 @@ class GameEngine: Engine {
 
     func addNumber(_ board: Matrix) -> Matrix {
         var newBoard = board
-        var options: [(Int, Int)] = []
 
-        for row in 0..<newBoard.count {
-            for column in 0..<newBoard[row].count {
-                if newBoard[row, column] == 0 {
-                    options.append((row,column))
-                }
-            }
-        }
-    
         if let spot = board.randomIndex(for: 0) {
             newBoard[spot.0, spot.1] = zeroOrTwo
         }

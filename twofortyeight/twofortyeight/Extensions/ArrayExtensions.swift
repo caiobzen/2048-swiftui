@@ -2,19 +2,19 @@ import Foundation
 
 extension Array where Iterator.Element == [Int] {
     subscript(row: Int, column: Int) -> Int {
-           get {
-               return self[row][column]
-           }
-           set {
-               self[row][column] = newValue
-           }
+        get {
+            return self[row][column]
+        }
+        set {
+            self[row][column] = newValue
+        }
     }
     
     func randomIndex(for value: Int) -> (Int, Int)? {
-        indexesWith(value: value).randomElement()
+        indexesWith(value).randomElement()
     }
     
-    private func indexesWith(value: Int) -> [(Int, Int)] {
+    private func indexesWith(_ value: Int) -> [(Int, Int)] {
         var indexes:[(Int, Int)] = []
         
         for row in 0..<count {
@@ -26,10 +26,6 @@ extension Array where Iterator.Element == [Int] {
         }
         
         return indexes
-    }
-    
-    var hasZeros: Bool {
-        joined().contains(0)
     }
     
     var canCombineValues: Bool {
@@ -44,6 +40,10 @@ extension Array where Iterator.Element == [Int] {
         return false
     }
     
+    private var hasZeros: Bool {
+        joined().contains(0)
+    }
+    
     func canCombineItemAt(row: Int, column: Int) -> Bool {
         let verticallyCombinable = canCombineVertically(row: row, column: column)
         let horizontallyCombinable = canCombineHorizontally(row: row, column: column)
@@ -51,10 +51,10 @@ extension Array where Iterator.Element == [Int] {
     }
     
     private func canCombineVertically(row: Int, column: Int) -> Bool {
-       row != count - 1 && self[row][column] == self[row+1][column]
+        row != count - 1 && self[row][column] == self[row+1][column]
     }
     
     private func canCombineHorizontally(row: Int, column: Int) -> Bool {
-       column != count - 1 && self[row][column] == self[row][column+1]
+        column != count - 1 && self[row][column] == self[row][column+1]
     }
 }
