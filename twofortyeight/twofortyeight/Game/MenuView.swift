@@ -4,7 +4,7 @@ struct MenuView: View {
     let newGameAction: () -> ()
     
     var body: some View {
-        VStack {
+        VStack(alignment: .center, spacing: 16) {
             Text("MENU")
                 .font(.largeTitle)
                 .fontWeight(.black)
@@ -17,6 +17,8 @@ struct MenuView: View {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView { }
+        Group {
+            MenuView { }
+        }
     }
 }

@@ -9,17 +9,14 @@ struct GameView: View {
     var body: some View {
         VStack(alignment: .center) {
             Spacer()
-
-            ActionButton(title: "MENU") {
-                self.showMenu.toggle()
-            }
-            
-            Spacer()
             
             HStack(alignment: .top) {
                 YellowBlock()
-                HStack {
-                    ScoreBox(title: "SCORE", score: viewModel.score)
+                HStack(alignment: .top) {
+                    VStack(alignment: .center, spacing: 10) {
+                        ScoreBox(title: "SCORE", score: viewModel.score)
+                        SmallActionButton(title: "MENU") { self.showMenu.toggle() }
+                    }
                     ScoreBox(title: "BEST", score: viewModel.bestScore)
                 }
             }
@@ -34,15 +31,25 @@ struct GameView: View {
                maxHeight: .infinity,
                alignment: .center)
         .background(backgroundColor)
-        .sheet(isPresented: $viewModel.isGameOver) {
-            GameOverView(score: self.viewModel.score) {
-                self.viewModel.reset()
-            }
-        }
-        .popover(isPresented: $showMenu) {
+        .background(Menu())
+        .background(GameOver())
+    }
+}
+
+extension GameView {
+    private func Menu() -> some View {
+        EmptyView().sheet(isPresented: $showMenu) {
             MenuView {
                 self.viewModel.reset()
                 self.showMenu.toggle()
+            }
+        }
+    }
+    
+    private func GameOver() -> some View {
+        EmptyView().sheet(isPresented: $viewModel.isGameOver) {
+            GameOverView(score: self.viewModel.score) {
+                self.viewModel.reset()
             }
         }
     }

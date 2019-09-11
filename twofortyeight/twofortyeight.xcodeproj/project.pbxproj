@@ -15,6 +15,7 @@
 		EB74889F232876930043DF64 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74889E232876930043DF64 /* GameOverView.swift */; };
 		EB7488A123287CE80043DF64 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7488A023287CE80043DF64 /* MenuView.swift */; };
 		EB7488A323287D090043DF64 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7488A223287D090043DF64 /* ActionButton.swift */; };
+		EB7488A5232885960043DF64 /* SmallActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7488A4232885960043DF64 /* SmallActionButton.swift */; };
 		EB9391032327C0E700BC8711 /* GameViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9391022327C0E700BC8711 /* GameViewModelTests.swift */; };
 		EBC999CC2325932E006BA2E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC999CB2325932E006BA2E7 /* AppDelegate.swift */; };
 		EBC999CE2325932E006BA2E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC999CD2325932E006BA2E7 /* SceneDelegate.swift */; };
@@ -56,6 +57,7 @@
 		EB74889E232876930043DF64 /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
 		EB7488A023287CE80043DF64 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		EB7488A223287D090043DF64 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		EB7488A4232885960043DF64 /* SmallActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallActionButton.swift; sourceTree = "<group>"; };
 		EB9391022327C0E700BC8711 /* GameViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModelTests.swift; sourceTree = "<group>"; };
 		EBC999C82325932E006BA2E7 /* twofortyeight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twofortyeight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBC999CB2325932E006BA2E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				EB748895232865B00043DF64 /* ScoreBox.swift */,
 				EB74889923286EAD0043DF64 /* YellowBlock.swift */,
 				EB7488A223287D090043DF64 /* ActionButton.swift */,
+				EB7488A4232885960043DF64 /* SmallActionButton.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				EBC99A0723271AB4006BA2E7 /* GameEngine.swift in Sources */,
 				EB74889823286BF80043DF64 /* GameViewModel.swift in Sources */,
 				EBC999CE2325932E006BA2E7 /* SceneDelegate.swift in Sources */,
+				EB7488A5232885960043DF64 /* SmallActionButton.swift in Sources */,
 				EBFADE512328587F00E53800 /* GameView.swift in Sources */,
 				EBC99A00232718C8006BA2E7 /* Board.swift in Sources */,
 				EB7488A123287CE80043DF64 /* MenuView.swift in Sources */,
