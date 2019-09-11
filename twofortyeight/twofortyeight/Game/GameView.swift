@@ -22,6 +22,14 @@ struct GameView: View {
             }
             
             Spacer()
+            
+            HStack (alignment: .center, spacing: 4) {
+                Text("Join the numbers and get to the")
+                Text("2048 tile!") .bold()
+            }
+            .font(.subheadline)
+            .foregroundColor(.init(white: 0.4))
+
             Board(board: viewModel.board)
             Spacer()
         }
