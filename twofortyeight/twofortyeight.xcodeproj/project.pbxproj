@@ -48,7 +48,7 @@
 		EB2AE08C2328153200A0D911 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		EB2AE08E232826AE00A0D911 /* SwipeGestureWithDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeGestureWithDirection.swift; sourceTree = "<group>"; };
 		EB748895232865B00043DF64 /* ScoreBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBox.swift; sourceTree = "<group>"; };
-		EB74889723286BF80043DF64 /* GameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewModel.swift; path = Board/GameViewModel.swift; sourceTree = "<group>"; };
+		EB74889723286BF80043DF64 /* GameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		EB74889923286EAD0043DF64 /* YellowBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowBlock.swift; sourceTree = "<group>"; };
 		EB9391022327C0E700BC8711 /* GameViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModelTests.swift; sourceTree = "<group>"; };
 		EBC999C82325932E006BA2E7 /* twofortyeight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twofortyeight.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +96,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB74889B2328725D0043DF64 /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				EBC99A0223271A18006BA2E7 /* Board */,
+				EB748895232865B00043DF64 /* ScoreBox.swift */,
+				EB74889923286EAD0043DF64 /* YellowBlock.swift */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
+		EB74889C2328727C0043DF64 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				EB74889723286BF80043DF64 /* GameViewModel.swift */,
+				EB2AE08C2328153200A0D911 /* GameViewController.swift */,
+				EBFADE502328587F00E53800 /* GameView.swift */,
+				EB74889B2328725D0043DF64 /* UIElements */,
+				EBC99A0523271AA4006BA2E7 /* Engine */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		EB74889D232872B00043DF64 /* Gestures */ = {
+			isa = PBXGroup;
+			children = (
+				EB2AE08E232826AE00A0D911 /* SwipeGestureWithDirection.swift */,
+			);
+			name = Gestures;
+			sourceTree = "<group>";
+		};
 		EBC999BF2325932E006BA2E7 = {
 			isa = PBXGroup;
 			children = (
@@ -119,14 +149,8 @@
 		EBC999CA2325932E006BA2E7 /* twofortyeight */ = {
 			isa = PBXGroup;
 			children = (
-				EB74889723286BF80043DF64 /* GameViewModel.swift */,
-				EB2AE08C2328153200A0D911 /* GameViewController.swift */,
-				EBFADE502328587F00E53800 /* GameView.swift */,
-				EB748895232865B00043DF64 /* ScoreBox.swift */,
-				EB74889923286EAD0043DF64 /* YellowBlock.swift */,
-				EBC99A0523271AA4006BA2E7 /* Engine */,
-				EBC99A0223271A18006BA2E7 /* Board */,
-				EB2AE08E232826AE00A0D911 /* SwipeGestureWithDirection.swift */,
+				EB74889C2328727C0043DF64 /* Game */,
+				EB74889D232872B00043DF64 /* Gestures */,
 				EBC999CB2325932E006BA2E7 /* AppDelegate.swift */,
 				EBC999CD2325932E006BA2E7 /* SceneDelegate.swift */,
 				EBC999D123259330006BA2E7 /* Assets.xcassets */,
@@ -176,8 +200,8 @@
 		EBC99A0223271A18006BA2E7 /* Board */ = {
 			isa = PBXGroup;
 			children = (
-				EBC99A0123271A08006BA2E7 /* Tile */,
 				EBC999FF232718C8006BA2E7 /* Board.swift */,
+				EBC99A0123271A08006BA2E7 /* Tile */,
 			);
 			path = Board;
 			sourceTree = "<group>";
