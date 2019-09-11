@@ -39,7 +39,7 @@ struct GameView: View {
                 self.viewModel.reset()
             }
         }
-        .sheet(isPresented: $showMenu) {
+        .popover(isPresented: $showMenu) {
             MenuView {
                 self.viewModel.reset()
                 self.showMenu.toggle()

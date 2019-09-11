@@ -1,4 +1,5 @@
 import Combine
+import UIKit
 
 class GameViewModel: ObservableObject {
     private(set) var engine: Engine
@@ -23,6 +24,7 @@ class GameViewModel: ObservableObject {
     
     func addNumber() {
         board = engine.addNumber(board)
+        UIImpactFeedbackGenerator().impactOccurred()
     }
     
     func push(_ direction: Direction) {
