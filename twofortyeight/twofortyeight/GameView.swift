@@ -2,6 +2,7 @@ import SwiftUI
 
 struct GameView: View {
     @ObservedObject var viewModel: GameViewModel
+    
     private let backgroundColor = Color(red: 251/255, green: 248/255, blue: 240/255)
     
     var body: some View {
@@ -11,12 +12,18 @@ struct GameView: View {
                     .foregroundColor(.black)
             }
             
-            HStack {
-                ScoreBox(title: "SCORE", score: viewModel.score)
-                ScoreBox(title: "BEST", score: viewModel.bestScore)
+            Spacer()
+            HStack(alignment: .top) {
+                YellowBlock()
+                HStack {
+                    ScoreBox(title: "SCORE", score: viewModel.score)
+                    ScoreBox(title: "BEST", score: viewModel.bestScore)
+                }
             }
             
+            Spacer()
             Board(board: viewModel.board)
+            Spacer()
         }
         .frame(minWidth: 0,
                maxWidth: .infinity,

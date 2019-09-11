@@ -15,9 +15,9 @@ struct Tile: View {
         Text(title)
             .fontWeight(.black)
             .minimumScaleFactor(0.4)
-            .font(.title)
+            .font(.largeTitle)
             .padding(4)
-            .frame(width: 50, height: 50)
+            .frame(width: 70, height: 70)
             .background(style.backgroundColor)
             .foregroundColor(style.foregroundColor)
             .cornerRadius(3)
@@ -37,7 +37,7 @@ struct Tile_Previews: PreviewProvider {
             Tile(128)
             Tile(2048)
         }
-        .previewLayout(.fixed(width: 80, height: 80))
+        .previewLayout(.fixed(width: 100, height: 100))
     }
 }
 #endif
