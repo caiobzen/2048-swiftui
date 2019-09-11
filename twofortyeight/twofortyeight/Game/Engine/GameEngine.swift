@@ -23,6 +23,10 @@ class GameEngine: Engine {
     func isGameOver(_ board: Matrix) -> Bool {
         board.canCombineValues == false
     }
+    
+    private var zeroOrTwo: Int {
+        arc4random_uniform(2) > 0 ? 2 : 4
+    }
 
     func addNumber(_ board: Matrix) -> Matrix {
         var newBoard = board
@@ -30,14 +34,14 @@ class GameEngine: Engine {
 
         for row in 0..<newBoard.count {
             for column in 0..<newBoard[row].count {
-                if newBoard[row][column] == 0 {
+                if newBoard[row, column] == 0 {
                     options.append((row,column))
                 }
             }
         }
     
-        if let spot = options.randomElement() {
-            newBoard[spot.0][spot.1] = arc4random_uniform(2) > 0 ? 2 : 4
+        if let spot = board.randomIndex(for: 0) {
+            newBoard[spot.0, spot.1] = zeroOrTwo
         }
 
         return newBoard

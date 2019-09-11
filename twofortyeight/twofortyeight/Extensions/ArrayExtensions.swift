@@ -10,6 +10,24 @@ extension Array where Iterator.Element == [Int] {
            }
     }
     
+    func randomIndex(for value: Int) -> (Int, Int)? {
+        indexesWith(value: value).randomElement()
+    }
+    
+    private func indexesWith(value: Int) -> [(Int, Int)] {
+        var indexes:[(Int, Int)] = []
+        
+        for row in 0..<count {
+            for column in 0..<[row].count {
+                if self[row, column] == value {
+                    indexes.append((row,column))
+                }
+            }
+        }
+        
+        return indexes
+    }
+    
     var hasZeros: Bool {
         joined().contains(0)
     }
