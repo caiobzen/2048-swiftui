@@ -28,6 +28,7 @@
 		EBC99A00232718C8006BA2E7 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC999FF232718C8006BA2E7 /* Board.swift */; };
 		EBC99A0423271A7C006BA2E7 /* GameEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC99A0323271A7C006BA2E7 /* GameEngineTests.swift */; };
 		EBC99A0723271AB4006BA2E7 /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC99A0623271AB4006BA2E7 /* GameEngine.swift */; };
+		EBE7692D23288B5A00BEED35 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7692C23288B5A00BEED35 /* LocalStorage.swift */; };
 		EBFADE512328587F00E53800 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFADE502328587F00E53800 /* GameView.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		EBC999FF232718C8006BA2E7 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		EBC99A0323271A7C006BA2E7 /* GameEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngineTests.swift; sourceTree = "<group>"; };
 		EBC99A0623271AB4006BA2E7 /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
+		EBE7692C23288B5A00BEED35 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		EBFADE502328587F00E53800 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,11 +109,10 @@
 		EB74889B2328725D0043DF64 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				EBE7693123288BA500BEED35 /* Content */,
+				EBE7692F23288B7F00BEED35 /* Sheets */,
 				EBC99A0223271A18006BA2E7 /* Board */,
-				EB748895232865B00043DF64 /* ScoreBox.swift */,
-				EB74889923286EAD0043DF64 /* YellowBlock.swift */,
-				EB7488A223287D090043DF64 /* ActionButton.swift */,
-				EB7488A4232885960043DF64 /* SmallActionButton.swift */,
+				EBE7693023288B9200BEED35 /* Widgets */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -121,11 +122,9 @@
 			children = (
 				EB74889723286BF80043DF64 /* GameViewModel.swift */,
 				EB2AE08C2328153200A0D911 /* GameViewController.swift */,
-				EBFADE502328587F00E53800 /* GameView.swift */,
-				EB7488A023287CE80043DF64 /* MenuView.swift */,
-				EB74889E232876930043DF64 /* GameOverView.swift */,
 				EB74889B2328725D0043DF64 /* UIElements */,
 				EBC99A0523271AA4006BA2E7 /* Engine */,
+				EBE7692E23288B6600BEED35 /* Storage */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -224,6 +223,42 @@
 				EBC99A0623271AB4006BA2E7 /* GameEngine.swift */,
 			);
 			path = Engine;
+			sourceTree = "<group>";
+		};
+		EBE7692E23288B6600BEED35 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				EBE7692C23288B5A00BEED35 /* LocalStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		EBE7692F23288B7F00BEED35 /* Sheets */ = {
+			isa = PBXGroup;
+			children = (
+				EB7488A023287CE80043DF64 /* MenuView.swift */,
+				EB74889E232876930043DF64 /* GameOverView.swift */,
+			);
+			path = Sheets;
+			sourceTree = "<group>";
+		};
+		EBE7693023288B9200BEED35 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				EB748895232865B00043DF64 /* ScoreBox.swift */,
+				EB74889923286EAD0043DF64 /* YellowBlock.swift */,
+				EB7488A223287D090043DF64 /* ActionButton.swift */,
+				EB7488A4232885960043DF64 /* SmallActionButton.swift */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+		EBE7693123288BA500BEED35 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				EBFADE502328587F00E53800 /* GameView.swift */,
+			);
+			path = Content;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,6 +405,7 @@
 				EB74889A23286EAD0043DF64 /* YellowBlock.swift in Sources */,
 				EB2AE08D2328153200A0D911 /* GameViewController.swift in Sources */,
 				EB748896232865B00043DF64 /* ScoreBox.swift in Sources */,
+				EBE7692D23288B5A00BEED35 /* LocalStorage.swift in Sources */,
 				EBC999FE232593A0006BA2E7 /* TileStyle.swift in Sources */,
 				EB74889F232876930043DF64 /* GameOverView.swift in Sources */,
 				EBC999FC23259388006BA2E7 /* Tile.swift in Sources */,

@@ -65,6 +65,6 @@ extension GameView {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(viewModel: GameViewModel(GameEngine()))
+        GameView(viewModel: GameViewModel(GameEngine(), storage: LocalStorage()))
     }
 }

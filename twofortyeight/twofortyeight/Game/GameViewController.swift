@@ -2,7 +2,6 @@ import SwiftUI
 import Foundation
 
 class GameViewController: UIHostingController<GameView> {
-    
     private let viewModel: GameViewModel
     
     init(viewModel: GameViewModel) {
@@ -12,11 +11,7 @@ class GameViewController: UIHostingController<GameView> {
         setupGestures()
         viewModel.addNumber()
     }
-    
-    @objc required dynamic init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+        
     private func setupGestures() {
         view.addGestureRecognizer(SwipeGestureWithDirection(.left) { [weak self] in
             self?.viewModel.push(.left)
@@ -30,5 +25,9 @@ class GameViewController: UIHostingController<GameView> {
         view.addGestureRecognizer(SwipeGestureWithDirection(.down) { [weak self] in
             self?.viewModel.push(.down)
         })
+    }
+    
+    @objc required dynamic init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

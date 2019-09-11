@@ -6,7 +6,7 @@ class GameViewModelTests: XCTestCase {
     
     func test_can_create_viewmodel() {
         let engine = GameEngine()
-        let viewModel = GameViewModel(engine)
+        let viewModel = GameViewModel(engine, storage: MockStorage())
         
         XCTAssertNotNil(viewModel)
         XCTAssertNotNil(viewModel.engine)
@@ -15,7 +15,7 @@ class GameViewModelTests: XCTestCase {
     
     func test_can_reset_board() {
         let engine = GameEngine()
-        let viewModel = GameViewModel(engine)
+        let viewModel = GameViewModel(engine, storage: MockStorage())
         viewModel.addNumber()
         viewModel.addNumber()
         viewModel.addNumber()
@@ -28,7 +28,7 @@ class GameViewModelTests: XCTestCase {
     
     func test_can_add_number_to_board() {
         let engine = GameEngine()
-        let viewModel = GameViewModel(engine)
+        let viewModel = GameViewModel(engine, storage: MockStorage())
         
         viewModel.addNumber()
         
@@ -38,7 +38,7 @@ class GameViewModelTests: XCTestCase {
     
     func test_can_push_numbers_to_right() {
         let engine = GameEngineStub()
-        let viewModel = GameViewModel(engine)
+        let viewModel = GameViewModel(engine, storage: MockStorage())
         
         viewModel.push(.right)
         
@@ -50,7 +50,7 @@ class GameViewModelTests: XCTestCase {
     
     func test_can_push_numbers_to_left() {
         let engine = GameEngineStub()
-        let viewModel = GameViewModel(engine)
+        let viewModel = GameViewModel(engine, storage: MockStorage())
         
         viewModel.push(.left)
         
@@ -62,7 +62,7 @@ class GameViewModelTests: XCTestCase {
     
     func test_can_push_numbers_to_up() {
         let engine = GameEngineStub()
-        let viewModel = GameViewModel(engine)
+        let viewModel = GameViewModel(engine, storage: MockStorage())
         
         viewModel.push(.up)
 
@@ -79,7 +79,7 @@ class GameViewModelTests: XCTestCase {
     
     func test_can_push_numbers_down() {
         let engine = GameEngineStub()
-        let viewModel = GameViewModel(engine)
+        let viewModel = GameViewModel(engine, storage: MockStorage())
         
         viewModel.push(.down)
 
@@ -96,7 +96,7 @@ class GameViewModelTests: XCTestCase {
     
     func test_can_tell_if_the_game_is_over() {
         let engine = GameEngineStub()
-        let viewModel = GameViewModelStub(engine)
+        let viewModel = GameViewModelStub(engine, storage: MockStorage())
         viewModel.setGameOver()
         
         XCTAssertTrue(viewModel.engine.isGameOver(viewModel.board))
@@ -104,7 +104,7 @@ class GameViewModelTests: XCTestCase {
     
     func test_can_score() {
         let engine = GameEngineStub()
-        let viewModel = GameViewModelStub(engine)
+        let viewModel = GameViewModelStub(engine, storage: MockStorage())
         viewModel.setCanScoreRight()
         
         viewModel.push(.right)
@@ -113,9 +113,9 @@ class GameViewModelTests: XCTestCase {
     }
     
     func test_can_save_best_score() {
-        UserDefaults().setValue(0, forKey: "bestScore")
         let engine = GameEngineStub()
-        let viewModel = GameViewModelStub(engine)
+        let storage = MockStorage()
+        let viewModel = GameViewModelStub(engine, storage: storage)
         viewModel.setCanScoreRight()
         
         viewModel.push(.right)
@@ -123,6 +123,17 @@ class GameViewModelTests: XCTestCase {
         
         XCTAssertEqual(viewModel.score, 0)
         XCTAssertEqual(viewModel.bestScore, 4)
+    }
+}
+
+class MockStorage: Storage {
+    var savedScore = 0
+    func save(_ score: Int) {
+        savedScore = score
+    }
+    
+    var bestScore: Int {
+        return savedScore
     }
 }
 
