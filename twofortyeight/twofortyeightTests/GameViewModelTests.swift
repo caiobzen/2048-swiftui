@@ -113,6 +113,7 @@ class GameViewModelTests: XCTestCase {
     }
     
     func test_can_save_best_score() {
+        UserDefaults().setValue(0, forKey: "bestScore")
         let engine = GameEngineStub()
         let viewModel = GameViewModelStub(engine)
         viewModel.setCanScoreRight()

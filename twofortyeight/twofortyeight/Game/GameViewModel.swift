@@ -7,19 +7,22 @@ class GameViewModel: ObservableObject {
     
     @Published var isGameOver = false
     @Published private(set) var score = 0 {
-        didSet {
-           bestScore = max(bestScore, score)
-        }
+        didSet { bestScore = max(bestScore, score) }
     }
-    @Published private(set) var bestScore = 0
+    @Published private(set) var bestScore = 0 {
+        didSet { persistBestScore() }
+    }
     @Published private(set) var board: [[Int]] {
         willSet { boardHasChanged = board != newValue }
         didSet { isGameOver = engine.isGameOver(board) }
     }
     
+    private let bestScoreKey = "bestScore"
+    
     init(_ engine: Engine) {
         self.engine = engine
         self.board = engine.blankBoard
+        self.bestScore = max(storedBestScore, 0)
     }
     
     func addNumber() {
@@ -39,5 +42,13 @@ class GameViewModel: ObservableObject {
         board = engine.blankBoard
         score = .zero
         addNumber()
+    }
+    
+    private var storedBestScore: Int {
+        return UserDefaults().integer(forKey: bestScoreKey)
+    }
+    
+    private func persistBestScore() {
+        UserDefaults().set(bestScore, forKey: bestScoreKey)
     }
 }
