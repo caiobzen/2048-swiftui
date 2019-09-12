@@ -25,7 +25,7 @@ class GameEngineTests: XCTestCase {
     func test_can_add_number() {
         let board = Array(repeating: [0,0,0,0], count: 4)
         
-        let newBoard = engine.addNumber(board)
+        let newBoard = engine.addNumber(board).newBoard
         let hasNumber = newBoard.flatMap{ $0 }.reduce(0, +) != 0
         
         XCTAssertTrue(hasNumber)

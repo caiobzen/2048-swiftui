@@ -156,7 +156,7 @@ class GameEngineStub: Engine {
         GameEngine().isGameOver(board)
     }
     
-    func addNumber(_ board: [[Int]]) -> [[Int]] {
+    func addNumber(_ board: Matrix) -> (newBoard: Matrix, addedTile: (Int, Int)?) {
         GameEngine().addNumber(board)
     }
     

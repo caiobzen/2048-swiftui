@@ -2,14 +2,21 @@ import SwiftUI
 
 struct Board: View {
     var board: Matrix
+    var addedTile: (Int, Int)? = nil
     private let backgroundColor = Color(red: 183/255, green: 173/255, blue: 162/255)
+    
+    private func wasAdded(row: Int, column: Int) -> Bool {
+        addedTile?.0 == row && addedTile?.1 == column
+    }
     
     var body: some View {
         VStack {
             VStack {
-                ForEach(board, id: \.self) { row in
+                ForEach(0..<self.board.count, id: \.self) { row in
                     HStack {
-                        ForEach(row, id: \.self) { Tile($0) }
+                        ForEach(0..<self.board[row].count, id: \.self) { column in
+                            return Tile(self.board[row, column], wasAdded: self.wasAdded(row: row, column: column))
+                        }
                     }
                     .padding(4)
                 }

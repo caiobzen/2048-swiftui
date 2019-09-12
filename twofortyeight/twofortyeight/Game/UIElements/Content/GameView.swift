@@ -30,7 +30,7 @@ struct GameView: View {
             .font(.subheadline)
             .foregroundColor(.init(white: 0.4))
 
-            Board(board: viewModel.board)
+            Board(board: viewModel.board, addedTile: viewModel.addedTile)
             Spacer()
         }
         .frame(minWidth: 0,

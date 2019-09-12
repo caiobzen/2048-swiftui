@@ -2,25 +2,37 @@ import SwiftUI
 
 struct Tile: View {
     let value: Int
+    let wasAdded: Bool
     private let style: TileStyle
     private let title: String
+    private let size: CGFloat = 70.0
     
-    init(_ value: Int) {
+    init(_ value: Int, wasAdded: Bool = false) {
+        self.wasAdded = wasAdded
         self.value = value
         style = TileStyle(value)
         title = value == 0 ? "" : value.description
     }
     
+    private var fontSize: CGFloat {
+        switch value.digits {
+        case 1, 2:
+            return 30
+        case 3:
+            return 28
+        default:
+            return 22
+        }
+    }
+
     var body: some View {
         Text(title)
-            .fontWeight(.black)
-            .minimumScaleFactor(0.4)
-            .font(.largeTitle)
-            .padding(4)
-            .frame(width: 70, height: 70)
-            .background(style.backgroundColor)
+            .font(.system(size: fontSize, weight: .black, design: .rounded))
             .foregroundColor(style.foregroundColor)
             .cornerRadius(3)
+            .frame(width: size, height: size)
+            .background(style.backgroundColor)
+            .animation(wasAdded ? .spring() : .none)
     }
 }
 

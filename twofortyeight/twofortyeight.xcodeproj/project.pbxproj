@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EB2AE08D2328153200A0D911 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2AE08C2328153200A0D911 /* GameViewController.swift */; };
 		EB2AE08F232826AE00A0D911 /* SwipeGestureWithDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2AE08E232826AE00A0D911 /* SwipeGestureWithDirection.swift */; };
+		EB660323232A735C00AD5455 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB660322232A735C00AD5455 /* IntExtensions.swift */; };
 		EB748896232865B00043DF64 /* ScoreBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB748895232865B00043DF64 /* ScoreBox.swift */; };
 		EB74889823286BF80043DF64 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74889723286BF80043DF64 /* GameViewModel.swift */; };
 		EB74889A23286EAD0043DF64 /* YellowBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74889923286EAD0043DF64 /* YellowBlock.swift */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		EB2AE08C2328153200A0D911 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		EB2AE08E232826AE00A0D911 /* SwipeGestureWithDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeGestureWithDirection.swift; sourceTree = "<group>"; };
+		EB660322232A735C00AD5455 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		EB748895232865B00043DF64 /* ScoreBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBox.swift; sourceTree = "<group>"; };
 		EB74889723286BF80043DF64 /* GameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		EB74889923286EAD0043DF64 /* YellowBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowBlock.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				EBE769322329A2F100BEED35 /* ArrayExtensions.swift */,
+				EB660322232A735C00AD5455 /* IntExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				EBC999CC2325932E006BA2E7 /* AppDelegate.swift in Sources */,
 				EB2AE08F232826AE00A0D911 /* SwipeGestureWithDirection.swift in Sources */,
 				EBC99A0723271AB4006BA2E7 /* GameEngine.swift in Sources */,
+				EB660323232A735C00AD5455 /* IntExtensions.swift in Sources */,
 				EB74889823286BF80043DF64 /* GameViewModel.swift in Sources */,
 				EBC999CE2325932E006BA2E7 /* SceneDelegate.swift in Sources */,
 				EB7488A5232885960043DF64 /* SmallActionButton.swift in Sources */,

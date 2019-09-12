@@ -7,6 +7,9 @@ class GameViewModel: ObservableObject {
     private var boardHasChanged = false
     
     @Published var isGameOver = false
+    @Published var addedTile: (Int, Int)? = nil {
+        didSet { UIImpactFeedbackGenerator().impactOccurred() }
+    }
     @Published private(set) var score = 0 {
         didSet { bestScore = max(bestScore, score) }
     }
@@ -26,8 +29,9 @@ class GameViewModel: ObservableObject {
     }
     
     func addNumber() {
-        board = engine.addNumber(board)
-        UIImpactFeedbackGenerator().impactOccurred()
+        let result = engine.addNumber(board)
+        board = result.newBoard
+        addedTile = result.addedTile
     }
     
     func push(_ direction: Direction) {

@@ -3,7 +3,7 @@ import Foundation
 typealias Matrix = [[Int]]
 
 protocol Engine {
-    func addNumber(_ board: Matrix) -> Matrix
+    func addNumber(_ board: Matrix) -> (newBoard: Matrix, addedTile: (Int, Int)?)
     func push(_ board: Matrix, to direction: Direction, scored:((Int) -> Void)?) -> Matrix
     func isGameOver(_ board: Matrix) -> Bool
     var blankBoard: Matrix { get }
@@ -28,14 +28,15 @@ class GameEngine: Engine {
         arc4random_uniform(2) > 0 ? 2 : 4
     }
 
-    func addNumber(_ board: Matrix) -> Matrix {
+    func addNumber(_ board: Matrix) -> (newBoard: Matrix, addedTile: (Int, Int)?) {
         var newBoard = board
 
         if let spot = board.randomIndex(for: 0) {
             newBoard[spot.0, spot.1] = zeroOrTwo
+            return (newBoard, spot)
         }
 
-        return newBoard
+        return (newBoard, nil)
     }
 
     func slide(_ row: [Int]) -> [Int] {
