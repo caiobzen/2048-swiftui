@@ -47,10 +47,13 @@ struct GameView: View {
 extension GameView {
     private func Menu() -> some View {
         EmptyView().sheet(isPresented: $showMenu) {
-            MenuView {
+            MenuView(newGameAction: {
                 self.viewModel.reset()
                 self.showMenu.toggle()
-            }
+            }, resetScoreAction: {
+                self.viewModel.eraseBestScore()
+                self.showMenu.toggle()
+            })
         }
     }
     

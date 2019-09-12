@@ -18,8 +18,6 @@ class GameViewModel: ObservableObject {
         didSet { isGameOver = engine.isGameOver(board) }
     }
     
-    
-    
     init(_ engine: Engine, storage: Storage) {
         self.engine = engine
         self.storage = storage
@@ -44,5 +42,9 @@ class GameViewModel: ObservableObject {
         board = engine.blankBoard
         score = .zero
         addNumber()
+    }
+    
+    func eraseBestScore() {
+        bestScore = .zero
     }
 }
