@@ -7,23 +7,31 @@ struct GameOverView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 32) {
             VStack(alignment: .center, spacing: 16) {
-                Text("😔 GAME OVER 😔")
-                    .font(.largeTitle)
-                    .fontWeight(.black)
-                    .bold()
-                
-                Text("SCORE: \(score.description)")
-                    .font(.title)
-                    .fontWeight(.black)
-                    .foregroundColor(.white)
-                    .bold()
+                gameOverTitleGroup
+                scoreLabel
             }
-            .padding(12)
+            .padding(.vertical, 12)
+            .padding(.horizontal, 20)
             .background(Color(white: 0.5))
             .cornerRadius(6)
                                     
             ActionButton(title: "NEW GAME", action: action)
         }
+    }
+}
+
+extension GameOverView {
+    private var gameOverTitleGroup: some View {
+        Group {
+            Text("😔")
+            Text("GAME OVER")
+        }.font(.system(size: 40, weight: .black))
+    }
+    
+    private var scoreLabel: Text {
+        Text("SCORE: \(score.description)")
+            .font(.system(size: 30, weight: .black))
+            .foregroundColor(.white)
     }
 }
 
