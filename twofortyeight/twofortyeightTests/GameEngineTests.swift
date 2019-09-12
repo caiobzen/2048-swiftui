@@ -123,4 +123,17 @@ class GameEngineTests: XCTestCase {
                 
         XCTAssertTrue(engine.isGameOver(board))
     }
+    
+    func test_can_compare_boards() {
+        let board = [
+            [0,0,2,0],
+            [0,0,2,0],
+            [0,0,2,0],
+            [0,0,2,0]
+        ]
+        
+        let newBoard = engine.rotate(board)
+        
+        XCTAssertFalse(newBoard.isEqual(board))
+    }
 }

@@ -14,7 +14,7 @@ class GameViewModel: ObservableObject {
         didSet { storage.save(bestScore) }
     }
     @Published private(set) var board: [[Int]] {
-        willSet { boardHasChanged = board != newValue }
+        willSet { boardHasChanged = !board.isEqual(newValue) }
         didSet { isGameOver = engine.isGameOver(board) }
     }
     
