@@ -25,12 +25,12 @@ extension GameOverView {
         Group {
             Text("😔")
             Text("GAME OVER")
-        }.font(.system(size: 40, weight: .black))
+        }.font(.system(size: 40, weight: .black,design: .rounded))
     }
     
     private var scoreLabel: Text {
         Text("SCORE: \(score.description)")
-            .font(.system(size: 30, weight: .black))
+            .font(.system(size: 30, weight: .black, design: .rounded))
             .foregroundColor(.white)
     }
 }

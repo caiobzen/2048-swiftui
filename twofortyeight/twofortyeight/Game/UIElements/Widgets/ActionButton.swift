@@ -6,8 +6,7 @@ struct ActionButton: View {
     var body: some View {
         Button(action: action) {
             Text(title)
-            .font(.title)
-            .fontWeight(.black)
+            .font(.system(size: 20, weight: .black, design: .rounded))
             .foregroundColor(.white)
             .padding(12)
             .background(Color(white: 0.3))

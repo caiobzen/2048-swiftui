@@ -1,14 +1,15 @@
 import SwiftUI
 
 struct YellowBlock: View {
-    let title = "2048"
+    private let title = "2048"
+    private let size: CGFloat = 120
+    private let backgroundColor = Color(red: 224/255, green: 196/255, blue: 95/255)
     
     var body: some View {
         Text(title)
-        .font(.largeTitle)
-        .bold()
-        .frame(width: 120, height: 120)
-        .background(Color(red: 224/255, green: 196/255, blue: 95/255))
+        .font(.system(size: 34, weight: .black, design: .rounded))
+        .frame(width: size, height: size)
+        .background(backgroundColor)
         .foregroundColor(.white)
         .cornerRadius(8)
     }

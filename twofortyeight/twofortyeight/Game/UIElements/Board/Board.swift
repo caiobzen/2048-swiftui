@@ -11,21 +11,18 @@ struct Board: View {
     
     var body: some View {
         VStack {
-            VStack {
-                ForEach(0..<self.board.count, id: \.self) { row in
-                    HStack {
-                        ForEach(0..<self.board[row].count, id: \.self) { column in
-                            return Tile(self.board[row, column], wasAdded: self.wasAdded(row: row, column: column))
-                        }
+            ForEach(0..<self.board.count, id: \.self) { row in
+                HStack {
+                    ForEach(0..<self.board[row].count, id: \.self) { column in
+                        return Tile(self.board[row, column], wasAdded: self.wasAdded(row: row, column: column))
                     }
-                    .padding(4)
                 }
+                .padding(4)
             }
-            .padding(8)
-            .background(backgroundColor)
-            .cornerRadius(4)
         }
-        .padding(16)
+        .padding(8)
+        .background(backgroundColor)
+        .cornerRadius(4)
     }
 }
 

@@ -9,12 +9,11 @@ struct ScoreBox: View {
     var body: some View {
         VStack {
             Text(title)
-                .font(.headline)
+                .font(.system(size: 18, weight: .medium, design: .rounded))
                 .foregroundColor(.init(white: 0.9))
                 
             Text(score.description)
-                .font(.title)
-                .bold()
+                .font(.system(size: 24, weight: .bold, design: .rounded))
                 .minimumScaleFactor(0.9)
                 .truncationMode(.tail)
                 .foregroundColor(.white)
@@ -28,6 +27,6 @@ struct ScoreBox: View {
 
 struct ScoreBox_Previews: PreviewProvider {
     static var previews: some View {
-        ScoreBox(title: "SCORE", score: 4)
+        ScoreBox(title: "SCORE", score: 1234)
     }
 }
