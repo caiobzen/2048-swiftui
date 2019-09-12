@@ -18,7 +18,7 @@ extension Array where Iterator.Element == [Int] {
         var indexes:[(Int, Int)] = []
 
         for row in 0..<count {
-            indexes = indexesOf(row, with: value)
+            indexes.append(contentsOf: indexesOf(row, with: value))
         }
 
         return indexes
@@ -26,7 +26,7 @@ extension Array where Iterator.Element == [Int] {
 
     private func indexesOf(_ row: Int, with value: Int)  -> [(Int, Int)] {
         var indexes: [(Int, Int)] = []
-        for column in 0..<[row].count {
+        for column in 0..<count {
             if self[row, column] == value {
                 indexes.append((row,column))
             }
