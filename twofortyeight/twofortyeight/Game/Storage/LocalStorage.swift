@@ -1,10 +1,5 @@
 import Foundation
 
-protocol Storage {
-    func save(_ score: Int)
-    var bestScore: Int { get }
-}
-
 class LocalStorage: Storage {
     private let bestScoreKey = "bestScore"
     

@@ -57,11 +57,11 @@ extension Array where Iterator.Element == [Int] {
     }
 
     private func canCombineVertically(row: Int, column: Int) -> Bool {
-        row != count - 1 && self[row][column] == self[row+1][column]
+        row != count - 1 && self[row, column] == self[row+1,column]
     }
 
     private func canCombineHorizontally(row: Int, column: Int) -> Bool {
-        column != count - 1 && self[row][column] == self[row][column+1]
+        column != count - 1 && self[row, column] == self[row, column+1]
     }
     
     func isEqual(_ matrix: [[Int]]) -> Bool {
