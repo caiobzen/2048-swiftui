@@ -40,6 +40,7 @@ struct Tile: View {
 struct Tile_Previews: PreviewProvider {
     static var previews: some View {
         Group {
+            Tile(0)
             Tile(2)
             Tile(4)
             Tile(8)
