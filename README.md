@@ -21,5 +21,5 @@ After watching a series of [The Coding Train](https://www.youtube.com/watch?v=JS
 
 ### 🤓 How to run:
 Since this project has zero dependencies on external frameworks, all you need is:
-- `Command + R` *(and that's it)*
+- `⌘ + R` *(and that's it)*
 
