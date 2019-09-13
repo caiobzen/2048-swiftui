@@ -29,9 +29,9 @@ struct Tile: View {
         Text(title)
             .font(.system(size: fontSize, weight: .black, design: .rounded))
             .foregroundColor(style.foregroundColor)
-            .cornerRadius(3)
             .frame(width: size, height: size)
             .background(style.backgroundColor)
+            .cornerRadius(3)
             .animation(wasAdded ? .easeIn : .none)
     }
 }
