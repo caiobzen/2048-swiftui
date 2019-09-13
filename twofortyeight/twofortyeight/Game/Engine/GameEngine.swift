@@ -17,7 +17,7 @@ enum Direction {
 }
 
 class GameEngine: Engine {
-    let blankBoard = Array(repeating: Array(repeating: 0, count: 4), count: 4)
+    let blankBoard = (1...4).map { _ in [0,0,0,0] }
     private var points = 0
     
     private var zeroOrTwo: Int {
