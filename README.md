@@ -23,7 +23,7 @@ After watching a series of [The Coding Train](https://www.youtube.com/watch?v=JS
 Since this project has zero dependencies on external frameworks, all you need is:
 - `⌘ + R` *(and that's it)*
 
-### Todo:
+### ☑️ Todo:
 1. Stats (number of moves, time played, etc)
 2. Persist current match (close the app, reopen, keep playing from where you left)
 3. Work on the animations (there's no animation for shifting tiles along the board for example)
