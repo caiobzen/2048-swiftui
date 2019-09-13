@@ -10,10 +10,10 @@ class GameViewModel: ObservableObject {
     @Published var addedTile: (Int, Int)? = nil {
         didSet { UIImpactFeedbackGenerator().impactOccurred() }
     }
-    @Published private(set) var score = 0 {
+    @Published private(set) var score: Int = .zero {
         didSet { bestScore = max(bestScore, score) }
     }
-    @Published private(set) var bestScore = 0 {
+    @Published private(set) var bestScore: Int = .zero {
         didSet { storage.save(bestScore) }
     }
     @Published private(set) var board: [[Int]] {
@@ -25,7 +25,7 @@ class GameViewModel: ObservableObject {
         self.engine = engine
         self.storage = storage
         self.board = engine.blankBoard
-        self.bestScore = max(storage.bestScore, 0)
+        self.bestScore = max(storage.bestScore, .zero)
     }
     
     func addNumber() {
