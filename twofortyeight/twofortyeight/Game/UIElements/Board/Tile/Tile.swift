@@ -5,7 +5,7 @@ struct Tile: View {
     let wasAdded: Bool
     private let style: TileStyle
     private let title: String
-    private let size: CGFloat = 70.0
+    private let size: CGFloat = 70
     
     init(_ value: Int, wasAdded: Bool = false) {
         self.wasAdded = wasAdded
@@ -32,7 +32,7 @@ struct Tile: View {
             .cornerRadius(3)
             .frame(width: size, height: size)
             .background(style.backgroundColor)
-            .animation(wasAdded ? .spring() : .none)
+            .animation(wasAdded ? .easeIn : .none)
     }
 }
 
