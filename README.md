@@ -15,15 +15,15 @@
 
 After watching a series of [The Coding Train](https://www.youtube.com/watch?v=JSn-DJU8qf0) on how to implement the 2048 game in JavaScript with P5, I got the inspiration to do the same with SwiftUI and Combine. So some of the logics behind matrices manipulation I borrowed from Mr. [Daniel Shiffman](https://twitter.com/shiffman) *(Keep inspiring people with your videos <3)*.
 
-### 💻 Requirements:
+### 💻 Requirements
 - iOS 13+
 - XCode 11
 
-### 🤓 How to run:
+### 🤓 How to run
 Since this project has zero dependencies on external frameworks, all you need is:
 - `⌘ + R` *(and that's it)*
 
-### ☑️ Todo:
+### ☑️ Todo
 1. Stats (number of moves, time played, etc)
 2. Persist current match (close the app, reopen, keep playing from where you left)
 3. Work on the animations (there's no animation for shifting tiles along the board for example)
