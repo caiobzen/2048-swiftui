@@ -1,21 +1,5 @@
 import Foundation
 
-typealias Matrix = [[Int]]
-
-protocol Engine {
-    func addNumber(_ board: Matrix) -> (newBoard: Matrix, addedTile: (Int, Int)?)
-    func push(_ board: Matrix, to direction: Direction, scored:((Int) -> Void)?) -> Matrix
-    func isGameOver(_ board: Matrix) -> Bool
-    var blankBoard: Matrix { get }
-}
-
-enum Direction {
-    case right
-    case up
-    case left
-    case down
-}
-
 class GameEngine: Engine {
     let blankBoard = (1...4).map { _ in [0,0,0,0] }
     private var points = 0
@@ -84,14 +68,10 @@ class GameEngine: Engine {
         points = .zero
         
         switch direction {
-        case .right:
-            newBoard = (board |> pushRight)
-        case .up:
-            newBoard = (board |> pushUp)
-        case .left:
-            newBoard = (board |> pushLeft)
-        case .down:
-            newBoard = (board |> pushDown)
+        case .right: newBoard = (board |> pushRight)
+        case .up:    newBoard = (board |> pushUp)
+        case .left:  newBoard = (board |> pushLeft)
+        case .down:  newBoard = (board |> pushDown)
         }
         
         scored?(points)
