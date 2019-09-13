@@ -67,4 +67,10 @@ extension Array where Iterator.Element == [Int] {
     func isEqual(_ matrix: [[Int]]) -> Bool {
         return elementsEqual(matrix)
     }
+    
+    func toMatrix() {
+        for row in 0..<count {
+            print("[\(self[row])]")
+        }
+    }
 }

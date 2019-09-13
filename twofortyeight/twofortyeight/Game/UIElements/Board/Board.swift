@@ -3,7 +3,6 @@ import SwiftUI
 struct Board: View {
     var board: Matrix
     var addedTile: (Int, Int)? = nil
-    private let backgroundColor = Color(red: 183/255, green: 173/255, blue: 162/255)
     
     private func wasAdded(row: Int, column: Int) -> Bool {
         addedTile?.0 == row && addedTile?.1 == column
@@ -21,7 +20,7 @@ struct Board: View {
             }
         }
         .padding(8)
-        .background(backgroundColor)
+        .background(Color.boardBackground)
         .cornerRadius(4)
     }
 }

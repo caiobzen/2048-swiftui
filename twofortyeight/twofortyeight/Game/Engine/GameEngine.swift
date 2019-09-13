@@ -17,15 +17,15 @@ enum Direction {
 }
 
 class GameEngine: Engine {
-    let blankBoard = Array(repeating: [0,0,0,0], count: 4)
-    var points = 0
-        
-    func isGameOver(_ board: Matrix) -> Bool {
-        board.canCombineValues == false
-    }
+    let blankBoard = Array(repeating: Array(repeating: 0, count: 4), count: 4)
+    private var points = 0
     
     private var zeroOrTwo: Int {
         arc4random_uniform(2) > 0 ? 2 : 4
+    }
+        
+    func isGameOver(_ board: Matrix) -> Bool {
+        board.canCombineValues == false
     }
 
     func addNumber(_ board: Matrix) -> (newBoard: Matrix, addedTile: (Int, Int)?) {
@@ -81,7 +81,7 @@ class GameEngine: Engine {
 
     func push(_ board: Matrix, to direction: Direction, scored:((Int) -> Void)? = nil) -> Matrix {
         var newBoard = board
-        points = 0
+        points = .zero
         
         switch direction {
         case .right:
@@ -150,12 +150,4 @@ infix operator |>: ForwardApplication
 
 public func |> <A,B>(x: A, f:(A) -> B) -> B {
     return f(x)
-}
-
-extension Array {
-    func toMatrix() {
-        for row in 0..<count {
-            print("[\(self[row])]")
-        }
-    }
 }

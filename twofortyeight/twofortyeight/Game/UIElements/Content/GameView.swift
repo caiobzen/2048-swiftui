@@ -4,8 +4,6 @@ struct GameView: View {
     @ObservedObject var viewModel: GameViewModel
     @State var showMenu = false
     
-    private let backgroundColor = Color(red: 251/255, green: 248/255, blue: 240/255)
-    
     var body: some View {
         VStack(alignment: .center, spacing: 16) {
             topContainer
@@ -17,7 +15,7 @@ struct GameView: View {
                minHeight: 0,
                maxHeight: .infinity,
                alignment: .center)
-        .background(backgroundColor)
+            .background(Color.gameBackground)
         .background(Menu())
         .background(GameOver())
     }
@@ -43,7 +41,7 @@ extension GameView {
             Text("2048 tile!") .bold()
         }
         .font(.system(size: 16, weight: .regular, design: .rounded))
-        .foregroundColor(.init(white: 0.4))
+        .foregroundColor(.white40)
     }
     
     private func Menu() -> some View {

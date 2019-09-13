@@ -12,7 +12,7 @@ struct GameOverView: View {
             }
             .padding(.vertical, 12)
             .padding(.horizontal, 20)
-            .background(Color(white: 0.5))
+            .background(Color.white50)
             .cornerRadius(6)
                                     
             ActionButton(title: "NEW GAME", action: action)
