@@ -6,8 +6,10 @@ struct GameView: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 16) {
-            topContainer
-            goalLabel
+            Header(score: viewModel.score, bestScore: viewModel.bestScore) {
+                self.showMenu.toggle()
+            }
+            GoalText()
             Board(board: viewModel.board, addedTile: viewModel.addedTile)
         }
         .frame(minWidth: 0,
@@ -22,28 +24,6 @@ struct GameView: View {
 }
 
 extension GameView {
-    private var topContainer: some View {
-        HStack(alignment: .top) {
-            YellowBlock()
-            HStack(alignment: .top) {
-                VStack(alignment: .center, spacing: 10) {
-                    ScoreBox(title: "SCORE", score: viewModel.score)
-                    SmallActionButton(title: "MENU") { self.showMenu.toggle() }
-                }
-                ScoreBox(title: "BEST", score: viewModel.bestScore)
-            }
-        }
-    }
-    
-    private var goalLabel: some View {
-        HStack (alignment: .center, spacing: 4) {
-            Text("Join the numbers and get to the")
-            Text("2048 tile!") .bold()
-        }
-        .font(.system(size: 16, weight: .regular, design: .rounded))
-        .foregroundColor(.white40)
-    }
-    
     private func Menu() -> some View {
         EmptyView().sheet(isPresented: $showMenu) {
             MenuView(newGameAction: {

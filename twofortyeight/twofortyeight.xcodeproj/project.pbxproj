@@ -11,6 +11,8 @@
 		EB2AE08F232826AE00A0D911 /* SwipeGestureWithDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2AE08E232826AE00A0D911 /* SwipeGestureWithDirection.swift */; };
 		EB660323232A735C00AD5455 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB660322232A735C00AD5455 /* IntExtensions.swift */; };
 		EB660325232AA3B100AD5455 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB660324232AA3B100AD5455 /* ColorExtensions.swift */; };
+		EB660327232C43B900AD5455 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB660326232C43B900AD5455 /* Header.swift */; };
+		EB660329232C450900AD5455 /* GoalText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB660328232C450900AD5455 /* GoalText.swift */; };
 		EB748896232865B00043DF64 /* ScoreBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB748895232865B00043DF64 /* ScoreBox.swift */; };
 		EB74889823286BF80043DF64 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74889723286BF80043DF64 /* GameViewModel.swift */; };
 		EB74889A23286EAD0043DF64 /* YellowBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74889923286EAD0043DF64 /* YellowBlock.swift */; };
@@ -57,6 +59,8 @@
 		EB2AE08E232826AE00A0D911 /* SwipeGestureWithDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeGestureWithDirection.swift; sourceTree = "<group>"; };
 		EB660322232A735C00AD5455 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		EB660324232AA3B100AD5455 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		EB660326232C43B900AD5455 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		EB660328232C450900AD5455 /* GoalText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalText.swift; sourceTree = "<group>"; };
 		EB748895232865B00043DF64 /* ScoreBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBox.swift; sourceTree = "<group>"; };
 		EB74889723286BF80043DF64 /* GameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		EB74889923286EAD0043DF64 /* YellowBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowBlock.swift; sourceTree = "<group>"; };
@@ -256,6 +260,8 @@
 				EB74889923286EAD0043DF64 /* YellowBlock.swift */,
 				EB7488A223287D090043DF64 /* ActionButton.swift */,
 				EB7488A4232885960043DF64 /* SmallActionButton.swift */,
+				EB660326232C43B900AD5455 /* Header.swift */,
+				EB660328232C450900AD5455 /* GoalText.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -420,6 +426,8 @@
 				EB7488A5232885960043DF64 /* SmallActionButton.swift in Sources */,
 				EBFADE512328587F00E53800 /* GameView.swift in Sources */,
 				EBE769332329A2F100BEED35 /* ArrayExtensions.swift in Sources */,
+				EB660327232C43B900AD5455 /* Header.swift in Sources */,
+				EB660329232C450900AD5455 /* GoalText.swift in Sources */,
 				EBC99A00232718C8006BA2E7 /* Board.swift in Sources */,
 				EB7488A123287CE80043DF64 /* MenuView.swift in Sources */,
 				EB74889A23286EAD0043DF64 /* YellowBlock.swift in Sources */,
