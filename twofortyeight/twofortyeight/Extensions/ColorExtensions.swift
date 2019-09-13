@@ -52,4 +52,8 @@ extension Color {
     static var tileDarkTitle: Color {
         .init(red: 116/255, green: 110/255, blue: 103/255)
     }
+    
+    static var customYellow: Color {
+        .init(red: 224/255, green: 196/255, blue: 95/255)
+    }
 }

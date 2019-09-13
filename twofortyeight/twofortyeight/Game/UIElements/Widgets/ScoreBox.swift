@@ -1,8 +1,6 @@
 import SwiftUI
 
 struct ScoreBox: View {
-    private let backgroundColor = Color(red: 183/255, green: 173/255, blue: 162/255)
-    
     let title: String
     let score: Int
     
@@ -20,7 +18,7 @@ struct ScoreBox: View {
         }
         .frame(width: 80, height: 50)
         .padding(8)
-        .background(backgroundColor)
+        .background(Color.boardBackground)
         .cornerRadius(6)
     }
 }
