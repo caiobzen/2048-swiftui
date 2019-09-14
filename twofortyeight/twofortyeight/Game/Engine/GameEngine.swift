@@ -5,7 +5,7 @@ class GameEngine: Engine {
     private var points = 0
     
     private var twoOrFour: Int {
-        return Int.random(in: 0...10) ? 2 : 4
+        return Int.random(in: 0...10) < 9 ? 2 : 4
     }
         
     func isGameOver(_ board: Matrix) -> Bool {
