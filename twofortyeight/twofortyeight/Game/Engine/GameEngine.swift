@@ -46,11 +46,7 @@ class GameEngine: Engine {
     }
 
     func flip(_ board: Matrix) -> Matrix {
-        var newBoard = board
-        for row in 0..<newBoard.count {
-            newBoard[row] = newBoard[row].reversed()
-        }
-        return newBoard
+        board.map { $0.reversed() }
     }
 
     func rotate(_ board: Matrix) -> Matrix {
