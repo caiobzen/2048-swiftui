@@ -4,8 +4,8 @@ class GameEngine: Engine {
     let blankBoard = (1...4).map { _ in [0,0,0,0] }
     private var points = 0
     
-    private var zeroOrTwo: Int {
-        arc4random_uniform(2) > 0 ? 2 : 4
+    private var twoOrFour: Int {
+        return Int.random(in: 0...10) ? 2 : 4
     }
         
     func isGameOver(_ board: Matrix) -> Bool {
@@ -16,7 +16,7 @@ class GameEngine: Engine {
         var newBoard = board
 
         if let spot = board.randomIndex(for: 0) {
-            newBoard[spot.0, spot.1] = zeroOrTwo
+            newBoard[spot.0, spot.1] = twoOrFour
             return (newBoard, spot)
         }
 
