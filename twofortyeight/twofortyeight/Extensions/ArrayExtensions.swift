@@ -10,7 +10,7 @@ extension Array where Iterator.Element == [Int] {
         }
     }
 
-    func randomIndex(for value: Int) -> (Int, Int)? {
+    func randomIndex(for value: Int) -> (row: Int, column: Int)? {
         indexesWith(value).randomElement()
     }
 

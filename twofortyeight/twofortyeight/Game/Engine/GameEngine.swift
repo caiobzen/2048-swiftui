@@ -15,9 +15,9 @@ class GameEngine: Engine {
     func addNumber(_ board: Matrix) -> (newBoard: Matrix, addedTile: (Int, Int)?) {
         var newBoard = board
 
-        if let spot = board.randomIndex(for: 0) {
-            newBoard[spot.0, spot.1] = twoOrFour
-            return (newBoard, spot)
+        if let tileToBeAdded = board.randomIndex(for: 0) {
+            newBoard[tileToBeAdded.row, tileToBeAdded.column] = twoOrFour
+            return (newBoard, tileToBeAdded)
         }
 
         return (newBoard, nil)
