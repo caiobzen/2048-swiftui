@@ -75,11 +75,7 @@ class GameEngine: Engine {
     }
 
     private func operateRows(_ board: Matrix) -> Matrix {
-        var newBoard = board
-        for row in 0..<board.count {
-            newBoard[row] = slideAndCombine(newBoard[row])
-        }
-        return newBoard
+        board.map(slideAndCombine)
     }
     
     private func slideAndCombine(_ row: [Int]) -> [Int] {
