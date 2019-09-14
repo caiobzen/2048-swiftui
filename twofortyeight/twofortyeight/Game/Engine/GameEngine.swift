@@ -14,13 +14,13 @@ class GameEngine: Engine {
 
     func addNumber(_ board: Matrix) -> (newBoard: Matrix, addedTile: (Int, Int)?) {
         var newBoard = board
-
-        if let tileToBeAdded = board.randomIndex(for: .zero) {
-            newBoard[tileToBeAdded.row, tileToBeAdded.column] = twoOrFour
-            return (newBoard, tileToBeAdded)
+        let emptyTile = board.randomIndex(for: .zero)
+        
+        if let emptyTile = emptyTile {
+            newBoard[emptyTile.row, emptyTile.column] = twoOrFour
         }
 
-        return (newBoard, nil)
+        return (newBoard, emptyTile)
     }
 
     func slide(_ row: [Int]) -> [Int] {
@@ -34,12 +34,13 @@ class GameEngine: Engine {
     func combine(_ row: [Int]) -> [Int] {
         var newRow = row
         for column in (1...row.count - 1).reversed() {
-            let a = newRow[column]
-            let b = newRow[column - 1]
-            if a == b {
-                newRow[column] = a + b
-                newRow[column - 1] = .zero
-                points += a + b
+            let prevColumn = column - 1
+            let left = newRow[column]
+            let right = newRow[prevColumn]
+            if left == right {
+                newRow[column] = left + right
+                newRow[prevColumn] = .zero
+                points += left + right
             }
         }
         return newRow
@@ -58,6 +59,10 @@ class GameEngine: Engine {
         }
         return newBoard
     }
+    
+    private func operateRows(_ board: Matrix) -> Matrix {
+        board.map(slideAndCombine)
+    }
 
     func push(_ board: Matrix, to direction: Direction, scored:((Int) -> Void)? = nil) -> Matrix {
         var newBoard = board
@@ -72,10 +77,6 @@ class GameEngine: Engine {
         
         scored?(points)
         return newBoard
-    }
-
-    private func operateRows(_ board: Matrix) -> Matrix {
-        board.map(slideAndCombine)
     }
     
     private func slideAndCombine(_ row: [Int]) -> [Int] {
