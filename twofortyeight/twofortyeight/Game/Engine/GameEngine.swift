@@ -9,12 +9,12 @@ class GameEngine: Engine {
     }
         
     func isGameOver(_ board: Matrix) -> Bool {
-        board.canCombineValues == false
+        !board.canCombineValues
     }
 
     func addNumber(_ board: Matrix) -> (newBoard: Matrix, addedTile: (Int, Int)?) {
-        var newBoard = board
         let emptyTile = board.randomIndex(for: .zero)
+        var newBoard = board
         
         if let emptyTile = emptyTile {
             newBoard[emptyTile.row, emptyTile.column] = twoOrFour
@@ -25,10 +25,9 @@ class GameEngine: Engine {
 
     func slide(_ row: [Int]) -> [Int] {
         let tilesWithNumbers = row.filter { $0 > .zero }
-        let missingNumbers = row.count - tilesWithNumbers.count
-        var arrayOfZeros = Array(repeating: Int.zero, count: missingNumbers)
-        arrayOfZeros.append(contentsOf: tilesWithNumbers)
-        return arrayOfZeros
+        let emptyTiles = row.count - tilesWithNumbers.count
+        let arrayOfZeros = Array(repeating: Int.zero, count: emptyTiles)
+        return arrayOfZeros + tilesWithNumbers
     }
 
     func combine(_ row: [Int]) -> [Int] {
