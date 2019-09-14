@@ -5,7 +5,7 @@ class GameEngine: Engine {
     private var points = 0
     
     private var twoOrFour: Int {
-        return Int.random(in: 0...10) < 9 ? 2 : 4
+        return Int.random(in: .zero...10) < 9 ? 2 : 4
     }
         
     func isGameOver(_ board: Matrix) -> Bool {
@@ -15,7 +15,7 @@ class GameEngine: Engine {
     func addNumber(_ board: Matrix) -> (newBoard: Matrix, addedTile: (Int, Int)?) {
         var newBoard = board
 
-        if let tileToBeAdded = board.randomIndex(for: 0) {
+        if let tileToBeAdded = board.randomIndex(for: .zero) {
             newBoard[tileToBeAdded.row, tileToBeAdded.column] = twoOrFour
             return (newBoard, tileToBeAdded)
         }
@@ -24,9 +24,9 @@ class GameEngine: Engine {
     }
 
     func slide(_ row: [Int]) -> [Int] {
-        let tilesWithNumbers = row.filter { $0 > 0 }
+        let tilesWithNumbers = row.filter { $0 > .zero }
         let missingNumbers = row.count - tilesWithNumbers.count
-        var arrayOfZeros = Array(repeating: 0, count: missingNumbers)
+        var arrayOfZeros = Array(repeating: Int.zero, count: missingNumbers)
         arrayOfZeros.append(contentsOf: tilesWithNumbers)
         return arrayOfZeros
     }
@@ -38,7 +38,7 @@ class GameEngine: Engine {
             let b = newRow[column - 1]
             if a == b {
                 newRow[column] = a + b
-                newRow[column - 1] = 0
+                newRow[column - 1] = .zero
                 points += a + b
             }
         }
