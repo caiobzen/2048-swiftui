@@ -35,10 +35,9 @@ class GameViewModel: ObservableObject {
     }
     
     func push(_ direction: Direction) {
-        board = engine.push(board, to: direction) { [weak self] score in
-            self?.score += score
-        }
-        
+        let result = engine.push(board, to: direction)
+        board = result.newBoard
+        score += result.scoredPoints
         if boardHasChanged { addNumber() }
     }
     

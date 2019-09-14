@@ -160,8 +160,8 @@ class GameEngineStub: Engine {
         GameEngine().addNumber(board)
     }
     
-    func push(_ board: Matrix, to direction: Direction, scored: ((Int) -> Void)?) -> Matrix {
-        GameEngine().push(board, to: direction, scored: scored)
+    func push(_ board: Matrix, to direction: Direction) -> (newBoard: Matrix, scoredPoints: Int) {
+        GameEngine().push(board, to: direction)
     }
     
     let blankBoard: [[Int]] = [

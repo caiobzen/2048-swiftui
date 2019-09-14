@@ -63,7 +63,7 @@ class GameEngine: Engine {
         board.map(slideAndCombine)
     }
 
-    func push(_ board: Matrix, to direction: Direction, scored:((Int) -> Void)? = nil) -> Matrix {
+    func push(_ board: Matrix, to direction: Direction) -> (newBoard: Matrix, scoredPoints: Int) {
         var newBoard = board
         points = .zero
         
@@ -74,8 +74,7 @@ class GameEngine: Engine {
         case .down:  newBoard = (board |> pushDown)
         }
         
-        scored?(points)
-        return newBoard
+        return (newBoard, points)
     }
     
     private func slideAndCombine(_ row: [Int]) -> [Int] {

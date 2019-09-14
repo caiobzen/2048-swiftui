@@ -70,9 +70,9 @@ class GameEngineTests: XCTestCase {
     }
     
     func test_push_right() {
-        let newBoard = engine.push(horizontalScoreBoard, to: .right)
+        let result = engine.push(horizontalScoreBoard, to: .right)
         
-        XCTAssertEqual(newBoard, [
+        XCTAssertEqual(result.newBoard, [
             [0,0,0,4],
             [0,0,0,8],
             [0,0,0,16],
@@ -81,9 +81,9 @@ class GameEngineTests: XCTestCase {
     }
     
     func test_push_left() {
-        let newBoard = engine.push(horizontalScoreBoard, to: .left)
+        let result = engine.push(horizontalScoreBoard, to: .left)
         
-        XCTAssertEqual(newBoard, [
+        XCTAssertEqual(result.newBoard, [
             [4,0,0,0],
             [8,0,0,0],
             [16,0,0,0],
@@ -92,9 +92,9 @@ class GameEngineTests: XCTestCase {
     }
     
     func test_push_up() {
-        let newBoard = engine.push(verticalScoreBoard, to: .up)
+        let result = engine.push(verticalScoreBoard, to: .up)
         
-        XCTAssertEqual(newBoard, [
+        XCTAssertEqual(result.newBoard, [
             [4,8,16,32],
             [0,0,0,0],
             [0,0,0,0],
@@ -103,9 +103,9 @@ class GameEngineTests: XCTestCase {
     }
     
     func test_push_down() {
-        let newBoard = engine.push(verticalScoreBoard, to: .down)
+        let result = engine.push(verticalScoreBoard, to: .down)
         
-        XCTAssertEqual(newBoard, [
+        XCTAssertEqual(result.newBoard, [
             [0,0,0,0],
             [0,0,0,0],
             [0,0,0,0],
