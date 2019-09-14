@@ -24,11 +24,11 @@ class GameEngine: Engine {
     }
 
     func slide(_ row: [Int]) -> [Int] {
-        let arr = row.filter { $0 > 0 }
-        let missing = row.count - arr.count
-        var zeros = Array(repeating: 0, count: missing)
-        zeros.append(contentsOf: arr)
-        return zeros
+        let tilesWithNumbers = row.filter { $0 > 0 }
+        let missingNumbers = row.count - tilesWithNumbers.count
+        var arrayOfZeros = Array(repeating: 0, count: missingNumbers)
+        arrayOfZeros.append(contentsOf: tilesWithNumbers)
+        return arrayOfZeros
     }
 
     func combine(_ row: [Int]) -> [Int] {
