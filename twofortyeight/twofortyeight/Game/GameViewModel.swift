@@ -7,16 +7,16 @@ class GameViewModel: ObservableObject {
     private var boardHasChanged = false
     
     @Published var isGameOver = false
-    @Published var addedTile: (Int, Int)? = nil {
+    private(set) var addedTile: (Int, Int)? = nil {
         didSet { UIImpactFeedbackGenerator().impactOccurred() }
     }
-    @Published private(set) var score: Int = .zero {
+    private(set) var score: Int = .zero {
         didSet { bestScore = max(bestScore, score) }
     }
-    @Published private(set) var bestScore: Int = .zero {
+    private(set) var bestScore: Int = .zero {
         didSet { storage.save(bestScore) }
     }
-    @Published private(set) var board: [[Int]] {
+    private(set) var board: [[Int]] {
         willSet { boardHasChanged = !board.isEqual(newValue) }
         didSet { isGameOver = engine.isGameOver(board) }
     }
