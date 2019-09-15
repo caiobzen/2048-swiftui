@@ -119,6 +119,15 @@ class GameViewModelTests: XCTestCase {
         XCTAssertEqual(sut.bestScore, 4)
     }
     
+    func test_can_erase_best_score() {
+        let sut = newViewModelStub()
+        sut.storage.save(bestScore: 123)
+        
+        sut.eraseBestScore()
+        
+        XCTAssertEqual(sut.bestScore, 0)
+    }
+    
     private func newViewModelStub() -> GameViewModelStub {
         GameViewModelStub(GameEngineStub(), storage: MockStorage())
     }
