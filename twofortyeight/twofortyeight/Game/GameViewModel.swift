@@ -10,22 +10,35 @@ class GameViewModel: ObservableObject {
         didSet { UIImpactFeedbackGenerator().impactOccurred() }
     }
     private(set) var score: Int = .zero {
-        didSet { bestScore = max(bestScore, score) }
+        didSet {
+            bestScore = max(bestScore, score)
+            storage.save(score: score)
+        }
     }
     private(set) var bestScore: Int = .zero {
-        didSet { storage.save(bestScore) }
+        didSet {
+            storage.save(bestScore: bestScore)
+        }
     }
     private(set) var board: [[Int]] {
         willSet { boardHasChanged = !board.isEqual(newValue) }
-        didSet { isGameOver = engine.isGameOver(board) }
+        didSet {
+            isGameOver = engine.isGameOver(board)
+            storage.save(board: board)
+        }
     }
     private var boardHasChanged = false
     
     init(_ engine: Engine, storage: Storage) {
         self.engine = engine
         self.storage = storage
-        self.board = engine.blankBoard
-        self.bestScore = max(storage.bestScore, .zero)
+        self.score = storage.score
+        self.board = storage.board ?? engine.blankBoard
+        self.bestScore = max(storage.bestScore, storage.score)
+    }
+    
+    func start() {
+        if board.isMatrixEmpty { reset() }
     }
     
     func addNumber() {

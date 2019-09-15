@@ -9,7 +9,8 @@ class GameViewController: UIHostingController<GameView> {
         super.init(rootView: GameView(viewModel: viewModel))
         
         setupGestures()
-        viewModel.reset()
+        
+        viewModel.start()
     }
         
     private func setupGestures() {

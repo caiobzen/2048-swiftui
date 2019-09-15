@@ -9,6 +9,10 @@ extension Array where Iterator.Element == [Int] {
             self[row][column] = newValue
         }
     }
+    
+    var isMatrixEmpty: Bool {
+        reduce(0) { $0 + $1.reduce(0, +) } == .zero
+    }
 
     func randomIndex(for value: Int) -> (row: Int, column: Int)? {
         indexesWith(value).randomElement()

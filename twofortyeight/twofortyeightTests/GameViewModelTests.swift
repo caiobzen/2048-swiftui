@@ -116,12 +116,31 @@ class GameViewModelTests: XCTestCase {
 
 class MockStorage: Storage {
     var savedScore = 0
-    func save(_ score: Int) {
+    var savedBestScore = 0
+    var savedBoard: Matrix = GameEngineStub().blankBoard
+    
+    func save(bestScore: Int) {
+        savedBestScore = bestScore
+    }
+    
+    func save(score: Int) {
         savedScore = score
     }
     
-    var bestScore: Int {
+    func save(board: Matrix) {
+        savedBoard = board
+    }
+    
+    var score: Int {
         return savedScore
+    }
+    
+    var bestScore: Int {
+        return savedBestScore
+    }
+    
+    var board: Matrix? {
+        return savedBoard
     }
 }
 
