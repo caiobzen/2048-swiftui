@@ -18,7 +18,15 @@ class GameViewModelTests: XCTestCase {
         sut.reset()
         
         let number = sut.board.flatMap{ $0 }.reduce(0, +)
-        XCTAssertTrue(number == 2 || number == 4)
+        XCTAssertTrue(number > 0)
+    }
+    
+    func test_can_init_with_blank_board() {
+        let storage = MockStorage()
+        storage.savedBoard = nil
+        sut = GameViewModel(GameEngine(), storage: storage)
+        
+        XCTAssertEqual(sut.board, GameEngine().blankBoard)
     }
     
     func test_can_add_number_to_board() {
@@ -117,7 +125,7 @@ class GameViewModelTests: XCTestCase {
 class MockStorage: Storage {
     var savedScore = 0
     var savedBestScore = 0
-    var savedBoard: Matrix = GameEngineStub().blankBoard
+    var savedBoard: Matrix? = GameEngineStub().blankBoard
     
     func save(bestScore: Int) {
         savedBestScore = bestScore
