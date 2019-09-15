@@ -1,6 +1,6 @@
 import UIKit
 
-class SwipeGestureWithDirection: UISwipeGestureRecognizer {
+class Swipe: UISwipeGestureRecognizer {
     private var target: InvokeTarget
 
     init(_ direction: Direction, action: @escaping () -> ()) {

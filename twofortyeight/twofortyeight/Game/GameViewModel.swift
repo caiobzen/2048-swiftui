@@ -4,7 +4,6 @@ import UIKit
 class GameViewModel: ObservableObject {
     private(set) var engine: Engine
     private(set) var storage: Storage
-    private var boardHasChanged = false
     
     @Published var isGameOver = false
     private(set) var addedTile: (Int, Int)? = nil {
@@ -20,6 +19,7 @@ class GameViewModel: ObservableObject {
         willSet { boardHasChanged = !board.isEqual(newValue) }
         didSet { isGameOver = engine.isGameOver(board) }
     }
+    private var boardHasChanged = false
     
     init(_ engine: Engine, storage: Storage) {
         self.engine = engine

@@ -23,7 +23,9 @@ extension MenuView {
     }
     
     private var confirmationAlert: Alert {
-        Alert(title: confirmationMessage, primaryButton: resetScoreAlertButton, secondaryButton: .cancel())
+        Alert(title: confirmationMessage,
+              primaryButton: resetScoreAlertButton,
+              secondaryButton: .cancel())
     }
     
     private var confirmationMessage: Text {
@@ -31,9 +33,7 @@ extension MenuView {
     }
     
     private var resetScoreAlertButton: Alert.Button {
-        .default(Text("Yeah, whatever"), action: {
-            self.resetScoreAction()
-        })
+        .default(Text("Yeah, whatever"), action: self.resetScoreAction)
     }
 }
 

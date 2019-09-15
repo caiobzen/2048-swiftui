@@ -13,16 +13,16 @@ class GameViewController: UIHostingController<GameView> {
     }
         
     private func setupGestures() {
-        view.addGestureRecognizer(SwipeGestureWithDirection(.left) { [weak self] in
+        view.addGestureRecognizer(Swipe(.left) { [weak self] in
             self?.viewModel.push(.left)
         })
-        view.addGestureRecognizer(SwipeGestureWithDirection(.right) { [weak self] in
+        view.addGestureRecognizer(Swipe(.right) { [weak self] in
             self?.viewModel.push(.right)
         })
-        view.addGestureRecognizer(SwipeGestureWithDirection(.up) { [weak self] in
+        view.addGestureRecognizer(Swipe(.up) { [weak self] in
             self?.viewModel.push(.up)
         })
-        view.addGestureRecognizer(SwipeGestureWithDirection(.down) { [weak self] in
+        view.addGestureRecognizer(Swipe(.down) { [weak self] in
             self?.viewModel.push(.down)
         })
     }

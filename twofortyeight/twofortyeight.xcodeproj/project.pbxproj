@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EB2AE08D2328153200A0D911 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2AE08C2328153200A0D911 /* GameViewController.swift */; };
-		EB2AE08F232826AE00A0D911 /* SwipeGestureWithDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2AE08E232826AE00A0D911 /* SwipeGestureWithDirection.swift */; };
+		EB2AE08F232826AE00A0D911 /* Swipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2AE08E232826AE00A0D911 /* Swipe.swift */; };
 		EB660323232A735C00AD5455 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB660322232A735C00AD5455 /* IntExtensions.swift */; };
 		EB660325232AA3B100AD5455 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB660324232AA3B100AD5455 /* ColorExtensions.swift */; };
 		EB660327232C43B900AD5455 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB660326232C43B900AD5455 /* Header.swift */; };
@@ -59,7 +59,7 @@
 
 /* Begin PBXFileReference section */
 		EB2AE08C2328153200A0D911 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		EB2AE08E232826AE00A0D911 /* SwipeGestureWithDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeGestureWithDirection.swift; sourceTree = "<group>"; };
+		EB2AE08E232826AE00A0D911 /* Swipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swipe.swift; sourceTree = "<group>"; };
 		EB660322232A735C00AD5455 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		EB660324232AA3B100AD5455 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		EB660326232C43B900AD5455 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 		EB74889D232872B00043DF64 /* Gestures */ = {
 			isa = PBXGroup;
 			children = (
-				EB2AE08E232826AE00A0D911 /* SwipeGestureWithDirection.swift */,
+				EB2AE08E232826AE00A0D911 /* Swipe.swift */,
 			);
 			name = Gestures;
 			sourceTree = "<group>";
@@ -426,7 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBC999CC2325932E006BA2E7 /* AppDelegate.swift in Sources */,
-				EB2AE08F232826AE00A0D911 /* SwipeGestureWithDirection.swift in Sources */,
+				EB2AE08F232826AE00A0D911 /* Swipe.swift in Sources */,
 				EBC99A0723271AB4006BA2E7 /* GameEngine.swift in Sources */,
 				EB660323232A735C00AD5455 /* IntExtensions.swift in Sources */,
 				EB74889823286BF80043DF64 /* GameViewModel.swift in Sources */,
