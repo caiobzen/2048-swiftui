@@ -2,7 +2,7 @@ import SwiftUI
 import Foundation
 
 class GameViewController: UIHostingController<GameView> {
-    private let viewModel: GameViewModel
+    private let viewModel: GameViewModel?
     
     init(viewModel: GameViewModel) {
         self.viewModel = viewModel
@@ -15,16 +15,16 @@ class GameViewController: UIHostingController<GameView> {
         
     private func setupGestures() {
         view.addGestureRecognizer(Swipe(.left) { [weak self] in
-            self?.viewModel.push(.left)
+            self?.viewModel?.push(.left)
         })
         view.addGestureRecognizer(Swipe(.right) { [weak self] in
-            self?.viewModel.push(.right)
+            self?.viewModel?.push(.right)
         })
         view.addGestureRecognizer(Swipe(.up) { [weak self] in
-            self?.viewModel.push(.up)
+            self?.viewModel?.push(.up)
         })
         view.addGestureRecognizer(Swipe(.down) { [weak self] in
-            self?.viewModel.push(.down)
+            self?.viewModel?.push(.down)
         })
     }
     
