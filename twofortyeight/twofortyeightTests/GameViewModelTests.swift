@@ -23,10 +23,12 @@ class GameViewModelTests: XCTestCase {
     
     func test_can_init_with_blank_board() {
         let storage = MockStorage()
+        let engine = GameEngine()
         storage.savedBoard = nil
-        sut = GameViewModel(GameEngine(), storage: storage)
         
-        XCTAssertEqual(sut.board, GameEngine().blankBoard)
+        sut = GameViewModel(engine, storage: storage)
+        
+        XCTAssertEqual(sut.board, engine.blankBoard)
     }
     
     func test_can_add_number_to_board() {
