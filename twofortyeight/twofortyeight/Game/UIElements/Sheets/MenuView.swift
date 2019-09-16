@@ -8,8 +8,11 @@ struct MenuView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 16) {
             menuTitle
+                .accessibility(identifier: "menuLabel")
             ActionButton(title: "NEW GAME", action: newGameAction)
+                .accessibility(identifier: "newGameButton")
             ActionButton(title: "RESET BEST SCORE") { self.showConfirmation.toggle() }
+                .accessibility(identifier: "resetBestScoreButton")
         }
         .alert(isPresented: $showConfirmation) { confirmationAlert }
     }
