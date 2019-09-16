@@ -39,4 +39,15 @@ class GameUITests: XCTestCase {
             .swipeDown()
             .assertScoreIsGreaterThan(0)
     }
+    
+    func test_when_scored_on_new_game_reset_score() {
+        _ = robot
+        .swipeLeft()
+        .swipeRight()
+        .swipeUp()
+        .swipeDown()
+        .tapMenu()
+        .tapNewGame()
+        .assertScoreIs(0)
+    }
 }

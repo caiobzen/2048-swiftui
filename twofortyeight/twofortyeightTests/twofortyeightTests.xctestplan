@@ -1,0 +1,32 @@
+{
+  "configurations" : [
+    {
+      "id" : "CB443791-B46F-4BD5-912B-D297AF7B441F",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:twofortyeight.xcodeproj",
+          "identifier" : "EBC999C72325932E006BA2E7",
+          "name" : "twofortyeight"
+        }
+      ]
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:twofortyeight.xcodeproj",
+        "identifier" : "EBC999DD23259331006BA2E7",
+        "name" : "twofortyeightTests"
+      }
+    }
+  ],
+  "version" : 1
+}

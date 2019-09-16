@@ -81,6 +81,8 @@
 		EB7488A223287D090043DF64 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		EB7488A4232885960043DF64 /* SmallActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallActionButton.swift; sourceTree = "<group>"; };
 		EB9391022327C0E700BC8711 /* GameViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModelTests.swift; sourceTree = "<group>"; };
+		EBBCF350232FE3D8004029CF /* twofortyeightTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = twofortyeightTests.xctestplan; sourceTree = "<group>"; };
+		EBBCF351232FE416004029CF /* twofortyeightUITests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = twofortyeightUITests.xctestplan; sourceTree = "<group>"; };
 		EBC999C82325932E006BA2E7 /* twofortyeight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twofortyeight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBC999CB2325932E006BA2E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBC999CD2325932E006BA2E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 		EBC999E123259331006BA2E7 /* twofortyeightTests */ = {
 			isa = PBXGroup;
 			children = (
+				EBBCF350232FE3D8004029CF /* twofortyeightTests.xctestplan */,
 				EBC99A0323271A7C006BA2E7 /* GameEngineTests.swift */,
 				EB596DC5232EB0AE00E0BA78 /* LocalStorageTests.swift */,
 				EB9391022327C0E700BC8711 /* GameViewModelTests.swift */,
@@ -219,6 +222,7 @@
 		EBC999EC23259331006BA2E7 /* twofortyeightUITests */ = {
 			isa = PBXGroup;
 			children = (
+				EBBCF351232FE416004029CF /* twofortyeightUITests.xctestplan */,
 				EBC999ED23259331006BA2E7 /* GameUITests.swift */,
 				EB596DDB232FB5AD00E0BA78 /* GameRobot.swift */,
 				EBC999EF23259331006BA2E7 /* Info.plist */,

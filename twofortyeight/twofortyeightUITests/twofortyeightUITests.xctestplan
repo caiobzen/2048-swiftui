@@ -1,0 +1,37 @@
+{
+  "configurations" : [
+    {
+      "id" : "A25D81D4-9A0A-4F63-88E4-22F05F162958",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:twofortyeight.xcodeproj",
+          "identifier" : "EBC999C72325932E006BA2E7",
+          "name" : "twofortyeight"
+        }
+      ]
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:twofortyeight.xcodeproj",
+      "identifier" : "EBC999C72325932E006BA2E7",
+      "name" : "twofortyeight"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:twofortyeight.xcodeproj",
+        "identifier" : "EBC999E823259331006BA2E7",
+        "name" : "twofortyeightUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
