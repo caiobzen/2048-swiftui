@@ -21,4 +21,22 @@ class GameUITests: XCTestCase {
             .tapMenu()
             .assertExists("menuLabel")
     }
+    
+    func test_starts_with_zero_score() {
+        _ = robot
+            .assertScoreIs(0)
+    }
+    
+    func test_can_score() {
+        _ = robot
+            .swipeLeft()
+            .swipeRight()
+            .swipeUp()
+            .swipeDown()
+            .swipeLeft()
+            .swipeRight()
+            .swipeUp()
+            .swipeDown()
+            .assertScoreIsGreaterThan(0)
+    }
 }

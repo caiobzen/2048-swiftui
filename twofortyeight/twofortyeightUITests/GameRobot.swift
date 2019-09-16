@@ -15,8 +15,36 @@ struct GameRobot {
         app.buttons["resetBestScoreButton"]
     }
     
+    func swipeLeft() -> Self {
+        app.swipeLeft()
+        return self
+    }
+    
+    func swipeRight() -> Self {
+        app.swipeRight()
+        return self
+    }
+    
+    func swipeUp() -> Self {
+        app.swipeUp()
+        return self
+    }
+    func swipeDown() -> Self {
+        app.swipeLeft()
+        return self
+    }
+    
     func assertExists(_ text: String) {
         XCTAssertTrue(app.staticTexts[text].exists)
+    }
+    
+    func assertScoreIs(_ score: Int) {
+        XCTAssertEqual(app.staticTexts["scoreValue"].label, "\(score)")
+    }
+    
+    func assertScoreIsGreaterThan(_ score: Int) {
+        let scoreValue = Int(app.staticTexts["scoreValue"].label) ?? 0
+        XCTAssertTrue(scoreValue > score)
     }
     
     func assertHasTile() {
