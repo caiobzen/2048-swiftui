@@ -1,11 +1,11 @@
 import XCTest
 
 class GameUITests: XCTestCase {
-    var app: XCUIApplication!
+    let app = XCUIApplication()
     var robot = GameRobot()
     
     override func setUp() {
-        XCUIApplication().launch()
+        app.launch()
         _ = robot
             .tapMenu()
             .tapNewGame()
