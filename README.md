@@ -26,4 +26,4 @@ Since this project has zero dependencies on external frameworks, all you need is
 ### ☑️ Todo
 1. Stats (number of moves, time played, etc)
 2. Work on the animations (there's no animation for shifting tiles along the board for example)
-3. A way to UNDO an action. (thanks [@rcaval](https://github.com/rcaval) for the suggestion!
+3. A way to UNDO an action. *(thanks [@rcaval](https://github.com/rcaval) for the suggestion!)*
