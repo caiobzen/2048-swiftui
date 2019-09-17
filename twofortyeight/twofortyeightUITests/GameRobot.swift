@@ -29,25 +29,49 @@ struct GameRobot {
         app.swipeUp()
         return self
     }
+    
     func swipeDown() -> Self {
         app.swipeLeft()
         return self
     }
     
-    func assertExists(_ text: String) {
+    func tapMenu() -> Self {
+        menuButton?.tap()
+        return self
+    }
+    
+    @discardableResult
+    func tapNewGame() -> Self {
+        newGameButton?.tap()
+        return self
+    }
+    
+    func tapResetBestScore() -> Self {
+        resetBestScoreButton?.tap()
+        return self
+    }
+    
+    @discardableResult
+    func assertExists(_ text: String) -> Self {
         XCTAssertTrue(app.staticTexts[text].exists)
+        return self
     }
     
-    func assertScoreIs(_ score: Int) {
+    @discardableResult
+    func assertScoreIs(_ score: Int) -> Self {
         XCTAssertEqual(app.staticTexts["scoreValue"].label, "\(score)")
+        return self
     }
     
-    func assertScoreIsGreaterThan(_ score: Int) {
+    @discardableResult
+    func assertScoreIsGreaterThan(_ score: Int) -> Self {
         let scoreValue = Int(app.staticTexts["scoreValue"].label) ?? 0
         XCTAssertTrue(scoreValue > score)
+        return self
     }
     
-    func assertHasTile() {
+    @discardableResult
+    func assertHasTile() -> Self {
         let containsTwo = NSPredicate(format: "label == %@", "2")
         let containsFour = NSPredicate(format: "label == %@", "4")
 
@@ -56,20 +80,7 @@ struct GameRobot {
         
         let allTiles = twoTiles.allElementsBoundByIndex + fourTiles.allElementsBoundByIndex
         XCTAssertFalse(allTiles.isEmpty)
-    }
-    
-    func tapMenu() -> Self {
-        menuButton?.tap()
-        return self
-    }
-    
-    func tapNewGame() -> Self {
-        newGameButton?.tap()
-        return self
-    }
-    
-    func tapResetBestScore() -> Self {
-        resetBestScoreButton?.tap()
+        
         return self
     }
 }
