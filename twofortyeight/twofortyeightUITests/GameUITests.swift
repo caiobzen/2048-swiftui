@@ -2,7 +2,7 @@ import XCTest
 
 class GameUITests: XCTestCase {
     let app = XCUIApplication()
-    var robot = GameRobot()
+    let robot = GameRobot()
     
     override func setUp() {
         app.launch()
