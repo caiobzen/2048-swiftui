@@ -17,7 +17,8 @@ struct GameView: View {
                minHeight: 0,
                maxHeight: .infinity,
                alignment: .center)
-            .background(Color.gameBackground)
+        .background(Color.gameBackground)
+        .edgesIgnoringSafeArea(.all)
         .background(Menu())
         .background(GameOver())
     }
