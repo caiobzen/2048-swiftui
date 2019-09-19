@@ -10,6 +10,7 @@
 		EB2AE08D2328153200A0D911 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2AE08C2328153200A0D911 /* GameViewController.swift */; };
 		EB2AE08F232826AE00A0D911 /* Swipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2AE08E232826AE00A0D911 /* Swipe.swift */; };
 		EB33775A23330C7A000D8850 /* HeaderBarTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB33775923330C7A000D8850 /* HeaderBarTitle.swift */; };
+		EB33775C2333244B000D8850 /* Moves.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB33775B2333244B000D8850 /* Moves.swift */; };
 		EB596DC6232EB0AE00E0BA78 /* LocalStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB596DC5232EB0AE00E0BA78 /* LocalStorageTests.swift */; };
 		EB596DC8232EE1AB00E0BA78 /* GameViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB596DC7232EE1AB00E0BA78 /* GameViewControllerTests.swift */; };
 		EB596DDC232FB5AD00E0BA78 /* GameRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB596DDB232FB5AD00E0BA78 /* GameRobot.swift */; };
@@ -65,6 +66,7 @@
 		EB2AE08C2328153200A0D911 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		EB2AE08E232826AE00A0D911 /* Swipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swipe.swift; sourceTree = "<group>"; };
 		EB33775923330C7A000D8850 /* HeaderBarTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderBarTitle.swift; sourceTree = "<group>"; };
+		EB33775B2333244B000D8850 /* Moves.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moves.swift; sourceTree = "<group>"; };
 		EB596DC5232EB0AE00E0BA78 /* LocalStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageTests.swift; sourceTree = "<group>"; };
 		EB596DC7232EE1AB00E0BA78 /* GameViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewControllerTests.swift; sourceTree = "<group>"; };
 		EB596DDB232FB5AD00E0BA78 /* GameRobot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRobot.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				EB660326232C43B900AD5455 /* Header.swift */,
 				EB660328232C450900AD5455 /* GoalText.swift */,
 				EB33775923330C7A000D8850 /* HeaderBarTitle.swift */,
+				EB33775B2333244B000D8850 /* Moves.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				EB748896232865B00043DF64 /* ScoreBox.swift in Sources */,
 				EBE7692D23288B5A00BEED35 /* LocalStorage.swift in Sources */,
 				EBC999FE232593A0006BA2E7 /* TileStyle.swift in Sources */,
+				EB33775C2333244B000D8850 /* Moves.swift in Sources */,
 				EB74889F232876930043DF64 /* GameOverView.swift in Sources */,
 				EBC999FC23259388006BA2E7 /* Tile.swift in Sources */,
 				EB7488A323287D090043DF64 /* ActionButton.swift in Sources */,
