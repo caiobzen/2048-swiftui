@@ -6,13 +6,23 @@ struct MenuView: View {
     @State private var showConfirmation = false
     
     var body: some View {
-        VStack(alignment: .center, spacing: 16) {
+        VStack {
+            Group {
             menuTitle
                 .accessibility(identifier: "menuLabel")
-            ActionButton(title: "NEW GAME", action: newGameAction)
-                .accessibility(identifier: "newGameButton")
-            ActionButton(title: "RESET BEST SCORE") { self.showConfirmation.toggle() }
-                .accessibility(identifier: "resetBestScoreButton")
+                .shadow(radius: 1)
+            }
+            .frame(maxWidth: .infinity,maxHeight: 100, alignment: .center)
+            .background(Color.customYellow)
+            
+            Spacer()
+            VStack(alignment: .center, spacing: 16) {
+                ActionButton(title: "NEW GAME", action: newGameAction)
+                    .accessibility(identifier: "newGameButton")
+                ActionButton(title: "RESET BEST SCORE") { self.showConfirmation.toggle() }
+                    .accessibility(identifier: "resetBestScoreButton")
+            }
+            Spacer()
         }
         .alert(isPresented: $showConfirmation) { confirmationAlert }
     }
@@ -22,6 +32,7 @@ extension MenuView {
     private var menuTitle: Text {
         Text("MENU")
             .font(.system(size: 60, weight: .black, design: .rounded))
+            .foregroundColor(.white)
             .fontWeight(.black)
     }
     
