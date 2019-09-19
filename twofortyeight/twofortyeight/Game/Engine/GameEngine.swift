@@ -53,7 +53,7 @@ class GameEngine: Engine {
         var newBoard = blankBoard
         for row in 0..<board.count {
             for column in 0..<board[row].count {
-                newBoard[row][column] = board[column][row];
+                newBoard[row][column] = board[column][row]
             }
         }
         return newBoard
