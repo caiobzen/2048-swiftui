@@ -11,7 +11,7 @@ struct GameView: View {
             }
             GoalText()
             Board(board: viewModel.board, addedTile: viewModel.addedTile)
-            Moves()
+            Moves(viewModel.numberOfMoves)
         }
         .frame(minWidth: .zero,
                maxWidth: .infinity,
@@ -44,14 +44,6 @@ extension GameView {
                 self.viewModel.reset()
             }
         }
-    }
-    
-    private func Moves() -> some View {
-        HStack {
-            Text("moves: \(viewModel.numberOfMoves)").bold()
-        }
-        .font(.system(size: 16, weight: .regular, design: .rounded))
-        .foregroundColor(.white50)
     }
 }
 
