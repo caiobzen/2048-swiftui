@@ -41,7 +41,7 @@ extension Array where Iterator.Element == [Int] {
     var canCombineValues: Bool {
         guard hasZeros == false else { return true }
         for row in 0..<count {
-            for column in 0..<[row].count {
+            for column in 0..<count {
                 if canCombineItemAt(row: row, column: column) {
                     return true
                 }

@@ -17,11 +17,12 @@ struct MenuView: View {
             }
             Spacer()
         }
+        .background(Color.white)
         .alert(isPresented: $showConfirmation) { confirmationAlert }
     }
 }
 
-extension MenuView {   
+extension MenuView {
     private var confirmationAlert: Alert {
         Alert(title: confirmationMessage,
               primaryButton: resetScoreAlertButton,
