@@ -21,14 +21,7 @@ struct MenuView: View {
     }
 }
 
-extension MenuView {
-    private var menuTitle: Text {
-        Text("MENU")
-            .font(.system(size: 60, weight: .black, design: .rounded))
-            .foregroundColor(.white)
-            .fontWeight(.black)
-    }
-    
+extension MenuView {   
     private var confirmationAlert: Alert {
         Alert(title: confirmationMessage,
               primaryButton: resetScoreAlertButton,
