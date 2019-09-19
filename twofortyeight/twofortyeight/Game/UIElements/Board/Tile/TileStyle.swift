@@ -9,7 +9,7 @@ enum TileStyle {
     case thirtyTwo
     case sixtyFour
     case max
-
+    
     init(_ value: Int) {
         switch value {
         case 0: self = .empty
@@ -22,7 +22,7 @@ enum TileStyle {
         default: self = .max
         }
     }
-
+    
     var backgroundColor: Color {
         switch self {
         case .empty: return .tileEmpty
@@ -35,7 +35,7 @@ enum TileStyle {
         case .max: return .tileMax
         }
     }
-
+    
     var foregroundColor: Color {
         switch self {
         case .two, .four: return .tileDarkTitle

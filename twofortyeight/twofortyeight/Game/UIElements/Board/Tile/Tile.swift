@@ -28,7 +28,7 @@ struct Tile: View {
     private var shadowColor: Color {
         value == 2048 ? .yellow : .clear
     }
-
+    
     var body: some View {
         Text(title)
             .font(.system(size: fontSize, weight: .black, design: .rounded))
