@@ -21,7 +21,7 @@ struct MenuView: View {
 extension MenuView {
     private var menuTitle: Text {
         Text("MENU")
-            .font(.system(size: 60, weight: .black))
+            .font(.system(size: 60, weight: .black, design: .rounded))
             .fontWeight(.black)
     }
     

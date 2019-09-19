@@ -12,9 +12,9 @@ struct GameView: View {
             GoalText()
             Board(board: viewModel.board, addedTile: viewModel.addedTile)
         }
-        .frame(minWidth: 0,
+        .frame(minWidth: .zero,
                maxWidth: .infinity,
-               minHeight: 0,
+               minHeight: .zero,
                maxHeight: .infinity,
                alignment: .center)
         .background(Color.gameBackground)
