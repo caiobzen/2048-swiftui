@@ -7,7 +7,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = GameViewController(viewModel: GameViewModel(GameEngine(), storage: LocalStorage()))
+            let engine = GameEngine()
+            let storage = LocalStorage()
+            window.rootViewController = GameViewController(viewModel: GameViewModel(engine, storage: storage))
             self.window = window
             window.makeKeyAndVisible()
         }
