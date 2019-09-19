@@ -24,6 +24,10 @@ struct Tile: View {
             return 22
         }
     }
+    
+    private var shadowColor: Color {
+        value == 2048 ? .yellow : .clear
+    }
 
     var body: some View {
         Text(title)
@@ -32,6 +36,7 @@ struct Tile: View {
             .frame(width: size, height: size)
             .background(style.backgroundColor)
             .cornerRadius(3)
+            .shadow(color: shadowColor, radius: 4, x: 0, y: 0)
             .animation(wasAdded ? .easeIn : .none)
     }
 }
