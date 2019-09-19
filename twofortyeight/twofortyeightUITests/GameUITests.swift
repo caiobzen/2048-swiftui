@@ -19,7 +19,7 @@ class GameUITests: XCTestCase {
     func test_can_swipe_board() {
         robot
         .tapMenu()
-        .assertExists("menuLabel")
+        .assertExists("MENU")
     }
     
     func test_starts_with_zero_score() {

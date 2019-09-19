@@ -11,6 +11,7 @@ struct GameView: View {
             }
             GoalText()
             Board(board: viewModel.board, addedTile: viewModel.addedTile)
+            Moves()
         }
         .frame(minWidth: .zero,
                maxWidth: .infinity,
@@ -43,6 +44,16 @@ extension GameView {
                 self.viewModel.reset()
             }
         }
+    }
+    
+    private func Moves() -> some View {
+        HStack {
+            Text("moves: \(viewModel.numberOfMoves)").bold()
+        }
+        .font(.system(size: 16, weight: .regular, design: .rounded))
+        .foregroundColor(.white50)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal, 30)
     }
 }
 

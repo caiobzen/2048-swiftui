@@ -27,6 +27,7 @@ class GameViewModel: ObservableObject {
             storage.save(board: board)
         }
     }
+    private(set) var numberOfMoves: Int = .zero
     private var boardHasChanged = false
     
     init(_ engine: Engine, storage: Storage) {
@@ -51,12 +52,16 @@ class GameViewModel: ObservableObject {
         let result = engine.push(board, to: direction)
         board = result.newBoard
         score += result.scoredPoints
-        if boardHasChanged { addNumber() }
+        if boardHasChanged {
+            addNumber()
+            numberOfMoves.increase()
+        }
     }
     
     func reset() {
         board = engine.blankBoard
         score = .zero
+        numberOfMoves = .zero
         addNumber()
     }
     

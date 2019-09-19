@@ -8,7 +8,7 @@ struct SmallActionButton: View {
             Text(title)
                 .font(.system(size: 19, weight: .black, design: .rounded))
                 .padding(.horizontal, 20)
-                .padding(.vertical, 10)
+                .padding(.vertical, 9)
                 .background(Color.orange)
                 .foregroundColor(.white)
                 .cornerRadius(4)

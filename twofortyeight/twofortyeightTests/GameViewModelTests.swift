@@ -127,6 +127,16 @@ class GameViewModelTests: XCTestCase {
         XCTAssertEqual(sut.bestScore, 0)
     }
     
+    func test_can_count_moves() {
+        let sut = newViewModelStub()
+        
+        sut.push(.right)
+        sut.push(.up)
+        sut.push(.down)
+        
+        XCTAssertEqual(sut.numberOfMoves, 3)
+    }
+    
     private func newViewModelStub() -> GameViewModelStub {
         GameViewModelStub(GameEngineStub(), storage: MockStorage())
     }
