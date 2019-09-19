@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EB2AE08D2328153200A0D911 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2AE08C2328153200A0D911 /* GameViewController.swift */; };
 		EB2AE08F232826AE00A0D911 /* Swipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2AE08E232826AE00A0D911 /* Swipe.swift */; };
+		EB33775A23330C7A000D8850 /* HeaderBarTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB33775923330C7A000D8850 /* HeaderBarTitle.swift */; };
 		EB596DC6232EB0AE00E0BA78 /* LocalStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB596DC5232EB0AE00E0BA78 /* LocalStorageTests.swift */; };
 		EB596DC8232EE1AB00E0BA78 /* GameViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB596DC7232EE1AB00E0BA78 /* GameViewControllerTests.swift */; };
 		EB596DDC232FB5AD00E0BA78 /* GameRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB596DDB232FB5AD00E0BA78 /* GameRobot.swift */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		EB2AE08C2328153200A0D911 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		EB2AE08E232826AE00A0D911 /* Swipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swipe.swift; sourceTree = "<group>"; };
+		EB33775923330C7A000D8850 /* HeaderBarTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderBarTitle.swift; sourceTree = "<group>"; };
 		EB596DC5232EB0AE00E0BA78 /* LocalStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageTests.swift; sourceTree = "<group>"; };
 		EB596DC7232EE1AB00E0BA78 /* GameViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewControllerTests.swift; sourceTree = "<group>"; };
 		EB596DDB232FB5AD00E0BA78 /* GameRobot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRobot.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				EB7488A4232885960043DF64 /* SmallActionButton.swift */,
 				EB660326232C43B900AD5455 /* Header.swift */,
 				EB660328232C450900AD5455 /* GoalText.swift */,
+				EB33775923330C7A000D8850 /* HeaderBarTitle.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				EBFADE512328587F00E53800 /* GameView.swift in Sources */,
 				EB66032F232C4D3600AD5455 /* Storage.swift in Sources */,
 				EBE769332329A2F100BEED35 /* ArrayExtensions.swift in Sources */,
+				EB33775A23330C7A000D8850 /* HeaderBarTitle.swift in Sources */,
 				EB66032B232C4A4900AD5455 /* CustomOperators.swift in Sources */,
 				EB660327232C43B900AD5455 /* Header.swift in Sources */,
 				EB660329232C450900AD5455 /* GoalText.swift in Sources */,

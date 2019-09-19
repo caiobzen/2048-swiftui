@@ -9,7 +9,7 @@ struct ActionButton: View {
             .font(.system(size: 20, weight: .black, design: .rounded))
             .foregroundColor(.white)
             .padding(12)
-            .background(Color(white: 0.3))
+            .background(Color.orange)
             .cornerRadius(6)
         }
     }

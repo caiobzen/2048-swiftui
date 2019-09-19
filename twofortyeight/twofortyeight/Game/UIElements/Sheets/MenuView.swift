@@ -7,14 +7,7 @@ struct MenuView: View {
     
     var body: some View {
         VStack {
-            Group {
-            menuTitle
-                .accessibility(identifier: "menuLabel")
-                .shadow(radius: 1)
-            }
-            .frame(maxWidth: .infinity,maxHeight: 100, alignment: .center)
-            .background(Color.customYellow)
-            
+            HeaderBarTitle(title: "MENU")
             Spacer()
             VStack(alignment: .center, spacing: 16) {
                 ActionButton(title: "NEW GAME", action: newGameAction)
