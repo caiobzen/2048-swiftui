@@ -11,7 +11,7 @@ struct GameOverView: View {
             Text("YOU SCORED:")
                 .font(.system(size: 20, weight: .black, design: .rounded))
                 .foregroundColor(.tileEight)
-
+            
             Text("🎉 \(score.description) 🎉")
                 .font(.system(size: 50, weight: .black, design: .rounded))
                 .foregroundColor(.tileDarkTitle)
@@ -19,7 +19,7 @@ struct GameOverView: View {
             Text("Number of moves: \(moves)")
                 .font(.system(size: 14, weight: .medium, design: .rounded))
                 .foregroundColor(.white50)
-                        
+            
             Group {
                 ActionButton(title: "NEW GAME", action: action)
             }.padding()

@@ -6,11 +6,11 @@ struct YellowBlock: View {
     
     var body: some View {
         Text(title)
-        .font(.system(size: 34, weight: .black, design: .rounded))
-        .frame(width: size, height: size)
-        .background(Color.customYellow)
-        .foregroundColor(.white)
-        .cornerRadius(8)
+            .font(.system(size: 34, weight: .black, design: .rounded))
+            .frame(width: size, height: size)
+            .background(Color.customYellow)
+            .foregroundColor(.white)
+            .cornerRadius(8)
     }
 }
 

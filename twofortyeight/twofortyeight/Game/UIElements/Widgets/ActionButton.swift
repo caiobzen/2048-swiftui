@@ -6,11 +6,11 @@ struct ActionButton: View {
     var body: some View {
         Button(action: action) {
             Text(title)
-            .font(.system(size: 20, weight: .black, design: .rounded))
-            .foregroundColor(.white)
-            .padding(12)
-            .background(Color.orange)
-            .cornerRadius(6)
+                .font(.system(size: 20, weight: .black, design: .rounded))
+                .foregroundColor(.white)
+                .padding(12)
+                .background(Color.orange)
+                .cornerRadius(6)
         }
     }
 }
