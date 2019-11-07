@@ -46,7 +46,7 @@ enum TileStyle {
     
     var foregroundColor: Color {
         switch self {
-        case .two, .four: return                 (Color(red: 116/255, green: 110/255, blue: 103/255, opacity: 1.0))
+        case .two, .four: return  (Color(red: 116/255, green: 110/255, blue: 103/255, opacity: 1.0))
         default: return .white
         }
     }
