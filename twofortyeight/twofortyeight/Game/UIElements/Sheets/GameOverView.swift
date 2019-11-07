@@ -10,15 +10,15 @@ struct GameOverView: View {
             HeaderBarTitle(title: "GAME OVER")
             Text("YOU SCORED:")
                 .font(.system(size: 20, weight: .black, design: .rounded))
-                .foregroundColor(.tileEight)
+                .foregroundColor(Color(red: 225/255, green: 179/255, blue: 135/255, opacity: 1.0))
             
             Text("🎉 \(score.description) 🎉")
                 .font(.system(size: 50, weight: .black, design: .rounded))
-                .foregroundColor(.tileDarkTitle)
+                .foregroundColor(Color(red: 116/255, green: 110/255, blue: 103/255, opacity: 1.0))
             
             Text("Number of moves: \(moves)")
                 .font(.system(size: 14, weight: .medium, design: .rounded))
-                .foregroundColor(.white50)
+                .foregroundColor(Color(red: 0, green: 0, blue: 0, opacity: 0.5))
             
             Group {
                 ActionButton(title: "NEW GAME", action: action)

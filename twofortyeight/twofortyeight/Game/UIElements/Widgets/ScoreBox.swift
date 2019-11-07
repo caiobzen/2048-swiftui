@@ -19,7 +19,7 @@ struct ScoreBox: View {
         }
         .padding(.horizontal, 18)
         .padding(.vertical, 8)
-        .background(Color.boardBackground)
+        .background(Color(red: 183/255, green: 173/255, blue: 162/255, opacity: 1.0))
         .cornerRadius(6)
     }
 }

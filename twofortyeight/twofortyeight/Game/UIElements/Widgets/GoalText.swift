@@ -8,7 +8,7 @@ struct GoalText: View {
             Text("\(goal) tile!") .bold()
         }
         .font(.system(size: 16, weight: .regular, design: .rounded))
-        .foregroundColor(.white40)
+        .foregroundColor(Color(red: 0, green: 0, blue: 0, opacity: 0.4))
     }
 }
 

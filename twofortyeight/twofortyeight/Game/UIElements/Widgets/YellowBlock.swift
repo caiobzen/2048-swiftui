@@ -8,7 +8,7 @@ struct YellowBlock: View {
         Text(title)
             .font(.system(size: 34, weight: .black, design: .rounded))
             .frame(width: size, height: size)
-            .background(Color.customYellow)
+            .background(Color(red: 224/255, green: 196/255, blue: 95/255, opacity: 1.0))
             .foregroundColor(.white)
             .cornerRadius(8)
     }
