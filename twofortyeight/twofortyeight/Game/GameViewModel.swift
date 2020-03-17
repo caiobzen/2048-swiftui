@@ -50,8 +50,8 @@ class GameViewModel: ObservableObject {
     func push(_ direction: Direction) {
         let result = engine.push(state.board, to: direction)
         let boardHasChanged = !state.board.isEqual(result.newBoard)
+        state = stateTracker.next(with: (result.newBoard, state.score + result.scoredPoints))
         if boardHasChanged {
-            state = stateTracker.next(with: (result.newBoard, state.score + result.scoredPoints))
             addNumber()
         }
     }
