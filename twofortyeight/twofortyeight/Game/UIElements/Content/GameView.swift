@@ -6,11 +6,13 @@ struct GameView: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 16) {
-            Header(score: viewModel.score, bestScore: viewModel.bestScore) {
+            Header(score: viewModel.state.score, bestScore: viewModel.bestScore, menuAction: {
                 self.showMenu.toggle()
-            }
+            }, undoAction: {
+                self.viewModel.undo()
+            }, undoEnabled: self.viewModel.isUndoable)
             GoalText()
-            Board(board: viewModel.board, addedTile: viewModel.addedTile)
+            Board(board: viewModel.state.board, addedTile: viewModel.addedTile)
             Moves(viewModel.numberOfMoves)
         }
         .frame(minWidth: .zero,
@@ -18,10 +20,10 @@ struct GameView: View {
                minHeight: .zero,
                maxHeight: .infinity,
                alignment: .center)
-        .background(Color.gameBackground)
-        .background(Menu())
-        .background(GameOver())
-        .edgesIgnoringSafeArea(.all)
+            .background(Color.gameBackground)
+            .background(Menu())
+            .background(GameOver())
+            .edgesIgnoringSafeArea(.all)
     }
 }
 
@@ -40,7 +42,7 @@ extension GameView {
     
     private func GameOver() -> some View {
         EmptyView().sheet(isPresented: $viewModel.isGameOver) {
-            GameOverView(score: self.viewModel.score, moves: self.viewModel.numberOfMoves) {
+            GameOverView(score: self.viewModel.state.score, moves: self.viewModel.numberOfMoves) {
                 self.viewModel.reset()
             }
         }
@@ -49,6 +51,9 @@ extension GameView {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(viewModel: GameViewModel(GameEngine(), storage: LocalStorage()))
+        let engine = GameEngine()
+        let storage = LocalStorage()
+        let stateTracker = GameStateTracker(initialState: (storage.board ?? engine.blankBoard, storage.score))
+        return GameView(viewModel: GameViewModel(engine, storage: storage, stateTracker: stateTracker))
     }
 }

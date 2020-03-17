@@ -4,68 +4,69 @@ import UIKit
 class GameViewModel: ObservableObject {
     private(set) var engine: Engine
     private(set) var storage: Storage
-    
+    private(set) var stateTracker: StateTracker
+  
     @Published var isGameOver = false
     private(set) var addedTile: (Int, Int)? = nil {
         didSet { UIImpactFeedbackGenerator().impactOccurred() }
     }
-    private(set) var score: Int = .zero {
-        didSet {
-            bestScore = max(bestScore, score)
-            storage.save(score: score)
-        }
-    }
     private(set) var bestScore: Int = .zero {
-        didSet {
-            storage.save(bestScore: bestScore)
-        }
+        didSet { storage.save(bestScore: bestScore) }
     }
-    private(set) var board: [[Int]] {
-        willSet { boardHasChanged = !board.isEqual(newValue) }
-        didSet {
-            isGameOver = engine.isGameOver(board)
-            storage.save(board: board)
-        }
-    }
-    private(set) var numberOfMoves: Int = .zero
-    private var boardHasChanged = false
     
-    init(_ engine: Engine, storage: Storage) {
+    var numberOfMoves: Int {
+        return stateTracker.statesCount - 1
+    }
+    var isUndoable: Bool {
+        return stateTracker.isUndoable
+    }
+    var state: GameState {
+        didSet {
+            bestScore = max(bestScore, state.score)
+            storage.save(score: state.score)
+            isGameOver = engine.isGameOver(state.board)
+            storage.save(board: state.board)
+        }
+    }
+    
+    init(_ engine: Engine, storage: Storage, stateTracker: StateTracker) {
         self.engine = engine
         self.storage = storage
-        self.score = storage.score
-        self.board = storage.board ?? engine.blankBoard
+        self.stateTracker = stateTracker
+        self.state = stateTracker.last
         self.bestScore = max(storage.bestScore, storage.score)
     }
     
     func start() {
-        if board.isMatrixEmpty { reset() }
+        if state.board.isMatrixEmpty { reset() }
     }
     
     func addNumber() {
-        let result = engine.addNumber(board)
-        board = result.newBoard
+        let result = engine.addNumber(state.board)
+        state = stateTracker.updateCurrent(with: result.newBoard)
         addedTile = result.addedTile
     }
     
     func push(_ direction: Direction) {
-        let result = engine.push(board, to: direction)
-        board = result.newBoard
-        score += result.scoredPoints
+        let result = engine.push(state.board, to: direction)
+        let boardHasChanged = !state.board.isEqual(result.newBoard)
         if boardHasChanged {
+            state = stateTracker.next(with: (result.newBoard, state.score + result.scoredPoints))
             addNumber()
-            numberOfMoves.increase()
         }
     }
     
+    func undo() {
+        state = stateTracker.undo()
+    }
+    
     func reset() {
-        board = engine.blankBoard
-        score = .zero
-        numberOfMoves = .zero
+        state = stateTracker.reset(with: (engine.blankBoard, .zero))
         addNumber()
     }
     
     func eraseBestScore() {
         bestScore = .zero
     }
+    
 }
