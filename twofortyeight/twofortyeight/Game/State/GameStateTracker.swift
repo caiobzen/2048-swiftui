@@ -29,14 +29,14 @@ class GameStateTracker: StateTracker {
     
     func next(with state: GameState) -> GameState {
         states.append(state)
-        return state
+        return last
     }
   
     func updateCurrent(with board: Matrix) -> GameState {
         let current = last
         let new = (board, current.score)
         states[states.count - 1] = new
-        return new
+        return last
     }
     
     func undo() -> GameState {
@@ -48,7 +48,7 @@ class GameStateTracker: StateTracker {
     
     func reset(with state: GameState) -> GameState {
         states = [state]
-        return state
+        return last
     }
     
 }
