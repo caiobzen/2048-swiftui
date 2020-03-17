@@ -6,7 +6,7 @@ class GameViewModelTests: XCTestCase {
     var sut: GameViewModel!
     
     override func setUp() {
-        sut = GameViewModel(GameEngine(), storage: MockStorage())
+        sut = GameViewModel(GameEngine(), storage: MockStorage(), stateTracker: GameStateTrackerStub())
     }
     
     func test_can_reset_board() {
@@ -16,86 +16,97 @@ class GameViewModelTests: XCTestCase {
         
         sut.reset()
         
-        let number = sut.board.flatMap{ $0 }.reduce(0, +)
+        let number = sut.state.board.flatMap{ $0 }.reduce(0, +)
         XCTAssertTrue(number > 0)
     }
     
     func test_can_init_with_blank_board() {
         let storage = MockStorage()
         let engine = GameEngine()
-        storage.savedBoard = nil
+        let stateTracker = GameStateTrackerStub(initialState: (engine.blankBoard, 0))
         
-        sut = GameViewModel(engine, storage: storage)
+        sut = GameViewModel(engine, storage: storage, stateTracker: stateTracker)
         
-        XCTAssertEqual(sut.board, engine.blankBoard)
+        XCTAssertEqual(sut.state.board, engine.blankBoard)
     }
     
     func test_can_add_number_to_board() {
         sut.addNumber()
         
-        let hasNumber = sut.board.flatMap{ $0 }.reduce(0, +) != 0
+        let hasNumber = sut.state.board.flatMap{ $0 }.reduce(0, +) != 0
         XCTAssertTrue(hasNumber)
     }
     
     func test_can_push_numbers_to_right() {
-        let sut = GameViewModel(GameEngineStub(), storage: MockStorage())
-
+        let sut = GameViewModel(GameEngineStub(), storage: MockStorage(), stateTracker: GameStateTrackerStub())
+        
         sut.push(.right)
         
-        XCTAssertEqual(sut.board[0][3], 4)
-        XCTAssertEqual(sut.board[1][3], 8)
-        XCTAssertEqual(sut.board[2][3], 16)
-        XCTAssertEqual(sut.board[3][3], 32)
+        XCTAssertEqual(sut.state.board[0][3], 4)
+        XCTAssertEqual(sut.state.board[1][3], 8)
+        XCTAssertEqual(sut.state.board[2][3], 16)
+        XCTAssertEqual(sut.state.board[3][3], 32)
     }
     
     func test_can_push_numbers_to_left() {
-        let sut = GameViewModel(GameEngineStub(), storage: MockStorage())
+        let sut = GameViewModel(GameEngineStub(), storage: MockStorage(), stateTracker: GameStateTrackerStub())
         
         sut.push(.left)
         
-        XCTAssertEqual(sut.board[0][0], 4)
-        XCTAssertEqual(sut.board[1][0], 8)
-        XCTAssertEqual(sut.board[2][0], 16)
-        XCTAssertEqual(sut.board[3][0], 32)
+        XCTAssertEqual(sut.state.board[0][0], 4)
+        XCTAssertEqual(sut.state.board[1][0], 8)
+        XCTAssertEqual(sut.state.board[2][0], 16)
+        XCTAssertEqual(sut.state.board[3][0], 32)
     }
     
     func test_can_push_numbers_to_up() {
-        let sut = GameViewModel(GameEngineStub(), storage: MockStorage())
+        let sut = GameViewModel(GameEngineStub(), storage: MockStorage(), stateTracker: GameStateTrackerStub())
         
         sut.push(.up)
-
-        XCTAssertEqual(sut.board[0][0], 8)
-        XCTAssertEqual(sut.board[0][1], 2)
-        XCTAssertEqual(sut.board[0][2], 4)
-        XCTAssertEqual(sut.board[0][3], 2)
         
-        XCTAssertEqual(sut.board[1][0], 16)
-        XCTAssertEqual(sut.board[1][1], 4)
-        XCTAssertEqual(sut.board[1][2], 16)
-        XCTAssertEqual(sut.board[1][3], 8)
+        XCTAssertEqual(sut.state.board[0][0], 8)
+        XCTAssertEqual(sut.state.board[0][1], 2)
+        XCTAssertEqual(sut.state.board[0][2], 4)
+        XCTAssertEqual(sut.state.board[0][3], 2)
+        
+        XCTAssertEqual(sut.state.board[1][0], 16)
+        XCTAssertEqual(sut.state.board[1][1], 4)
+        XCTAssertEqual(sut.state.board[1][2], 16)
+        XCTAssertEqual(sut.state.board[1][3], 8)
     }
     
     func test_can_push_numbers_down() {
-        let sut = GameViewModel(GameEngineStub(), storage: MockStorage())
+        let sut = GameViewModel(GameEngineStub(), storage: MockStorage(), stateTracker: GameStateTrackerStub())
         
         sut.push(.down)
-
-        XCTAssertEqual(sut.board[2][0], 8)
-        XCTAssertEqual(sut.board[2][1], 2)
-        XCTAssertEqual(sut.board[2][2], 4)
-        XCTAssertEqual(sut.board[2][3], 2)
         
-        XCTAssertEqual(sut.board[3][0], 16)
-        XCTAssertEqual(sut.board[3][1], 4)
-        XCTAssertEqual(sut.board[3][2], 16)
-        XCTAssertEqual(sut.board[3][3], 8)
+        XCTAssertEqual(sut.state.board[2][0], 8)
+        XCTAssertEqual(sut.state.board[2][1], 2)
+        XCTAssertEqual(sut.state.board[2][2], 4)
+        XCTAssertEqual(sut.state.board[2][3], 2)
+        
+        XCTAssertEqual(sut.state.board[3][0], 16)
+        XCTAssertEqual(sut.state.board[3][1], 4)
+        XCTAssertEqual(sut.state.board[3][2], 16)
+        XCTAssertEqual(sut.state.board[3][3], 8)
+    }
+    
+    func test_can_undo() {
+        let engine = GameEngineStub()
+        let sut = GameViewModel(engine, storage: MockStorage(), stateTracker: GameStateTrackerStub(initialState: (engine.blankBoard, 0)))
+        
+        sut.push(.down)
+        sut.undo()
+        
+        XCTAssertEqual(sut.state.board, engine.blankBoard)
+        XCTAssertEqual(sut.state.score, 0)
     }
     
     func test_can_tell_if_the_game_is_over() {
         let sut = newViewModelStub()
         sut.setGameOver()
         
-        XCTAssertTrue(sut.engine.isGameOver(sut.board))
+        XCTAssertTrue(sut.engine.isGameOver(sut.state.board))
     }
     
     func test_can_score() {
@@ -104,7 +115,7 @@ class GameViewModelTests: XCTestCase {
         
         sut.push(.right)
         
-        XCTAssertEqual(sut.score, 4)
+        XCTAssertEqual(sut.state.score, 4)
     }
     
     func test_can_save_best_score() {
@@ -114,7 +125,7 @@ class GameViewModelTests: XCTestCase {
         sut.push(.right)
         sut.reset()
         
-        XCTAssertEqual(sut.score, 0)
+        XCTAssertEqual(sut.state.score, 0)
         XCTAssertEqual(sut.bestScore, 4)
     }
     
@@ -138,7 +149,7 @@ class GameViewModelTests: XCTestCase {
     }
     
     private func newViewModelStub() -> GameViewModelStub {
-        GameViewModelStub(GameEngineStub(), storage: MockStorage())
+        GameViewModelStub(GameEngineStub(), storage: MockStorage(), stateTracker: GameStateTrackerStub())
     }
 }
 
@@ -173,28 +184,23 @@ class MockStorage: Storage {
 }
 
 class GameViewModelStub: GameViewModel {
-    private var _board = [[Int]]()
-    
-    override var board: [[Int]] {
-        return _board
-    }
     
     func setGameOver() {
-        _board = [
+        state = stateTracker.reset(with: ([
             [2,16,2,16],
             [4,8,4,8],
             [8,4,8,4],
             [16,2,16,2]
-        ]
+        ], 0))
     }
-
+    
     func setCanScoreFour() {
-        _board = [
+        state = stateTracker.reset(with: ([
             [2,2,0,0],
             [0,0,0,0],
             [0,0,0,0],
             [0,0,0,0]
-        ]
+        ], 0))
     }
 }
 
@@ -217,4 +223,47 @@ class GameEngineStub: Engine {
         [8,0,0,8],
         [16,0,16,0]
     ]
+}
+
+class GameStateTrackerStub: StateTracker {
+    
+    private let stateTracker: GameStateTracker
+    
+    init(initialState: GameState? = nil) {
+        if let initialState = initialState {
+            self.stateTracker = GameStateTracker(initialState: initialState)
+        } else {
+            self.stateTracker = GameStateTracker(initialState: (GameEngineStub().blankBoard, 0))
+        }
+    }
+    
+    func next(with state: GameState) -> GameState {
+        stateTracker.next(with: state)
+    }
+    
+    func updateCurrent(with board: Matrix) -> GameState {
+        stateTracker.updateCurrent(with: board)
+    }
+    
+    func reset(with state: GameState) -> GameState {
+        stateTracker.reset(with: state)
+    }
+    
+    var isUndoable: Bool {
+        stateTracker.isUndoable
+    }
+    
+    func undo() -> GameState {
+        stateTracker.undo()
+    }
+    
+    var statesCount: Int {
+        stateTracker.statesCount
+    }
+    
+    var last: GameState {
+        stateTracker.last
+    }
+    
+    
 }
