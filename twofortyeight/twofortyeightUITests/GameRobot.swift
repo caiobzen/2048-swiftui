@@ -15,6 +15,10 @@ struct GameRobot {
         app.buttons["resetBestScoreButton"]
     }
     
+    private var undoButton: XCUIElement? {
+        app.buttons["undoButton"]
+    }
+    
     func swipeLeft() -> Self {
         app.swipeLeft()
         return self
@@ -48,6 +52,11 @@ struct GameRobot {
     
     func tapResetBestScore() -> Self {
         resetBestScoreButton?.tap()
+        return self
+    }
+  
+    func tapUndo() -> Self {
+        undoButton?.tap()
         return self
     }
     
